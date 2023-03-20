@@ -41,6 +41,6 @@ jobs:
         ECR_REPOSITORY: frontend
         IMAGE_TAG: latest
       run: |
-          docker buildx build -f constructionopsFE/Dockerfile -t frontend12 .
+          docker buildx build -f constructionopsFE/Dockerfile -t frontend .
           docker tag frontend:latest 779841249082.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
           docker push 779841249082.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
