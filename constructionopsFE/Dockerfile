@@ -1,22 +1,44 @@
-FROM node:14
+# Base image with Node.js 14.17.3
+FROM node:14.17.3
 
+# Install curl
+RUN apt-get update && \
+    apt-get install -y curl
+
+# Install NVM
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Set environment variables for NVM
+ENV NVM_DIR /root/.nvm
+ENV NODE_VERSION 14.17.3
+
+# Load NVM
+RUN . "$NVM_DIR/nvm.sh" && \
+    nvm install $NODE_VERSION && \
+    nvm alias default $NODE_VERSION
+
+# Install Angular CLI, rxjs, and rxjs-compat globally
+RUN . "$NVM_DIR/nvm.sh" && \
+    npm install -g @angular/cli && \
+    npm install -g rxjs && \
+    npm install -g rxjs-compat
+
+# Set the working directory to /app
 WORKDIR /app
 
-COPY /constructionopsFE . .
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && nvm use 14 \
-    && npm install -g @angular/cli \
-    && npm install rxjs \
-    && npm install rxjs-compat \
-    && npm i --only=dev \
-    && ng build --output-hashing=all \
-    && echo "build complete"
+# Install dependencies
+RUN . "$NVM_DIR/nvm.sh" && \
+    npm install
 
-EXPOSE 4200
+# Copy the source code
+COPY src/ /app/src/
 
-CMD ["ng serve --prod --host 0.0.0.0"]
+# Build the Angular application
+RUN . "$NVM_DIR/nvm.sh" && \
+    ng build --output-hashing=all
 
+# Set the command to run when the container starts
+CMD ["npm", "start"]
