@@ -1,0 +1,31 @@
+name: Build and Push Golang Image to AWS ECR
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build-and-push:
+    name: Build and Push to ECR
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Login to AWS ECR
+      run: |
+       aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779841249082.dkr.ecr.us-east-1.amazonaws.com
+    - name: Build and push Docker image to ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: github
+        IMAGE_TAG: latest
+      run: |
+          docker buildx build -f Services/Login/Login.API/Dockerfile -t github .
+          docker tag github:latest 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
+          docker push 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
