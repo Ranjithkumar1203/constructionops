@@ -26,7 +26,7 @@ jobs:
         ECR_REPOSITORY: github
         IMAGE_TAG: latest
       run: |
-          docker buildx build -f BuildrOpsBE-main/Services/Login/Login.API/Dockerfile -t githu .
+          docker buildx build -f BuildrOpsBE-main/Services/Login/Login.API/Dockerfile -t github .
           docker tag github:latest 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
           docker push 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
           
@@ -38,7 +38,7 @@ jobs:
     - name: Build and push Docker image to ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: github
+        ECR_REPOSITORY: frontend
         IMAGE_TAG: latest
       run: |
           docker buildx build -f constructionopsFE/Dockerfile -t frontend .
