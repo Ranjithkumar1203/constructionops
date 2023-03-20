@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1701;1702;CS1998</NoWarn>
+		<WarningLevel>0</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>0</WarningLevel>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="AWSSDK.CloudFront" Version="3.7.4.31" />
+    <PackageReference Include="AWSSDK.Core" Version="3.7.6.4" />
+    <PackageReference Include="AWSSDK.Route53" Version="3.7.2.16" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.7.19" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.7.0.121" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Login.Domain\BuildrOps.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\CompanyProfile\CompanyUsers\" />
+    <Folder Include="Features\CompanyProfile\CompanyCustomers\" />
+    <Folder Include="Features\CompanyProfile\CompanyProjects\" />
+    <Folder Include="Features\CompanyProfile\CompanyTask\" />
+    <Folder Include="Features\CompanyProfile\CompanyQualityAssurance\" />
+    <Folder Include="Features\CompanyProfile\CompanySchedules\" />
+    <Folder Include="Features\CompanyProfile\CompanyPlanSpecification\" />
+    <Folder Include="Features\CompanyProfile\CompanyDesignSelection\" />
+    <Folder Include="Features\CompanyProfile\CompanyImages\" />
+    <Folder Include="Features\CompanySettings\Command\GetCompanySettingValue\" />
+    <Folder Include="Features\CompanySettings\Command\DeleteCompanySettingValue\" />
+    <Folder Include="Features\CompanySettings\Command\UpdateCompanySettingValue\" />
+    <Folder Include="Features\Favorite\Command\" />
+    <Folder Include="Features\Login\Queries\" />
+    <Folder Include="CalendrificAPI\" />
+    <Folder Include="Features\DomainNameRegistration\" />
+    <Folder Include="Features\ContinueRegistration\" />
+  </ItemGroup>
+
+</Project>

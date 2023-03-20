@@ -1,0 +1,25 @@
+﻿using BuildrOps.Application.Contracts.Persistence;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace BuildrOps.Application.Features.Department.Commands.CreateDepartmentLibrary
+{
+   public class CreateDepartmentLibraryHandler:IRequestHandler<CreateDepartmentLibraryCommand,CreateDepartmentLibraryResponse>
+    {
+        IDepartment _DepartmentRepo;
+        public CreateDepartmentLibraryHandler(IDepartment Department)
+        {
+            _DepartmentRepo = Department;
+        }
+
+        public async Task<CreateDepartmentLibraryResponse> Handle(CreateDepartmentLibraryCommand request, CancellationToken cancellationToken)
+        {
+            return _DepartmentRepo.CreateDepartmentlibrary(request);
+        }
+    }
+}
