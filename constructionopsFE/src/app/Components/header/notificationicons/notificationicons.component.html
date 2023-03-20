@@ -1,0 +1,783 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<div class="row">
+    <div class="col">
+        <ul class="ulsearch">
+            <li class="lisearch" id="testing">
+                <input id="searchinput" class="globalsearch searchfont" type="search" placeholder="Search BuildrOps"
+                    [(ngModel)]="searchitem" (click)="readytosearch()" (keyup.enter)="entersearch($event)" (focusout)="onFocusOutEvent($event)">
+                <div id="searchremove" (click)="searchadvanced()">
+                    <button class="searchimg" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                            <defs>
+                                <style>
+                                    .a {}
+                                </style>
+                            </defs>
+                            <g transform="translate(0 0)">
+                                <path class="a"
+                                    d="M14.817,13.936,10.551,9.67a5.949,5.949,0,1,0-.884.884l4.266,4.266a.625.625,0,1,0,.884-.884ZM5.937,10.628A4.688,4.688,0,1,1,10.625,5.94,4.692,4.692,0,0,1,5.937,10.628Z"
+                                    transform="translate(0 -0.003)" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </li>
+
+            <ul class="searchdropdown hide" id="dropdownsearch" (mouseenter)="searchadvmousein()"
+                (mouseleave)="searchadvmousout()" (keyup.esc)="closepopup($event)">
+                <div class="head">
+                    <div class="iconinput">
+                        <div class="closeicon" (click)="searchadvancedclose()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 7 7">
+                                <path id="close_9_" data-name="close (9)"
+                                    d="M4.141,3.636,6.867.91A.453.453,0,1,0,6.226.269L3.5,2.995.774.269A.453.453,0,0,0,.133.91L2.859,3.636.133,6.362A.453.453,0,1,0,.774,7L3.5,4.277,6.226,7a.453.453,0,0,0,.641-.641Zm0,0"
+                                    transform="translate(0 -0.136)" />
+                            </svg>
+                        </div>
+                        <input id="searchinputtext" class="searchinput" type="text" placeholder="Search BuildrOps"
+                            [(ngModel)]="searchitem">
+                        <button class="searchicon" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                                <defs>
+                                    <style>
+                                        .a {}
+                                    </style>
+                                </defs>
+                                <g transform="translate(0 0)">
+                                    <path class="a"
+                                        d="M14.817,13.936,10.551,9.67a5.949,5.949,0,1,0-.884.884l4.266,4.266a.625.625,0,1,0,.884-.884ZM5.937,10.628A4.688,4.688,0,1,1,10.625,5.94,4.692,4.692,0,0,1,5.937,10.628Z"
+                                        transform="translate(0 -0.003)" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+
+
+
+
+                </div>
+                <div class="mainarea" (mouseenter)="searchadvmousein()" (mouseleave)="searchadvmousout()">
+                    <h4>Search By</h4>
+                    <ul class="buttons">
+                        <li id="buttonsearch" (click)="addclass()">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="15" height="15" viewBox="0 0 15 15">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectangle_1729" data-name="Rectangle 1729" width="15" height="15"
+                                            transform="translate(-0.178)" />
+                                    </clipPath>
+                                </defs>
+                                <g id="customers" transform="translate(0.178)" opacity="0.7"
+                                    clip-path="url(#clip-path)">
+                                    <g id="customer_4_" data-name="customer (4)" transform="translate(0.822 -31)">
+                                        <path id="Path_18181" data-name="Path 18181"
+                                            d="M171.209,37.418A2.209,2.209,0,1,0,169,35.209,2.211,2.211,0,0,0,171.209,37.418Zm0-3.656a1.447,1.447,0,1,1-1.447,1.447A1.449,1.449,0,0,1,171.209,33.762Z"
+                                            transform="translate(-164.709)" />
+                                        <path id="Path_18182" data-name="Path 18182"
+                                            d="M378.4,99.793a1.4,1.4,0,1,0-1.4-1.4A1.4,1.4,0,0,0,378.4,99.793Zm0-2.031a.635.635,0,1,1-.635.635A.635.635,0,0,1,378.4,97.762Z"
+                                            transform="translate(-367.428 -62.375)" />
+                                        <path id="Path_18183" data-name="Path 18183"
+                                            d="M11.276,241h-.589a1.727,1.727,0,0,0-1.566,1,3.065,3.065,0,0,0-2.266-1h-.71a3.065,3.065,0,0,0-2.266,1,1.727,1.727,0,0,0-1.566-1H1.724A1.721,1.721,0,0,0,0,242.714v2.773a.746.746,0,0,0,.747.744H3.076a.89.89,0,0,0,.886.813H9.039a.89.89,0,0,0,.886-.812h2.3a.773.773,0,0,0,.773-.77v-2.746A1.721,1.721,0,0,0,11.276,241ZM.762,242.714a.958.958,0,0,1,.962-.952h.589a.958.958,0,0,1,.962.952v.261a6.328,6.328,0,0,0-.2,2.494H.762Zm8.4,3.44a.128.128,0,0,1-.127.128H3.961a.128.128,0,0,1-.127-.128v-2.081a2.314,2.314,0,0,1,2.311-2.311h.71a2.314,2.314,0,0,1,2.311,2.311Zm3.072-.694c0,.013.142.009-2.311.009a6.308,6.308,0,0,0-.2-2.494v-.261a.958.958,0,0,1,.962-.952h.589a.958.958,0,0,1,.962.952Z"
+                                            transform="translate(0 -202.719)" />
+                                        <path id="Path_18184" data-name="Path 18184"
+                                            d="M26.4,99.793A1.4,1.4,0,1,0,25,98.4,1.4,1.4,0,0,0,26.4,99.793Zm0-2.031a.635.635,0,1,1-.635.635A.635.635,0,0,1,26.4,97.762Z"
+                                            transform="translate(-24.365 -62.375)" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                            Customers
+                            <div id="closeselected" class="closebutton">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7">
+                                    <path id="close_9_" data-name="close (9)"
+                                        d="M4.141,3.636,6.867.91A.453.453,0,1,0,6.226.269L3.5,2.995.774.269A.453.453,0,0,0,.133.91L2.859,3.636.133,6.362A.453.453,0,1,0,.774,7L3.5,4.277,6.226,7a.453.453,0,0,0,.641-.641Zm0,0"
+                                        transform="translate(0 -0.136)" />
+                                </svg>
+                            </div>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="15" height="15" viewBox="0 0 15 18">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectangle_117" data-name="Rectangle 117" width="15" height="15" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Projects" opacity="0.7" clip-path="url(#clip-path)">
+                                    <g id="project" transform="translate(1.25 1.5)">
+                                        <g id="Group_387" data-name="Group 387">
+                                            <g id="Group_386" data-name="Group 386">
+                                                <path id="Path_17525" data-name="Path 17525"
+                                                    d="M11.587,3.691V0H1.538V1.846H0V13.9H1.538V15.75H11.587V13.9h1.538V3.691ZM1.538,12.981H.769V4.614h.769Zm0-9.29H.769V2.769h.769Zm9.28,11.136H9.055l1.763-2.116Zm-2.307-.653V12.059h1.763Zm2.307-3.039H7.742v3.691H2.307V.923h8.511Zm1.538,1.846h-.769V4.614h.769Z" />
+                                            </g>
+                                        </g>
+                                        <g id="Group_389" data-name="Group 389" transform="translate(3.75 5.5)">
+                                            <g id="Group_388" data-name="Group 388" transform="translate(0 0)">
+                                                <rect id="Rectangle_114" data-name="Rectangle 114" width="5.833"
+                                                    height="1" />
+                                            </g>
+                                        </g>
+                                        <g id="Group_391" data-name="Group 391" transform="translate(3.75 7.5)">
+                                            <g id="Group_390" data-name="Group 390" transform="translate(0 0)">
+                                                <rect id="Rectangle_115" data-name="Rectangle 115" width="5.833"
+                                                    height="1" />
+                                            </g>
+                                        </g>
+                                        <g id="Group_393" data-name="Group 393" transform="translate(3.75 3.5)">
+                                            <g id="Group_392" data-name="Group 392" transform="translate(0 0)">
+                                                <rect id="Rectangle_116" data-name="Rectangle 116" width="5.833"
+                                                    height="1" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+                            Projects
+                        </li>
+                        <li>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="15" height="15" viewBox="0 0 15 15">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectangle_113" data-name="Rectangle 113" width="15" height="15" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Tasks" opacity="0.7" clip-path="url(#clip-path)">
+                                    <g id="test_4_" data-name="test (4)" transform="translate(0.388 0.614)">
+                                        <path id="Path_17518" data-name="Path 17518"
+                                            d="M83.12,145H80.914a.414.414,0,0,0,0,.828H83.12a.414.414,0,1,0,0-.828Z"
+                                            transform="translate(-78.735 -141)" />
+                                        <path id="Path_17519" data-name="Path 17519"
+                                            d="M83.12,225H80.914a.414.414,0,0,0,0,.828H83.12a.414.414,0,1,0,0-.828Z"
+                                            transform="translate(-78.735 -218.794)" />
+                                        <path id="Path_17520" data-name="Path 17520"
+                                            d="M83.12,305H80.914a.414.414,0,0,0,0,.828H83.12a.414.414,0,1,0,0-.828Z"
+                                            transform="translate(-78.735 -296.587)" />
+                                        <path id="Path_17521" data-name="Path 17521"
+                                            d="M26.816,7.584V3.806a2.057,2.057,0,0,0-.592-1.449L24.545.621l0,0A2.082,2.082,0,0,0,23.067,0H17.741A1.243,1.243,0,0,0,16.5,1.241v10.73a1.243,1.243,0,0,0,1.241,1.241h6.395a3.289,3.289,0,1,0,2.68-5.629Zm-9.489,4.388V1.241a.414.414,0,0,1,.414-.414h5.326a1.25,1.25,0,0,1,.885.37L25.63,2.933l0,0a1.234,1.234,0,0,1,.356.87V7.584a3.281,3.281,0,0,0-2.482,4.8H17.741a.414.414,0,0,1-.414-.414ZM26.4,13.3a2.455,2.455,0,1,1,2.483-2.455A2.458,2.458,0,0,1,26.4,13.3Z"
+                                            transform="translate(-16.5 0)" />
+                                        <path id="Path_17522" data-name="Path 17522"
+                                            d="M331.72,354.1a.414.414,0,0,0-.583.053l-.7.838-.158-.317a.414.414,0,0,0-.74.37l.441.883a.414.414,0,0,0,.322.226l.048,0a.414.414,0,0,0,.318-.149l1.1-1.324A.414.414,0,0,0,331.72,354.1Z"
+                                            transform="translate(-320.863 -344.237)" />
+                                        <path id="Path_17523" data-name="Path 17523"
+                                            d="M240.914,145.828h.441a.414.414,0,0,0,0-.828h-.441a.414.414,0,1,0,0,.828Z"
+                                            transform="translate(-234.321 -141)" />
+                                        <path id="Path_17524" data-name="Path 17524"
+                                            d="M241.769,225.414a.414.414,0,0,0-.414-.414h-.441a.414.414,0,1,0,0,.828h.441A.414.414,0,0,0,241.769,225.414Z"
+                                            transform="translate(-234.321 -218.794)" />
+                                    </g>
+                                </g>
+                            </svg>
+
+
+
+                            Tasks
+                        </li>
+                        <li>TBD</li>
+                    </ul>
+                    <ul class="buttons">
+                        <li>Tasks</li>
+                        <li>TBD</li>
+                    </ul>
+                    <h4>Recent Searches</h4>
+                </div>
+            </ul>
+
+
+        </ul>
+        <ul class="ulbutton1">
+            <li class="libutton">
+                <button class="dropbutton">
+                    <p class="buttonfont">Frequents</p>
+                </button>
+                <div class="fre"></div>
+                <ul class="ulfre">
+                    <div class="leftsidebar_menus">
+                        <li class="lifre" *ngFor="let item of frequents">
+                            <a routerLink='{{item.frequentRoute}}' class="lifretext">{{item.name}}</a>
+                        </li>
+
+                    </div>
+                </ul>
+
+            </li>
+        </ul>
+        <ul class="ulbutton2">
+            <li class="libutton">
+                <button class="dropbutton">
+                    <p class="buttonfont">Favorites</p>
+                </button>
+                <div class="fre2"></div>
+
+
+                <ul class="ulfre2">
+                    <div class="leftsidebar_menus2" id="ullifre2">
+
+                        <div cdkDropList (cdkDropListDropped)="drop($event)" class="example-boundary">
+                            <li class="lifre2" *ngFor="let item of favs" cdkDragLockAxis="y" cdkDrag
+                                cdkDragBoundary=".example-boundary" routerLink='{{item.routing}}'>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <img src="/assets/delete.svg" class="cancelfav" (click)="removefav(item.id)">
+                                {{item.name}}
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="ul1 warnings position-relative" id="warningsremove" (click)="warninglist()">
+            <div class="hoverstate">
+                <li class="icons">
+                    <div class="position-relative">
+                        <svg width="22" height="22" viewBox="0 0 22 21">
+                            <path d="M218.981,333.382a.756.756,0,1,0,0,1.513.757.757,0,0,0,0-1.513Z"
+                                transform="translate(-209.786 -320.329)" />
+                            <path
+                                d="M17.947,37.117a3.666,3.666,0,0,0,.008-3.5L12.033,22.643a3.16,3.16,0,0,0-5.665,0L.439,33.628A3.7,3.7,0,0,0,.45,37.146a3.2,3.2,0,0,0,2.825,1.736H15.1A3.225,3.225,0,0,0,17.947,37.117Zm-1.286-.793a1.769,1.769,0,0,1-1.562.967H3.271a1.744,1.744,0,0,1-1.543-.947,2.032,2.032,0,0,1,0-1.931L7.654,23.428a1.725,1.725,0,0,1,3.093,0l5.926,10.985A2.005,2.005,0,0,1,16.662,36.324Z"
+                                transform="translate(0 -20.882)" />
+                            <path
+                                d="M218.309,157.2a.823.823,0,0,0-.584.826c.018.239.033.481.051.72.051.911.1,1.8.154,2.714a.554.554,0,0,0,.566.533.566.566,0,0,0,.566-.551c0-.188,0-.36.018-.551.033-.584.07-1.168.1-1.752.018-.378.051-.756.07-1.135a.934.934,0,0,0-.07-.378A.758.758,0,0,0,218.309,157.2Z"
+                                transform="translate(-209.301 -150.884)" />
+                        </svg>
+                        <span class="position-absolute translate-middle badge rounded-pill primary icon1">
+                            2
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </div>
+                    <div class="fonts">Warnings</div>
+                </li>
+
+            </div>
+
+            <div class="big_iconbackground"></div>
+            <ul class="warningdropdown hide" id="dropdownwarnings" (mouseleave)="setout2()">
+                <div class="arrowup"></div>
+                <h3>Warnings</h3>
+                <li class="">
+                    <i class="warning_icon">
+                        <svg id="Group_1798" data-name="Group 1798" xmlns="http://www.w3.org/2000/svg" width="11.89"
+                            height="12.401" viewBox="0 0 11.89 12.401">
+                            <path id="Path_17604" data-name="Path 17604"
+                                d="M218.867,333.382a.687.687,0,0,0,0,1.371.688.688,0,0,0,0-1.371Z"
+                                transform="translate(-212.922 -324.649)" fill="#eb5050" />
+                            <path id="Path_17605" data-name="Path 17605"
+                                d="M11.6,32.067a2.673,2.673,0,0,0,0-2.409L7.777,22.1a2.05,2.05,0,0,0-1.831-1.213,2.057,2.057,0,0,0-1.831,1.21L.284,29.664a2.7,2.7,0,0,0,.007,2.423,2.059,2.059,0,0,0,1.826,1.2H9.762A2.074,2.074,0,0,0,11.6,32.067Zm-.831-.547a1.138,1.138,0,0,1-1.009.667H2.114a1.121,1.121,0,0,1-1-.653,1.482,1.482,0,0,1,0-1.33l3.832-7.569a1.086,1.086,0,0,1,2,0l3.83,7.569A1.462,1.462,0,0,1,10.769,31.521Z"
+                                transform="translate(0 -20.882)" fill="#eb5050" />
+                            <path id="Path_17606" data-name="Path 17606"
+                                d="M218.221,157.2a.743.743,0,0,0-.5.749c.015.217.028.436.044.653.044.825.087,1.634.131,2.46a.485.485,0,0,0,.481.483.5.5,0,0,0,.481-.5c0-.17,0-.326.015-.5.028-.529.059-1.058.087-1.588.015-.343.044-.686.059-1.028a.9.9,0,0,0-.059-.343A.634.634,0,0,0,218.221,157.2Z"
+                                transform="translate(-212.435 -153.34)" fill="#eb5050" />
+                        </svg>
+                    </i>
+                    <a href="#">Preceding task not started on time</a>
+                </li>
+                <li class="">
+                    <i class="warning_icon">
+                        <svg id="Group_1798" data-name="Group 1798" xmlns="http://www.w3.org/2000/svg" width="11.89"
+                            height="12.401" viewBox="0 0 11.89 12.401">
+                            <path id="Path_17604" data-name="Path 17604"
+                                d="M218.867,333.382a.687.687,0,0,0,0,1.371.688.688,0,0,0,0-1.371Z"
+                                transform="translate(-212.922 -324.649)" fill="#eb5050" />
+                            <path id="Path_17605" data-name="Path 17605"
+                                d="M11.6,32.067a2.673,2.673,0,0,0,0-2.409L7.777,22.1a2.05,2.05,0,0,0-1.831-1.213,2.057,2.057,0,0,0-1.831,1.21L.284,29.664a2.7,2.7,0,0,0,.007,2.423,2.059,2.059,0,0,0,1.826,1.2H9.762A2.074,2.074,0,0,0,11.6,32.067Zm-.831-.547a1.138,1.138,0,0,1-1.009.667H2.114a1.121,1.121,0,0,1-1-.653,1.482,1.482,0,0,1,0-1.33l3.832-7.569a1.086,1.086,0,0,1,2,0l3.83,7.569A1.462,1.462,0,0,1,10.769,31.521Z"
+                                transform="translate(0 -20.882)" fill="#eb5050" />
+                            <path id="Path_17606" data-name="Path 17606"
+                                d="M218.221,157.2a.743.743,0,0,0-.5.749c.015.217.028.436.044.653.044.825.087,1.634.131,2.46a.485.485,0,0,0,.481.483.5.5,0,0,0,.481-.5c0-.17,0-.326.015-.5.028-.529.059-1.058.087-1.588.015-.343.044-.686.059-1.028a.9.9,0,0,0-.059-.343A.634.634,0,0,0,218.221,157.2Z"
+                                transform="translate(-212.435 -153.34)" fill="#eb5050" />
+                        </svg>
+                    </i>
+                    <a href="#">Milestone task projected to complete late</a>
+                </li>
+                <li class="">
+                    <i class="warning_icon">
+                        <svg id="Group_1798" data-name="Group 1798" xmlns="http://www.w3.org/2000/svg" width="11.89"
+                            height="12.401" viewBox="0 0 11.89 12.401">
+                            <path id="Path_17604" data-name="Path 17604"
+                                d="M218.867,333.382a.687.687,0,0,0,0,1.371.688.688,0,0,0,0-1.371Z"
+                                transform="translate(-212.922 -324.649)" fill="#eb5050" />
+                            <path id="Path_17605" data-name="Path 17605"
+                                d="M11.6,32.067a2.673,2.673,0,0,0,0-2.409L7.777,22.1a2.05,2.05,0,0,0-1.831-1.213,2.057,2.057,0,0,0-1.831,1.21L.284,29.664a2.7,2.7,0,0,0,.007,2.423,2.059,2.059,0,0,0,1.826,1.2H9.762A2.074,2.074,0,0,0,11.6,32.067Zm-.831-.547a1.138,1.138,0,0,1-1.009.667H2.114a1.121,1.121,0,0,1-1-.653,1.482,1.482,0,0,1,0-1.33l3.832-7.569a1.086,1.086,0,0,1,2,0l3.83,7.569A1.462,1.462,0,0,1,10.769,31.521Z"
+                                transform="translate(0 -20.882)" fill="#eb5050" />
+                            <path id="Path_17606" data-name="Path 17606"
+                                d="M218.221,157.2a.743.743,0,0,0-.5.749c.015.217.028.436.044.653.044.825.087,1.634.131,2.46a.485.485,0,0,0,.481.483.5.5,0,0,0,.481-.5c0-.17,0-.326.015-.5.028-.529.059-1.058.087-1.588.015-.343.044-.686.059-1.028a.9.9,0,0,0-.059-.343A.634.634,0,0,0,218.221,157.2Z"
+                                transform="translate(-212.435 -153.34)" fill="#eb5050" />
+                        </svg>
+                    </i>
+                    <a href="#">Critical Path task projected to complete late</a>
+                </li>
+                <li class="">
+                    <i class="warning_icon">
+                        <svg id="Group_1798" data-name="Group 1798" xmlns="http://www.w3.org/2000/svg" width="11.89"
+                            height="12.401" viewBox="0 0 11.89 12.401">
+                            <path id="Path_17604" data-name="Path 17604"
+                                d="M218.867,333.382a.687.687,0,0,0,0,1.371.688.688,0,0,0,0-1.371Z"
+                                transform="translate(-212.922 -324.649)" fill="#eb5050" />
+                            <path id="Path_17605" data-name="Path 17605"
+                                d="M11.6,32.067a2.673,2.673,0,0,0,0-2.409L7.777,22.1a2.05,2.05,0,0,0-1.831-1.213,2.057,2.057,0,0,0-1.831,1.21L.284,29.664a2.7,2.7,0,0,0,.007,2.423,2.059,2.059,0,0,0,1.826,1.2H9.762A2.074,2.074,0,0,0,11.6,32.067Zm-.831-.547a1.138,1.138,0,0,1-1.009.667H2.114a1.121,1.121,0,0,1-1-.653,1.482,1.482,0,0,1,0-1.33l3.832-7.569a1.086,1.086,0,0,1,2,0l3.83,7.569A1.462,1.462,0,0,1,10.769,31.521Z"
+                                transform="translate(0 -20.882)" fill="#eb5050" />
+                            <path id="Path_17606" data-name="Path 17606"
+                                d="M218.221,157.2a.743.743,0,0,0-.5.749c.015.217.028.436.044.653.044.825.087,1.634.131,2.46a.485.485,0,0,0,.481.483.5.5,0,0,0,.481-.5c0-.17,0-.326.015-.5.028-.529.059-1.058.087-1.588.015-.343.044-.686.059-1.028a.9.9,0,0,0-.059-.343A.634.634,0,0,0,218.221,157.2Z"
+                                transform="translate(-212.435 -153.34)" fill="#eb5050" />
+                        </svg>
+                    </i>
+                    <a href="#">Noted forecasting the late completion of a task</a>
+                </li>
+                <li class="">
+                    <i class="warning_icon">
+                        <svg id="Group_1798" data-name="Group 1798" xmlns="http://www.w3.org/2000/svg" width="11.89"
+                            height="12.401" viewBox="0 0 11.89 12.401">
+                            <path id="Path_17604" data-name="Path 17604"
+                                d="M218.867,333.382a.687.687,0,0,0,0,1.371.688.688,0,0,0,0-1.371Z"
+                                transform="translate(-212.922 -324.649)" fill="#eb5050" />
+                            <path id="Path_17605" data-name="Path 17605"
+                                d="M11.6,32.067a2.673,2.673,0,0,0,0-2.409L7.777,22.1a2.05,2.05,0,0,0-1.831-1.213,2.057,2.057,0,0,0-1.831,1.21L.284,29.664a2.7,2.7,0,0,0,.007,2.423,2.059,2.059,0,0,0,1.826,1.2H9.762A2.074,2.074,0,0,0,11.6,32.067Zm-.831-.547a1.138,1.138,0,0,1-1.009.667H2.114a1.121,1.121,0,0,1-1-.653,1.482,1.482,0,0,1,0-1.33l3.832-7.569a1.086,1.086,0,0,1,2,0l3.83,7.569A1.462,1.462,0,0,1,10.769,31.521Z"
+                                transform="translate(0 -20.882)" fill="#eb5050" />
+                            <path id="Path_17606" data-name="Path 17606"
+                                d="M218.221,157.2a.743.743,0,0,0-.5.749c.015.217.028.436.044.653.044.825.087,1.634.131,2.46a.485.485,0,0,0,.481.483.5.5,0,0,0,.481-.5c0-.17,0-.326.015-.5.028-.529.059-1.058.087-1.588.015-.343.044-.686.059-1.028a.9.9,0,0,0-.059-.343A.634.634,0,0,0,218.221,157.2Z"
+                                transform="translate(-212.435 -153.34)" fill="#eb5050" />
+                        </svg>
+                    </i>
+                    <a href="#">Sub response of requesting a new start date</a>
+                </li>
+
+            </ul>
+        </ul>
+
+
+        <ul class="ul3 openitems position-relative" id="openitemsremove" (click)="openitemslist()">
+            <div class="hoverstate">
+                <li class="icons">
+                    <div class="position-relative">
+                        <svg width="22" height="22" viewBox="0 0 22 22">
+                            <path
+                                d="M54.754,2.915,47.863.054a.7.7,0,0,0-.539,0L40.434,2.915A.7.7,0,0,0,40,3.564V7.042a11.775,11.775,0,0,0,7.328,10.906.7.7,0,0,0,.531,0A11.775,11.775,0,0,0,55.188,7.042V3.564A.7.7,0,0,0,54.754,2.915Zm-.973,4.127a10.371,10.371,0,0,1-6.188,9.491,10.371,10.371,0,0,1-6.188-9.491V4.034l6.188-2.569,6.188,2.569Zm-6.965,2.37L49.839,6.39a.7.7,0,1,1,.994.994L47.314,10.9a.7.7,0,0,1-.994,0L44.354,8.939a.7.7,0,0,1,.994-.994Z"
+                                transform="translate(-40 0)" />
+                        </svg>
+                        <span class="position-absolute translate-middle badge rounded-pill primary icon1">
+                            5
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </div>
+                    <div class="fonts">Open Items</div>
+                </li>
+            </div>
+            <div class="big_iconbackground"></div>
+            <ul class="openitemsdropdown hide" id="dropdownopenitems" (mouseleave)="setout()">
+                <div class="arrowup"></div>
+                <h3>Open Items</h3>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">All(1)</button>
+                        <button class="nav-link hoverstate" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">QA(1)</button>
+                        <button class="nav-link disabled inactive" id="nav-home-3" data-bs-target="#nav-3" type="button"
+                            role="tab" aria-controls="nav-3" aria-selected="true">QC</button>
+                        <button class="nav-link disabled inactive" id="nav-profile-4" data-bs-target="#nav-4"
+                            type="button" role="tab" aria-controls="nav-4" aria-selected="false">To Do</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <li class="">
+                            <i class="openitem_icon">
+                                <svg id="openitem_icon" xmlns="http://www.w3.org/2000/svg" width="12.5" height="14.815"
+                                    viewBox="0 0 12.5 14.815">
+                                    <g id="verified">
+                                        <path id="Path_17607" data-name="Path 17607"
+                                            d="M52.143,2.4,46.472.044a.579.579,0,0,0-.444,0L40.357,2.4A.579.579,0,0,0,40,2.933V5.8a9.691,9.691,0,0,0,6.031,8.976.579.579,0,0,0,.437,0A9.691,9.691,0,0,0,52.5,5.8V2.933A.579.579,0,0,0,52.143,2.4Zm-.8,3.4a8.536,8.536,0,0,1-5.093,7.812A8.536,8.536,0,0,1,41.157,5.8V3.32L46.25,1.205,51.343,3.32ZM45.61,7.747,48.1,5.259a.579.579,0,1,1,.818.818l-2.9,2.9a.579.579,0,0,1-.818,0L43.584,7.357a.579.579,0,0,1,.818-.818Z"
+                                            transform="translate(-40 0)" fill="#ffe330" />
+                                    </g>
+                                </svg>
+                            </i>
+                            <a href="#"> task not started on time</a>
+                        </li>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <li class="">
+                            <i class="openitem_icon">
+                                <svg id="openitem_icon" xmlns="http://www.w3.org/2000/svg" width="12.5" height="14.815"
+                                    viewBox="0 0 12.5 14.815">
+                                    <g id="verified">
+                                        <path id="Path_17607" data-name="Path 17607"
+                                            d="M52.143,2.4,46.472.044a.579.579,0,0,0-.444,0L40.357,2.4A.579.579,0,0,0,40,2.933V5.8a9.691,9.691,0,0,0,6.031,8.976.579.579,0,0,0,.437,0A9.691,9.691,0,0,0,52.5,5.8V2.933A.579.579,0,0,0,52.143,2.4Zm-.8,3.4a8.536,8.536,0,0,1-5.093,7.812A8.536,8.536,0,0,1,41.157,5.8V3.32L46.25,1.205,51.343,3.32ZM45.61,7.747,48.1,5.259a.579.579,0,1,1,.818.818l-2.9,2.9a.579.579,0,0,1-.818,0L43.584,7.357a.579.579,0,0,1,.818-.818Z"
+                                            transform="translate(-40 0)" fill="#ffe330" />
+                                    </g>
+                                </svg>
+                            </i>
+                            <a href="#">QA task not started on time</a>
+                        </li>
+                    </div>
+                </div>
+
+
+            </ul>
+        </ul>
+
+        <ul class="ul2 notifications position-relative" id="notificationsremove" (click)="notificationlist()">
+            <div class="hoverstate">
+                <li class="icons">
+                    <div class="position-relative">
+                        <svg width="22" height="22" viewBox="0 0 19 22">
+                            <path data-name="bell (4)"
+                                d="M67.383,14.325a2.8,2.8,0,0,1-.85-1.157,13.391,13.391,0,0,1-.886-5.291c0-.007,0-.014,0-.02A5.107,5.107,0,0,0,62.64,3.224V2.005a2.006,2.006,0,0,0-2-2.005h-.166a2.006,2.006,0,0,0-2,2.005V3.224a5.107,5.107,0,0,0-3.007,4.652,13.391,13.391,0,0,1-.886,5.291,2.8,2.8,0,0,1-.85,1.157.513.513,0,0,0-.282.583.537.537,0,0,0,.529.412h3.865a2.715,2.715,0,0,0,5.43,0h3.865a.537.537,0,0,0,.529-.412A.513.513,0,0,0,67.383,14.325ZM59.526,2.005a.949.949,0,0,1,.947-.949h.166a.949.949,0,0,1,.947.949v.876a5.107,5.107,0,0,0-2.06,0V2.005Zm1.03,14.938A1.664,1.664,0,0,1,58.9,15.32h3.32A1.664,1.664,0,0,1,60.556,16.944Zm2.123-2.68h-7.5a5.529,5.529,0,0,0,.276-.485,13.351,13.351,0,0,0,1.065-5.9,4.037,4.037,0,1,1,8.073,0q0,.01,0,.019a13.324,13.324,0,0,0,1.065,5.881,5.528,5.528,0,0,0,.276.485Z"
+                                transform="translate(-51.434 2.352)" />
+                        </svg>
+                        <span class="position-absolute translate-middle badge rounded-pill primary icon1">
+                            1
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </div>
+                    <div class="fonts">
+                        Notifications
+                    </div>
+                </li>
+            </div>
+            <div class="big_iconbackground"></div>
+
+            <ul class="notificationsdropdown hide" id="dropdownnotifications" (mouseleave)="setout1()">
+                <div class="arrowup"></div>
+                <h3>Notifications</h3>
+                <li class="">
+                    <i class="notification_icon">
+                        <svg id="notification_icon" xmlns="http://www.w3.org/2000/svg" width="12.019" height="15.189"
+                            viewBox="0 0 12.019 15.189">
+                            <path id="bell_4_" data-name="bell (4)"
+                                d="M65.2,12.088a2.36,2.36,0,0,1-.717-.977,11.3,11.3,0,0,1-.748-4.465c0-.006,0-.011,0-.017A4.31,4.31,0,0,0,61.2,2.72V1.692A1.693,1.693,0,0,0,59.513,0h-.14a1.693,1.693,0,0,0-1.689,1.692V2.72a4.31,4.31,0,0,0-2.537,3.926,11.3,11.3,0,0,1-.748,4.465,2.36,2.36,0,0,1-.717.977.433.433,0,0,0-.238.492.453.453,0,0,0,.446.348h3.262a2.291,2.291,0,0,0,4.582,0H65a.453.453,0,0,0,.446-.348A.433.433,0,0,0,65.2,12.088Zm-6.63-10.4a.8.8,0,0,1,.8-.8h.14a.8.8,0,0,1,.8.8v.739a4.31,4.31,0,0,0-1.738,0V1.692ZM59.443,14.3a1.4,1.4,0,0,1-1.4-1.37h2.8A1.4,1.4,0,0,1,59.443,14.3Zm1.792-2.262h-6.33a4.664,4.664,0,0,0,.233-.409,11.266,11.266,0,0,0,.9-4.981,3.406,3.406,0,1,1,6.813,0c0,.005,0,.011,0,.016a11.244,11.244,0,0,0,.9,4.963,4.664,4.664,0,0,0,.233.409Z"
+                                transform="translate(-53.434 0)" fill="#28a745" />
+                        </svg>
+                    </i>
+                    <a href="#"> Lorem Ipsum is simply dummy text of the..</a>
+                </li>
+                <li class="">
+                    <i class="notification_icon">
+                        <svg id="notification_icon" xmlns="http://www.w3.org/2000/svg" width="12.019" height="15.189"
+                            viewBox="0 0 12.019 15.189">
+                            <path id="bell_4_" data-name="bell (4)"
+                                d="M65.2,12.088a2.36,2.36,0,0,1-.717-.977,11.3,11.3,0,0,1-.748-4.465c0-.006,0-.011,0-.017A4.31,4.31,0,0,0,61.2,2.72V1.692A1.693,1.693,0,0,0,59.513,0h-.14a1.693,1.693,0,0,0-1.689,1.692V2.72a4.31,4.31,0,0,0-2.537,3.926,11.3,11.3,0,0,1-.748,4.465,2.36,2.36,0,0,1-.717.977.433.433,0,0,0-.238.492.453.453,0,0,0,.446.348h3.262a2.291,2.291,0,0,0,4.582,0H65a.453.453,0,0,0,.446-.348A.433.433,0,0,0,65.2,12.088Zm-6.63-10.4a.8.8,0,0,1,.8-.8h.14a.8.8,0,0,1,.8.8v.739a4.31,4.31,0,0,0-1.738,0V1.692ZM59.443,14.3a1.4,1.4,0,0,1-1.4-1.37h2.8A1.4,1.4,0,0,1,59.443,14.3Zm1.792-2.262h-6.33a4.664,4.664,0,0,0,.233-.409,11.266,11.266,0,0,0,.9-4.981,3.406,3.406,0,1,1,6.813,0c0,.005,0,.011,0,.016a11.244,11.244,0,0,0,.9,4.963,4.664,4.664,0,0,0,.233.409Z"
+                                transform="translate(-53.434 0)" fill="#28a745" />
+                        </svg>
+                    </i>
+                    <a href="#">Lorem Ipsum is simply dummy text of the..</a>
+                </li>
+                <li class="">
+                    <i class="notification_icon">
+                        <svg id="notification_icon" xmlns="http://www.w3.org/2000/svg" width="12.019" height="15.189"
+                            viewBox="0 0 12.019 15.189">
+                            <path id="bell_4_" data-name="bell (4)"
+                                d="M65.2,12.088a2.36,2.36,0,0,1-.717-.977,11.3,11.3,0,0,1-.748-4.465c0-.006,0-.011,0-.017A4.31,4.31,0,0,0,61.2,2.72V1.692A1.693,1.693,0,0,0,59.513,0h-.14a1.693,1.693,0,0,0-1.689,1.692V2.72a4.31,4.31,0,0,0-2.537,3.926,11.3,11.3,0,0,1-.748,4.465,2.36,2.36,0,0,1-.717.977.433.433,0,0,0-.238.492.453.453,0,0,0,.446.348h3.262a2.291,2.291,0,0,0,4.582,0H65a.453.453,0,0,0,.446-.348A.433.433,0,0,0,65.2,12.088Zm-6.63-10.4a.8.8,0,0,1,.8-.8h.14a.8.8,0,0,1,.8.8v.739a4.31,4.31,0,0,0-1.738,0V1.692ZM59.443,14.3a1.4,1.4,0,0,1-1.4-1.37h2.8A1.4,1.4,0,0,1,59.443,14.3Zm1.792-2.262h-6.33a4.664,4.664,0,0,0,.233-.409,11.266,11.266,0,0,0,.9-4.981,3.406,3.406,0,1,1,6.813,0c0,.005,0,.011,0,.016a11.244,11.244,0,0,0,.9,4.963,4.664,4.664,0,0,0,.233.409Z"
+                                transform="translate(-53.434 0)" fill="#28a745" />
+                        </svg>
+                    </i>
+                    <a href="#">Lorem Ipsum is simply dummy text of the..</a>
+                </li>
+                <li class="">
+                    <i class="notification_icon">
+                        <svg id="notification_icon" xmlns="http://www.w3.org/2000/svg" width="12.019" height="15.189"
+                            viewBox="0 0 12.019 15.189">
+                            <path id="bell_4_" data-name="bell (4)"
+                                d="M65.2,12.088a2.36,2.36,0,0,1-.717-.977,11.3,11.3,0,0,1-.748-4.465c0-.006,0-.011,0-.017A4.31,4.31,0,0,0,61.2,2.72V1.692A1.693,1.693,0,0,0,59.513,0h-.14a1.693,1.693,0,0,0-1.689,1.692V2.72a4.31,4.31,0,0,0-2.537,3.926,11.3,11.3,0,0,1-.748,4.465,2.36,2.36,0,0,1-.717.977.433.433,0,0,0-.238.492.453.453,0,0,0,.446.348h3.262a2.291,2.291,0,0,0,4.582,0H65a.453.453,0,0,0,.446-.348A.433.433,0,0,0,65.2,12.088Zm-6.63-10.4a.8.8,0,0,1,.8-.8h.14a.8.8,0,0,1,.8.8v.739a4.31,4.31,0,0,0-1.738,0V1.692ZM59.443,14.3a1.4,1.4,0,0,1-1.4-1.37h2.8A1.4,1.4,0,0,1,59.443,14.3Zm1.792-2.262h-6.33a4.664,4.664,0,0,0,.233-.409,11.266,11.266,0,0,0,.9-4.981,3.406,3.406,0,1,1,6.813,0c0,.005,0,.011,0,.016a11.244,11.244,0,0,0,.9,4.963,4.664,4.664,0,0,0,.233.409Z"
+                                transform="translate(-53.434 0)" fill="#28a745" />
+                        </svg>
+                    </i>
+                    <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry</a>
+                </li>
+                <li class="">
+                    <i class="notification_icon">
+                        <svg id="notification_icon" xmlns="http://www.w3.org/2000/svg" width="12.019" height="15.189"
+                            viewBox="0 0 12.019 15.189">
+                            <path id="bell_4_" data-name="bell (4)"
+                                d="M65.2,12.088a2.36,2.36,0,0,1-.717-.977,11.3,11.3,0,0,1-.748-4.465c0-.006,0-.011,0-.017A4.31,4.31,0,0,0,61.2,2.72V1.692A1.693,1.693,0,0,0,59.513,0h-.14a1.693,1.693,0,0,0-1.689,1.692V2.72a4.31,4.31,0,0,0-2.537,3.926,11.3,11.3,0,0,1-.748,4.465,2.36,2.36,0,0,1-.717.977.433.433,0,0,0-.238.492.453.453,0,0,0,.446.348h3.262a2.291,2.291,0,0,0,4.582,0H65a.453.453,0,0,0,.446-.348A.433.433,0,0,0,65.2,12.088Zm-6.63-10.4a.8.8,0,0,1,.8-.8h.14a.8.8,0,0,1,.8.8v.739a4.31,4.31,0,0,0-1.738,0V1.692ZM59.443,14.3a1.4,1.4,0,0,1-1.4-1.37h2.8A1.4,1.4,0,0,1,59.443,14.3Zm1.792-2.262h-6.33a4.664,4.664,0,0,0,.233-.409,11.266,11.266,0,0,0,.9-4.981,3.406,3.406,0,1,1,6.813,0c0,.005,0,.011,0,.016a11.244,11.244,0,0,0,.9,4.963,4.664,4.664,0,0,0,.233.409Z"
+                                transform="translate(-53.434 0)" fill="#28a745" />
+                        </svg>
+                    </i>
+                    <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry</a>
+                </li>
+            </ul>
+        </ul>
+        <hr />
+
+        <ul class="bigicons" id="messagesremove" (click)="messageslist()">
+            <li class="icons">
+                <div class="position-relative compose">
+                    <img src="./assets/message_icon.svg" alt="compose">
+                    <span class="position-absolute translate-middle badge rounded-pill danger compose icon2">
+                        1
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </div>
+                <div class="big_iconbackground"></div>
+                <ul class="messagesdropdown hide" id="dropdownmessages"  >
+                    <div class="arrowup"></div>
+                    <div class="searchpart d-flex head justify-content-between align-items-center">
+
+                        <div class="search_icon">
+                            <button class="searchimgg" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                                    <defs>
+                                        <style>
+                                            .a {}
+                                        </style>
+                                    </defs>
+                                    <g transform="translate(0 0)">
+                                        <path class="a"
+                                            d="M14.817,13.936,10.551,9.67a5.949,5.949,0,1,0-.884.884l4.266,4.266a.625.625,0,1,0,.884-.884ZM5.937,10.628A4.688,4.688,0,1,1,10.625,5.94,4.692,4.692,0,0,1,5.937,10.628Z"
+                                            transform="translate(0 -0.003)" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <input type="search" class="searchinput" id="gsearch" placeholder="Search by project or by User" name="gsearch">
+                        <div class="speak_icon">
+                            <svg id="Action" xmlns="http://www.w3.org/2000/svg" width="12" height="19"
+                                viewBox="0 0 12 19">
+                                <path id="Dictation"
+                                    d="M8.75,19H3.25a.75.75,0,0,1,0-1.5h2V15.95A6.012,6.012,0,0,1,0,10V7.25a.75.75,0,1,1,1.5,0V10a4.5,4.5,0,0,0,9,0V7.25a.75.75,0,1,1,1.5,0V10a6.01,6.01,0,0,1-5.25,5.95V17.5h2a.75.75,0,1,1,0,1.5ZM6,13a3,3,0,0,1-3-3V3A3,3,0,0,1,9,3v7A3,3,0,0,1,6,13Z" />
+                            </svg>
+                        </div>
+
+                        <i class="compose_icon" id="ttest" routerLink="/message" (click)="addbodyclass()" >
+                            <svg id="compose_icon" xmlns="http://www.w3.org/2000/svg" width="16.131" height="14.014"
+                                viewBox="0 0 16.131 14.014">
+                                <path id="Path_17878" data-name="Path 17878"
+                                    d="M101.524,110.027H90.568a2.59,2.59,0,0,0-2.587,2.587v7.19a2.59,2.59,0,0,0,2.587,2.587H95.05a.72.72,0,0,0,0-1.44H90.568a1.149,1.149,0,0,1-1.147-1.147v-6.839l5.259,3.27a2.572,2.572,0,0,0,2.733,0l5.259-3.27v2.014a.72.72,0,1,0,1.44,0v-2.365a2.59,2.59,0,0,0-2.587-2.587Zm-4.872,4.985a1.141,1.141,0,0,1-1.212,0l-5.45-3.389a1.139,1.139,0,0,1,.578-.157h10.956a1.139,1.139,0,0,1,.578.157Zm0,0"
+                                    transform="translate(-87.981 -110.027)" />
+                                <path id="Path_17879" data-name="Path 17879"
+                                    d="M267.417,242.887,264,246.3a.721.721,0,0,0-.18.3l-.744,2.45a.72.72,0,0,0,.881.9l2.512-.7a.719.719,0,0,0,.316-.184l3.41-3.4a1.965,1.965,0,0,0-2.778-2.779Zm1.389.865a.525.525,0,0,1,.372.9l-.052.052-.742-.742.051-.051A.522.522,0,0,1,268.805,243.752Zm-2.9,4.165-1.068.3.311-1.025,2.22-2.215.743.743Zm0,0"
+                                    transform="translate(-254.64 -235.963)" />
+                            </svg>
+                        </i>
+                    </div>
+                    <div class="d-flex head justify-content-between align-items-center">
+                        <h4>Messages</h4>
+                        <i><svg id="sorticon" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectangle_210" data-name="Rectangle 210" width="24" height="24" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Mask_Group_8" data-name="Mask Group 8" clip-path="url(#clip-path)">
+                                    <g id="sort-down" transform="translate(1 2)">
+                                        <g id="Group_595" data-name="Group 595">
+                                            <g id="Group_594" data-name="Group 594">
+                                                <path id="Path_17663" data-name="Path 17663"
+                                                    d="M1.22,91.2h12.3v-2.44H1.22a1.22,1.22,0,0,0,0,2.44Z"
+                                                    transform="translate(0 -85.507)" />
+                                                <path id="Path_17664" data-name="Path 17664"
+                                                    d="M1.22,193.758h12.3v-2.44H1.22a1.22,1.22,0,0,0,0,2.44Z"
+                                                    transform="translate(0 -183.167)" />
+                                                <path id="Path_17665" data-name="Path 17665"
+                                                    d="M1.22,293.874h0a1.22,1.22,0,0,0,0,2.44H9.763a3.015,3.015,0,0,1,.257-2.44Z"
+                                                    transform="translate(0 -280.826)" />
+                                                <path id="Path_17666" data-name="Path 17666"
+                                                    d="M242.48,34.074a1.543,1.543,0,0,0-2.182,0l-1.267,1.267V22.152a1.543,1.543,0,0,0-3.086,0V35.341l-1.267-1.267a1.543,1.543,0,0,0-2.182,2.182l3.9,3.9a1.544,1.544,0,0,0,2.183,0l3.9-3.9A1.543,1.543,0,0,0,242.48,34.074Z"
+                                                    transform="translate(-220.964 -20.609)" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg></i>
+                    </div>
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Image.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>James Brad <em>(A-1 Plumbing)</em></h2>
+                            <span>Canova, 5789 Percentage Point Lane</span>
+                        </div>
+                    </li>
+
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Imagem.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>Allen <em>(A-1 Plumbing)</em></h2>
+                            <span>Deo, 1900 Avenue Rd</span>
+                        </div>
+                    </li>
+
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Image.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>Maxwell <em>(A-1 Plumbing)</em></h2>
+                            <span>Becon, 2001 Avenue D</span>
+                        </div>
+                    </li>
+
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Imagem.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>James Brad <em>(A-1 Plumbing)</em></h2>
+                            <span>Canova, 5789 Percentage Point Lane</span>
+                        </div>
+                    </li>
+
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Image.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>James Brad <em>(A-1 Plumbing)</em></h2>
+                            <span>Canova, 5789 Percentage Point Lane</span>
+                        </div>
+                    </li>
+
+                    <li class="d-flex">
+                        <i class="">
+                            <img src="./assets/Imagem.svg">
+                        </i>
+                        <div class="rightcontent">
+                            <h2>James Brad <em>(A-1 Plumbing)</em></h2>
+                            <span>Canova, 5789 Percentage Point Lane</span>
+                        </div>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="bigicon">
+            <li class="icons" routerLink="/home">
+                <div class="position-relative notifications">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="26.625" viewBox="0 0 22.688 26.625">
+                        <path id="Path_19138" data-name="Path 19138"
+                            d="M13.219.531a2.557,2.557,0,0,1-1.875.781A2.557,2.557,0,0,1,9.469.531a2.522,2.522,0,0,1-.781-1.844H14A2.522,2.522,0,0,1,13.219.531ZM20-6.687,22.688-4v1.313H0V-4L2.688-6.687V-14a8.408,8.408,0,0,1,1.875-5.406,8.45,8.45,0,0,1,4.75-3.031v-.875a1.893,1.893,0,0,1,.594-1.437,2.014,2.014,0,0,1,1.438-.562,1.908,1.908,0,0,1,1.406.563,1.947,1.947,0,0,1,.563,1.438v.875a8.466,8.466,0,0,1,4.813,3.031A8.408,8.408,0,0,1,20-14ZM17.313-5.312V-14a5.786,5.786,0,0,0-1.75-4.25A5.786,5.786,0,0,0,11.313-20a5.786,5.786,0,0,0-4.25,1.75A5.786,5.786,0,0,0,5.313-14v8.688Z"
+                            transform="translate(0 25.313)" fill="#edeeef" />
+                    </svg>
+                    <span class="position-absolute translate-middle badge rounded-pill danger icon2">
+                        1
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </div>
+                <div class="big_iconbackgroundlast"></div>
+            </li>
+        </ul>
+
+        <ul class="profileuser">
+            <li id="adddropdown" class="profile">
+                <div class="d-flex justify-content-between">
+                    <div class="picplaceholder">
+                        ​<picture>
+                            <img src="./assets/userpic.jpg" class="img-fluid img-thumbnail" alt="...">
+                        </picture>
+                    </div>
+                    <div class="namedata">
+                        <div class="name_person_company">
+                            <h3>Brignac, Chad </h3>
+                            <h3 class="companyname">Chad Built Homes</h3>
+                        </div>
+                    </div>
+                    <div class="per_drop">
+                        <div class="company">20%</div>
+
+                        <div class="dropdown_arrow" role="button" id="dropdownMenuLink">
+                            <img src="./assets/down-icon2.png" alt="downarrow" (click)="showlist()">
+                        </div>
+                        <div class="dropdown_arrow hide" role="button" id="dropdownMenuLink2">
+                            <img src="./assets/down-icon.png" alt="downarrow" (click)="showlist2()">
+                        </div>
+                        <ul class="dropdownmenu hide" id="dropdownMenuLink3" (mouseleave)="moveout()">
+                            <div class="d-flex align-items-center">
+                                <li class="dropdownitemli nohover inactive">Admin Mode</li>
+                                <label class="switch1 positonswitch">
+                                    <input type="checkbox" disabled>
+                                    <span class="slider1 round1">
+                                        <div class="checktext1">On</div>
+                                    </span>
+                                </label>
+                            </div>
+                                <!--<li class="dropdownitemli">Tooltip Hovers</li>-->
+                                <label class="d-flex align-items-center switch positonswitch">
+                                    <div class="labeltouch"> Tooltip Hovers</div>
+                                    <div class="toggleswitch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </div>
+                                </label>
+
+                            <div class="d-flex align-items-center">
+                               
+                                
+                                <li id="languagediv" class="languageli" (click)="arrowup()">
+                                 <div class="d-flex align-items-center justify-content-between">
+                                    <div class="lft">
+                                      
+                                        <img src="assets/language icon.svg" class="settingbutton">
+                                        <img src="assets/language icon_blue.svg" class="settingbuttonw">
+                                        Language
+                                       
+                                    </div>
+                                    <div class="rgt">
+                                       
+                                            English
+                                     <svg id="arrowfilldown" xmlns="http://www.w3.org/2000/svg" width="9.988"
+                                        height="5.025" viewBox="0 0 9.988 5.025">
+                                        <path id="Path_18604" data-name="Path 18604"
+                                            d="M5951.5-16804.5l5.025,5.025,4.963-5.025Z"
+                                            transform="translate(-5951.5 16804.5)" />
+                                    </svg>
+                                    
+                                   </div>
+                                </div>
+                                </li>
+                                <li id="languagearrowup" class="languageli hide" (click)="arrowdown()">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                     <div class="lft"> 
+                                      
+                                          <img src="assets/language icon.svg" class="settingbutton">
+                                          <img src="assets/language icon_blue.svg" class="settingbuttonw">
+                                          Language
+                                        
+                                     </div>
+                                    <div class="rgt">
+                                    English <svg xmlns="http://www.w3.org/2000/svg" width="9.988" height="5.025"
+                                        viewBox="0 0 9.988 5.025">
+                                        <defs>
+                                            <style>
+                                                .a {}
+                                            </style>
+                                        </defs>
+                                        <path class="a" d="M5951.5-16799.477l5.025-5.025,4.963,5.025Z"
+                                            transform="translate(-5951.5 16804.502)" />
+                                    </svg>
+                                   </div>
+                                </div>
+                                </li>
+
+                                <ul id="languages" class="languages hide" (mouseleave)="setoutnew()">
+                                    <li><a href="">Spanish</a></li>
+                                    <li><a href="">French</a></li>
+                                </ul>
+
+
+                            </div>
+
+                            <li class="dropdownitemli"><a href="#"><img src="assets/settingsblack.svg" class="settingbutton"><img
+                                    src="assets/settings blue.svg" class="settingbuttonw">
+                                    Settings</a></li>
+                            <li class="dropdownitemli2" (click)="logout()"><a href="#">
+                                <img src="assets/log1.svg"
+                                    class="logoutbutton"><img src="assets/log2.svg" class="logoutbuttonw">
+                                    Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

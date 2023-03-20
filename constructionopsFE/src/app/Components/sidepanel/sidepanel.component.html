@@ -1,0 +1,213 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+<div class="col-1" [ngClass]="status ? 'mincol-1' : 'col-1'">
+    <div class="row row2">
+        <button class="btn toppanel" (click)="toggleText()" (click)="clickEvent()"
+            [ngClass]="status ? 'mintoppanel' : 'toppanel'">
+            <div class="topicons5" [ngClass]="status ? 'mintopicons5' : 'topicons5'">
+                <img class="topicons4" src="./assets/collapsedL.png" alt="users">
+                <img class="topicons3" src="./assets/collapsedL.png" alt="users">
+                <img class="topicons2" src="./assets/collapsedL.png" alt="users">
+                <img class="topicons1" src="./assets/collapsedL.png" alt="users">
+                <img class="topicons" src="./assets/collapsedL.png" alt="users">
+            </div>
+            <div class="mintopicons6" [ngClass]="status ? 'mintopicons6' : 'topicons6'">
+                <img class="topicons7" src="./assets/collapsedR.png" alt="users">
+            </div>
+        </button>
+        <div class="space2"></div>
+        <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+        <div class="leftsidebar_menus" [ngClass]="status ? 'leftsidebar_menus2' : 'leftsidebar_menus'">
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'" routerLink="/company"
+                routerLinkActive="active">
+                <img class="icons1" [ngClass]="status ? 'minicons1' : 'icons1'" src="assets/company.svg" alt="company">
+                <img class="icons1" [ngClass]="status ? 'miniconsw1' : 'iconsw1'" src="assets/companyblue.svg" alt="company">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">My Company</div>
+                <div class="company" [ngClass]="status ? 'mincompany' : 'company'"> 20%</div>
+                <div class="sqaure1" [ngClass]="status ? 'minsqaure1' : 'sqaure1'"></div>
+                <ul *ngIf="isHomeRoute()" class="ul1" [ngClass]="status ? 'minul1' : 'ul1'" id="ul1">
+                    <li *ngIf="status" class="li1 licomp">
+                        <div class="row1">
+                            <div class="nameli">My Company</div>
+                            <div class="companyli"> 20%</div>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        Profile
+                    </li>
+                    <li class="li1">
+                        Database
+                        <ul class="ul2" [ngClass]="status ? 'minul2' : 'ul2'">
+                            <li class="li2" (click)="navworkschedule()">
+                                Work Schedules
+                            </li>
+                            <li class="li2" (click)="navholidays()">
+                                Holidays
+                            </li>
+                            <li class="li2">
+                                Positions / Titles
+                            </li>
+                            <li class="li2">
+                                Capacities
+                            </li>
+                            <li class="li2">
+                                Trade / Service Types
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="li1">
+                        Resources
+                        <ul class="ul3" [ngClass]="status ? 'minul3' : 'ul3'">
+                            <li class="li3">
+                                Internal Resources
+                            </li>
+                            <li class="li3">
+                                External Resources
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="li1">
+                        Commumnications
+                    </li>
+                    <li class="li1">
+                        Default Settings
+                    </li>
+                </ul>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'" routerLink="/home">
+                <img class="icons2" [ngClass]="status ? 'minicons2' : 'icons2'" src="assets/Dashboard.svg" alt="dashboard">
+                <img class="icons2" [ngClass]="status ? 'miniconsw2' : 'iconsw2'" src="assets/Dashboardblue.svg" alt="dashboard2">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Dashboard</div><button type="button"
+                    class="btn success" [ngClass]="status ? 'minbtn' : 'btn success'"> Performance</button>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons3" [ngClass]="status ? 'minicons3' : 'icons3'" src="assets/users.svg" alt="users">
+                <img class="icons3" [ngClass]="status ? 'miniconsw3' : 'iconsw3'" src="assets/usersblue.svg" alt="users">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Users</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/customers.svg" alt="customers">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/customersblue.svg" alt="customers">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Customers</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/Projects.svg" alt="Projects">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/Projectsblue.svg" alt="Projects">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Projects</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+                <div class="sqaure2" [ngClass]="status ? 'minsqaure2' : 'sqaure2'"></div>
+                <ul class="ul5" [ngClass]="status ? 'minul5' : 'ul5'">
+                    <li *ngIf="status" class="li1 licomp">
+                        <div class="row1">
+                            <div class="nameli">Projects</div>
+                        </div>
+                    </li>
+                    <li class="li5">
+                        All
+                    </li>
+                    <li class="li5">
+                        Pre-Contract Stage
+                    </li>
+                    <li class="li5">
+                        Pre-Construction Stage
+                    </li>
+                    <li class="li5">
+                        Construction Stage
+                    </li>
+                    <li class="li5">
+                        Warranty Stage
+                    </li>
+                </ul>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/Tasks.svg" alt="Tasks">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/Tasksblue.svg" alt="Tasks">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Tasks</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/QA-QC.svg" alt="QA-QC">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/QA-QCblue.svg" alt="QA-QC">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Quality Assurance</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/schedules.svg" alt="schedules">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/schedulesblue.svg" alt="schedules">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Schedules</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/cost control.svg" alt="cost control">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/cost controlblue.svg" alt="cost control">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Cost Control</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/plan-specifications.svg" alt="plan-specifications">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/plan-specificationsblue.svg" alt="plan-specifications">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Plans / Specifications</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/design selections.svg" alt="design selections">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/design selectionsblue.svg" alt="design selections">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Design Selections</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/communications.svg" alt="communications">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/communicationsblue.svg" alt="communications">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Communications</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/images.svg" alt="images">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/imagesblue.svg" alt="images">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Images</div>
+                <div class="noticification" [ngClass]="status ? 'minnoticification' : 'noticification'">1</div>
+            </div>
+            <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+            <div class="panel" [ngClass]="status ? 'minpanel' : 'panel'">
+                <img class="icons4" [ngClass]="status ? 'minicons4' : 'icons4'" src="assets/settings.svg" alt="settings">
+                <img class="icons4" [ngClass]="status ? 'miniconsw4' : 'iconsw4'" src="assets/settingsblue.svg" alt="settings">
+                <div class="name" [ngClass]="status ? 'minname' : 'name'">Settings</div>
+            </div>
+        </div>
+        <div class="space2"></div>
+        <hr class="hr" [ngClass]="status ? 'minhr' : 'hr'" />
+        <div class="endpanel" [ngClass]="status ? 'minendpanel' : 'endpanel'">
+            <img class="topicons8" src="./assets/facebook.svg" alt="users"
+                [ngClass]="status ? 'mintopicons8' : 'topicons8'">
+            <img class="topicons9" src="./assets/twitter.svg" alt="users"
+                [ngClass]="status ? 'mintopicons9' : 'topicons9'">
+            <img class="topicons10" src="./assets/insta.svg" alt="users"
+                [ngClass]="status ? 'mintopicons10' : 'topicons10'">
+            <img class="topicons11" src="./assets/linkedin.svg" alt="users"
+                [ngClass]="status ? 'mintopicons11' : 'topicons11'">
+        </div>
+        <div class="bottompanel" [ngClass]="status ? 'minbottompanel' : 'bottompanel'">
+            <img class="logoimg" [ngClass]="status ? 'minlogoimg' : 'logoimg'" src="./assets/buildrOPs-Logo-login.png"
+                alt="">
+            <div class="footer" [ngClass]="status ? 'minfooter' : 'footer'">Construction Ops Software Co - All
+                Rights
+                Reserved &copy;</div>
+            <div class="footer2" [ngClass]="status ? 'minfooter2' : 'footer2'">COS- &copy;</div>
+        </div>
+    </div>
+</div>

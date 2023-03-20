@@ -1,0 +1,40 @@
+.fullScreen {
+  background-image: url(../../../../assets/bg@2x.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+.navbar{
+  background-color: #001f38;
+  padding: 0px;
+  margin-left: 1vw;
+}
+.companyheader{
+  border-top:1px solid #4b6174;
+  width: 85vw;
+  margin: 0px;
+  padding: 0px;
+}
+
+.notification{
+  width: 85vw;
+  margin: 0px;
+  padding: 0px;
+}
+
+.headerimg {
+  margin-left: 1rem;
+}
+.headerimg img {
+  width: 12vw;
+  height: 16vh;
+}
+.box1{
+  background-color: rgb(255, 255, 255);
+}
+.box2{
+  height: 79vh;
+  background-color: #EDEEEF;
+  border-radius: 4px;
+}

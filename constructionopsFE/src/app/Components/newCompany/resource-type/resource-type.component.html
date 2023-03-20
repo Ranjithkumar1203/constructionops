@@ -1,0 +1,104 @@
+<div class="sort">
+  <button (click)="sortAlphabetically()">Arrange Alphabetically</button>
+</div>
+
+<table>
+  <thead>
+    <tr class="tablehead">
+      <th class="px-3">ACTION</th>
+      <th>RESOURCE TYPE LIBRARY</th>
+      <th>RESOURCE TYPE DETAILS</th>
+      <th>SOFTWARE NAME</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of allResources">
+      <td style="width: 4vw" class="px-3">
+        <span class="me-3" (click)="editResource(data)">
+          <i class="fa fa-pencil action"></i>
+        </span>
+        <span (click)="deleteResource(data)">
+          <i class="fa fa-trash text-danger"></i
+        ></span>
+      </td>
+
+      <td>{{ data.resourceType }}</td>
+      <td>{{ data.resourceTypeDetails }}</td>
+      <td class="t10" style="border-right: 2px solid #FFFFFF;">
+        <div class="nameleable">
+          <div class="softwarename">{{ data.softwareName }}</div>
+          <div class="">
+            <img
+              src="./assets/arrow-down.svg"
+              id="editweek{{ data.id }}"
+              class="edit2"
+              (click)="editsoftware(data)"
+            />
+            <img
+              src="./assets/arrow-up.svg"
+              id="doneweek{{ data.id }}"
+              class="check3 hide"
+              (click)="doneweek(data.id)"
+            />
+          </div>
+        </div>
+        <ul id="listweek{{ data.id }}" class="list3 hide">
+          <li *ngFor="let option of options" class="subli1">
+            <input
+              (change)="
+                onCheckBoxChange($event, data.softwareName, option.name)
+              "
+              type="checkbox"
+              value="{{ option.name }}"
+              class="form-check-input subli1checkbox6"
+              [(ngModel)]="option.checked"
+            />
+            <div class="subli1text">{{ option.name }}</div>
+          </li>
+          <li class="btnli">
+            <div class="rowbtn">
+              <div class="colbtn">
+                <button (click)="doneweek(data.id)" class="btn canbtn">
+                  Close
+                </button>
+              </div>
+              <div class="colbtn1">
+                <button
+                  type="submit"
+                  (click)="updateweek(data)"
+                  (click)="doneweek(data.id)"
+                  class="btn appbtn2"
+                >
+                  Apply
+                </button>
+              </div>
+              <div class="colbtn1">
+                <button type="submit" (click)="selectAll()" class="btn appbtn2">SelectAll</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="textOnPlus" class="hover2">
+  <div class="tooltip-right"></div>
+  Add Resource Type
+</div>
+<div
+  (mouseover)="showWork()"
+  (mouseout)="hideWork()"
+  (click)="openAddResourceDialog()"
+  class="circlediv"
+>
+  <i class="fa fa-plus"></i>
+</div>

@@ -1,0 +1,631 @@
+<div class="modal" data-bs-backdrop="focus" id="exampleModalcreating" tabindex="-1" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: 698px; max-width: 698px;">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New Holiday</h5>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="space"></div>
+                <div class="row">
+                    <label class="namelable">
+                        Holiday Name:
+                    </label>
+                    <input type="text" class="nameinput" [(ngModel)]="holidayname" #name="ngModel" id="holidaynamerow"
+                        (keyup.enter)="onChange($event,name.value)" (ngModelChange)='on2Change($event)'>
+                </div>
+                <div class="space"></div>
+                <div class="row1">
+                    <div class="ruletext">
+                        Rule Settings
+                    </div>
+                    <div class="col1">
+                        <div class="row1">
+                            <div style="padding-top: 3.5px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="holidaycheck" (change)="activebasicform($event)" id="checkstandard">
+                            </div>
+
+                            <div class="rule1">
+                                Standard Reoccurrence
+                            </div>
+                            <div class="hoverimg1">
+                                <img src="../../../../../../assets/questions.svg"
+                                    style="width: 15px; height: 15px; margin-bottom: 8px;">
+                                <div class="hover1">
+                                    <div class="tooltip-down"></div>
+                                    <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                                letter-spacing: 0px;
+                                                color: #FFFFFF;
+                                                opacity: 1;">
+                                        False
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col3">
+                        <div class="row1">
+                            <div style="padding-top: 3.5px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox">
+                            </div>
+                            <div class="rule2">
+                                Custom Reoccurrence
+                            </div>
+                            <div class="hoverimg1">
+                                <img src="../../../../../../assets/questions.svg"
+                                    style="width: 15px; height: 15px; margin-bottom: 8px;">
+                                <div class="hover2">
+                                    <div class="tooltip-down"></div>
+                                    <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                        letter-spacing: 0px;
+                                        color: #FFFFFF;
+                                        opacity: 1;">
+                                        False
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col4">
+                        <div class="row1">
+                            <div style="padding-top: 3.5px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox">
+                            </div>
+                            <div class="rule3">
+                                No Reoccurrence
+                            </div>
+                            <div class="hoverimg1">
+                                <img src="../../../../../../assets/questions.svg"
+                                    style="width: 15px; height: 15px; margin-bottom: 8px;">
+                                <div class="hover3">
+                                    <div class="tooltip-down"></div>
+                                    <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                    letter-spacing: 0px;
+                                    color: #FFFFFF;
+                                    opacity: 1;">
+                                        False
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row2 hide" id="basicform1">
+                    <div class="repeattext">
+                        Repeat Every
+                    </div>
+                    <input type="text" class="row2box" id="repeat1text" [(ngModel)]="repeatnumber" #number="ngModel">
+                    <div style="padding-top: 8px; padding-right: 5px; padding-left: 15px;">
+                        <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="yearvalue"
+                            (change)="selectrepeatyear($event)">
+
+                    </div>
+                    <div class="row2text2">
+                        Year
+                    </div>
+                    <div style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
+                        <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="monthvalue"
+                            (change)="selectrepeatmonth($event)">
+
+                    </div>
+                    <div class="row2text2">
+                        Month
+                    </div>
+                    <div style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
+                        <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="weeksvalue"
+                            (change)="selectrepeatweek($event)">
+
+                    </div>
+                    <div class="row2text2">
+                        Week
+                    </div>
+                    <div style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
+                        <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="dayvalue"
+                            (change)="selectrepeatday($event)">
+
+                    </div>
+                    <div class="row2text2">
+                        Day
+                    </div>
+                    <div class="row2text3">
+                        Expires:
+                    </div>
+                    <div class="row2box2">
+                        <input type="text" class="cdayinput" value="{{expireOnSelectedValue}}" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit1" (click)="expireeditclick()"
+                                id="expirevalueedit">
+                            <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="expireclick()"
+                                id="expirevaluecheck"></a>
+                        <ul class="hidelist2 paddinglist" id="expirevaluelist">
+                            <li class="subli2" *ngFor="let expireitem of expireOptionList" (click)="expireclick()"
+                                (click)="updateexpirevalue(expireitem.value)">
+                                {{expireitem.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="repeattext hide" id="exptext1">
+                        of
+                    </div>
+                    <input type="text" class="row2box3 hide" id="exptextbox1" [(ngModel)]="expireyear" #year="ngModel">
+                    <input type="text" class="row2box4 hide" id="exptextbox2" [(ngModel)]="expireevent"
+                        #event="ngModel">
+                    <div class="repeattext hide" id="exptext2">
+                        Events
+                    </div>
+
+                </div>
+                <div class="space"></div>
+                <div class="row3 hide" id="basic1form2" style="opacity: 0.6;">
+                    <div class="row3text1">
+                        On The:
+                    </div>
+                    <div class="row3box1">
+                        <input type="text" class="cdayinput" placeholder="Select" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit3">
+                        </a>
+
+                    </div>
+                    <div class="row3box2">
+                        S
+                    </div>
+                    <div class="row3box3">
+                        M
+                    </div>
+                    <div class="row3box3">
+                        T
+                    </div>
+                    <div class="row3box3">
+                        W
+                    </div>
+                    <div class="row3box3">
+                        T
+                    </div>
+                    <div class="row3box3">
+                        F
+                    </div>
+                    <div class="row3box3">
+                        S
+                    </div>
+                    <div class="row3text2">
+                        of
+                    </div>
+                    <div class="row3box1">
+                        <input type="text" class="cdayinput" placeholder="Select" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit3">
+                        </a>
+                    </div>
+                </div>
+                <div class="row3 hide" id="basicform2">
+                    <div class="row3text1">
+                        On The:
+                    </div>
+                    <div class="row3box1">
+                        <input type="text" class="cdayinput" placeholder="Select" value="{{onTheSelectedValue}}"
+                            readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit1" (click)="onTheeditclick()"
+                                id="onThevalueedit">
+                            <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="onTheclick()"
+                                id="onThevaluecheck"></a>
+                        <ul class="hidelist2 paddinglist" id="onThevaluelist">
+                            <li class="subli2" *ngFor="let onTheitem of onTheOptionList" (click)="onTheclick()"
+                                (click)="updateonThevalue(onTheitem.name)">
+                                {{onTheitem.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="row3box2" id="boxs1" (click)="clicksun()">
+                        S
+                    </div>
+                    <div class="row3box3" id="boxm" (click)="clickmon()">
+                        M
+                    </div>
+                    <div class="row3box3" id="boxt1" (click)="clicktue()">
+                        T
+                    </div>
+                    <div class="row3box3" id="boxw" (click)="clickwed()">
+                        W
+                    </div>
+                    <div class="row3box3" id="boxt2" (click)="clickthus()">
+                        T
+                    </div>
+                    <div class="row3box3" id="boxf" (click)="clickfri()">
+                        F
+                    </div>
+                    <div class="row3box3" id="boxs2" (click)="clicksat()">
+                        S
+                    </div>
+                    <div class="row3text2">
+                        of
+                    </div>
+                    <div class="row3box1">
+                        <input type="text" class="cdayinput" placeholder="Select" value="{{onMonthSelectedValue}}"
+                            readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit1" (click)="onMontheditclick()"
+                                id="onMonthvalueedit">
+                            <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="onMonthclick()"
+                                id="onMonthvaluecheck"></a>
+                        <ul class="hidelist2 paddinglist" id="onMonthvaluelist">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let onMonthitem of monthOptionList"
+                                        (click)="onMonthclick()" (click)="updateonMonthvalue(onMonthitem.name)">
+                                        {{onMonthitem.name}}</li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row4 hide" id="basicform3">
+                    <div class="row4text1">
+                        or
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row5 hide" id="basicform4">
+                    <div class="row5text1">
+                        In the Month of:
+                    </div>
+                    <div class="row5box1">
+                        <input type="text" class="cdayinput" value="{{onMonthSelectedValue}}" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit1" (click)="montheditclick()"
+                                id="monthvalueedit">
+                            <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="monthclick()"
+                                id="monthvaluecheck"></a>
+                        <ul class="hidelist2 paddinglist" id="monthvaluelist">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let monthitem of monthOptionList" (click)="monthclick()"
+                                        (click)="updatemonthvalue(monthitem.name)">
+                                        {{monthitem.name}}</li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="row5text2">
+                        on the
+                    </div>
+                    <div class="row5box2">
+                        <input type="text" class="cdayinput" value="{{daySelectedValue}}" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit1" (click)="dayeditclick()" id="dayvalueedit">
+                            <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="dayclick()"
+                                id="dayvaluecheck"></a>
+                        <ul class="hidelist2 paddinglist" id="dayvaluelist">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let dayitem of daysOptionList" (click)="dayclick()"
+                                        (click)="updatedayvalue(dayitem.name)">
+                                        {{dayitem.name}}</li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="row5text3">
+                        day of the Month
+                    </div>
+                </div>
+                <div class="row5 hide" id="basic1form4" style="opacity: 0.6;">
+                    <div class="row5text1">
+                        In the Month of:
+                    </div>
+                    <div class="row5box1">
+                        <input type="text" class="cdayinput" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit3">
+                        </a>
+                    </div>
+                    <div class="row5text2">
+                        on the
+                    </div>
+                    <div class="row5box2">
+                        <input type="text" class="cdayinput" readonly>
+                        <a class="img1">
+                            <img src="./assets/arrow-down.svg" class="edit3">
+                        </a>
+
+                    </div>
+                    <div class="row5text3">
+                        day of the Month
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row6 hide" id="basicform5">
+                    <div class="col5">
+                        <div class="row6col5text1">
+                            Observe as Non-Work Day
+                        </div>
+                        <div class="row7">
+                            <div style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox" id="observationyes"
+                                    [(ngModel)]="observableyes" (change)="observableyesno1($event)">
+
+                            </div>
+                            <div class="row2text2">
+                                Yes
+                            </div>
+                            <div style="padding-top: 8px; padding-right: 5px; padding-left: 15px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="observableno" (change)="observableyesno2($event)">
+
+                            </div>
+                            <div class="row2text2">
+                                No
+                            </div>
+                        </div>
+                        <div class="row8" id="plusminusrow1">
+                            <div class="row8text1">
+                                Observe for
+                            </div>
+                            <div class="row8box1" (click)="decrement()">
+                                -
+                            </div>
+                            <div class="row8box2">
+                                {{observedays}}
+                            </div>
+                            <div class="row8box3" (click)="increment()">
+                                +
+                            </div>
+                            <div class="row8text2">
+                                Day
+                            </div>
+                        </div>
+                        <div class="row8 hide" style="opacity: 0.6;" id="plusminusrow2">
+                            <div class="row8text1">
+                                Observe for
+                            </div>
+                            <div class="row8box1">
+                                -
+                            </div>
+                            <div class="row8box2">
+                                {{observedays}}
+                            </div>
+                            <div class="row8box3">
+                                +
+                            </div>
+                            <div class="row8text2">
+                                Day
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col6">
+                        <div class="row6col6text1">
+                            Alternate Observation
+                        </div>
+                        <div class="row9" id="observe1row1">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="day1observed" (change)="dayobserved1($event)" id="day1observedid">
+
+                            </div>
+                            <div class="row2text2">
+                                Observes Saturday Holidays on previous work day and Observes Sunday Holidays on Next
+                                Work Day
+                            </div>
+                        </div>
+                        <div class="row9 hide" id="observe2row1">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox1">
+
+                            </div>
+                            <div class="row2text4">
+                                Observes Saturday Holidays on previous work day and Observes Sunday Holidays on Next
+                                Work Day
+                            </div>
+                        </div>
+                        <div class="row9" id="observe1row2">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="day2observed" (change)="dayobserved2($event)">
+
+                            </div>
+                            <div class="row2text2">
+                                Observes Saturday Holidays On Previous Work Day ONLY
+                            </div>
+                        </div>
+                        <div class="row9 hide" id="observe2row2">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox1">
+
+                            </div>
+                            <div class="row2text4">
+                                Observes Saturday Holidays On Previous Work Day ONLY
+                            </div>
+                        </div>
+                        <div class="row9" id="observe1row3">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="day3observed" (change)="dayobserved3($event)">
+
+                            </div>
+                            <div class="row2text2">
+                                Observes Sunday Holidays On Next Work Day ONLY
+                            </div>
+                        </div>
+                        <div class="row9 hide" id="observe2row3">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox1">
+
+                            </div>
+                            <div class="row2text4">
+                                Observes Sunday Holidays On Next Work Day ONLY
+                            </div>
+                        </div>
+                        <div class="row9" id="observe1row4">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox"
+                                    [(ngModel)]="day4observed" (change)="dayobserved4($event)" id="day4observedid">
+
+                            </div>
+                            <div class="row2text2">
+                                Does Not Observe Weekend Holidays
+                            </div>
+                        </div>
+                        <div class="row9 hide" id="observe2row4">
+                            <div style="padding-top: 8px; padding-right: 5px;">
+                                <input type="checkbox" class="form-check-input subli1checkbox1">
+
+                            </div>
+                            <div class="row2text4">
+                                Does Not Observe Weekend Holidays
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row10">
+                <div class="col-1 B1 foot">
+                    <button type="button" class="btn B4" data-bs-dismiss="modal" id="closebtn">Close</button>
+                    <button type="button" class="btn B5 hide" id="cancelbtn" (click)="cancelbutton()">Cancel</button>
+                </div>
+                <div class="col-2 B2 foot">
+
+                </div>
+                <div class="col-3 B7 foot">
+                    <button type="button" class="btn B6" id="preview1btn">Preview</button>
+                    <button type="button" class="btn B4 hide" id="preview2btn" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalpreview">Preview</button>
+                </div>
+                <div class="col-3 B3 foot">
+                    <button type="button" class="btn B6" id="create1btn">Create</button>
+                    <button type="button" class="btn B4 hide" id="create2btn" (click)="createbtn()">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-bs-backdrop="focus" id="exampleModalpreview" tabindex="-1" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: 698px; max-width: 698px;">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New Holiday</h5>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="crow1">
+                    <div class="crow1text">
+                        Holiday is
+                    </div>
+                    <div class="crow1input">
+                        {{holidayname}}
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow2text">
+                        Rule Setting
+                    </div>
+                    <div class="crow1input">
+                        Standard Reoccurrence
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow3text">
+                        Every
+                    </div>
+                    <div class="crow1input">
+                        {{repeatnumber}}
+                    </div>
+                    <div class="crow1input2">
+                        {{repeatinterval}}
+                    </div>
+                    <div class="crow3text2">
+                        and
+                    </div>
+                    <div class="crow3text2">
+                        Expires
+                    </div>
+                    <div class="crow1input2">
+                        {{expireOnSelectedValue}}
+                    </div>
+                    <div class="crow3text2" *ngIf="expireswitchyear">
+                        of
+                    </div>
+                    <div class="crow1input2" *ngIf="expireswitchyear">
+                        {{expireyear}}
+                    </div>
+                    <div class="crow1input2" *ngIf="expireswitchevent">
+                        {{expireevent}}
+                    </div>
+                    <div class="crow3text2" *ngIf="expireswitchevent">
+                        Events
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow4text">
+                        On the
+                    </div>
+                    <div class="crow1input" *ngIf="!monthswitch">
+                        {{onTheSelectedValue}}
+                    </div>
+                    <div class="crow1input2" *ngIf="!monthswitch">
+                        {{weekvalue}}
+                    </div>
+                    <div class="crow1input" *ngIf="monthswitch">
+                        {{daySelectedValue}}
+                    </div>
+                    <div class="crow3text2">
+                       of
+                    </div>
+                    
+                    <div class="crow1input2">
+                        {{onMonthSelectedValue}}
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow5text">
+                        and
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow6text">
+                        This holiday will
+                    </div>
+                    <div class="crow1input">
+                        {{observablevalue}}
+                    </div>
+                </div>
+                <div class="crow2" *ngIf="observeAsWorkDay">
+                    <div class="crow7text" >
+                        for
+                    </div>
+                    <div class="crow1input">
+                        {{observedays}}  Days
+                    </div>
+                </div>
+                <div class="crow2" *ngIf="observeAsWorkDay">
+                    <div class="crow8text">
+                        and
+                    </div>
+                    <div class="crow1input">
+                        {{observationday}}
+                    </div>
+                </div>
+            </div>
+            <div class="row10">
+                <div class="ccol-1 B1 foot">
+                    <button type="button" class="btn B4" id="closebtn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalcreating">Close Preview</button>
+                </div>
+                <div class="ccol-2 B2 foot">
+
+                </div>
+                <div class="col-3 B3 foot">
+                    <button type="button" class="btn B4" data-bs-dismiss="modal" id="create2btn" (click)="createbtn()">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

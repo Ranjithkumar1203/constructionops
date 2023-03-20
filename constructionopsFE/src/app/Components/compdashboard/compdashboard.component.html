@@ -1,0 +1,24 @@
+<div class="contbody">
+    <div class="row row1">
+        <div class="col-1">
+            <div class="profileicon">
+                <img src="./assets/ChadBuiltHomesLogo.png" alt="profile" class="profile">
+                <p class="profiletag">QUALITY BY DESIGN</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <app-header></app-header>
+            <app-companyheader></app-companyheader>
+        </div>
+    </div>
+    <div class="row row2">
+        <div class="col1" [ngClass]="showInput ? 'maxcol1' : 'col1'">
+            <app-sidepanel></app-sidepanel>
+        </div>
+        <div class="col2" (click)="toggle()" [ngClass]="showInput ? 'maxcol2' : 'col2'">
+            <div class="body">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

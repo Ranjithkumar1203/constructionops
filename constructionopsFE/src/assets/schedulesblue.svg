@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_146" data-name="Rectangle 146" width="16" height="16" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="schedules" opacity="0.7" clip-path="url(#clip-path)">
+    <g id="Schedule" transform="translate(1.059 1)">
+      <g id="date_1_" data-name="date (1)">
+        <g id="Group_383" data-name="Group 383">
+          <g id="Group_382" data-name="Group 382">
+            <path id="Path_17512" data-name="Path 17512" d="M12.351,1.482H10.869V.494a.494.494,0,1,0-.988,0v.988H3.952V.494a.494.494,0,1,0-.988,0v.988H1.482A1.482,1.482,0,0,0,0,2.964v9.387a1.482,1.482,0,0,0,1.482,1.482H12.351a1.482,1.482,0,0,0,1.482-1.482V2.964A1.482,1.482,0,0,0,12.351,1.482Zm.494,10.869a.494.494,0,0,1-.494.494H1.482a.494.494,0,0,1-.494-.494V5.929H12.845Zm0-7.411H.988V2.964a.494.494,0,0,1,.494-.494H2.964v.988a.494.494,0,0,0,.988,0V2.47H9.881v.988a.494.494,0,0,0,.988,0V2.47h1.482a.494.494,0,0,1,.494.494V4.94Z" style="fill: rgb(97, 186, 215);"/>
+          </g>
+        </g>
+        <g id="Group_385" data-name="Group 385" transform="translate(3.225 6.443)">
+          <g id="Group_384" data-name="Group 384">
+            <path id="Path_17513" data-name="Path 17513" d="M126.9,239.291a.528.528,0,0,0-.734,0l-3.853,3.853-1.74-1.74a.528.528,0,0,0-.747.747l2.113,2.113a.528.528,0,0,0,.747,0l4.227-4.227A.528.528,0,0,0,126.9,239.291Z" transform="translate(-119.676 -239.143)" style="fill: rgb(97, 186, 215);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

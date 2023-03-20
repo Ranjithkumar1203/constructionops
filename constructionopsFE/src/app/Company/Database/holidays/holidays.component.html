@@ -1,0 +1,211 @@
+<nav>
+    <div class="lefttext">
+        Select all that apply for importing
+    </div>
+    <div class="midtext">
+        <div>
+            Build your company's database from our
+        </div>
+        <img src="./assets/BuildrOps-outside-rechtangle.svg" class="logoimg" >
+        <div>
+            library powered by
+        </div>
+        <span class="hoverimg"><img src="./assets/ConstructionOps-no-tagline.svg" class="logoimg1">
+            <div class="bridge"></div>
+            <div class="hover1" id="switch1">
+                <img src="./assets/ConstructionOps-all-taglines.svg" class="logoimg2">
+                <label class="switch1 positonswitch">
+                    <input type="checkbox" checked (change)="toogle()" [(ngModel)]="isToogle1">
+                    <span class="slider1 round1">
+                        <div class="checktext1">{{toogletext1}}</div>
+                    </span>
+                </label>
+            </div>
+        </span>
+    </div>
+    <div class="rightbutton">
+        <button type="button" class="btn btn-outline-primary size marg colour3" id="buttonhover">
+            Request to Add
+            <div class="hover2" id="switch2">
+                <div class="tooltip-right"></div>
+                Send a request to<img src="./assets/BuildrOps-outside-rechtangle-ondark.svg" class="logoimg4"> to add a new
+                Holiday
+                <label class="switch positonswitch2">
+                    <input type="checkbox" checked (change)="toogle2()" [(ngModel)]="isToogle">
+                    <span class="slider round">
+                        <div class="checktext1">{{toogletext}}</div>
+                    </span>
+                </label>
+            </div>
+        </button>
+
+        <button type="button" class="btn size colour5" id="colourchange" style="width: 86px;">
+            <img src="" class="export1" id="colourimage"> Import
+        </button>
+        <button type="button" class="btn size colour6 hide" (click)="importItems()" id="colourchanges"
+            style="width: 86px;">
+            <img src="" class="export" id="colourimage"> Import
+        </button>
+
+        <button type="button" class="hide" data-bs-toggle="modal" data-bs-target="#exampleModal" id="colourchangess">
+        </button>
+        <button type="button" class="hide" data-bs-toggle="modal" data-bs-target="#loadingModal" id="countdownbegins">
+        </button>
+        <button type="button" class="hide" data-bs-toggle="modal" data-bs-target="#confirmModal" id="settime">
+        </button>
+
+    </div>
+</nav>
+<table>
+    <tr class="tr1">
+        <th class="t1" style="border-right: 2px solid #FFFFFF; width: 3.16%;">
+            <span class="texthover3">
+                <input type="checkbox" (click)="toggleText()" name="selectall" id="checkedhover"
+                    class="form-check-input colour1" (change)="selectall(holidays)" [(ngModel)]="holidays.checked">
+                <div class="hover3 hide" [ngClass]="status1 ? 'hidehover3' : 'hover3'" id="hover3">
+                    <div class="tooltip-left"></div>
+                    Select All
+                </div>
+                <div class="hidehover4 hide" [ngClass]="status1 ? 'hover4' : 'hidehover4'" id="hover4">
+                    <div class="tooltip-left"></div>
+                    Unselect All
+                </div>
+            </span>
+
+        </th>
+        <th class="t2" style="border-right: 2px solid #FFFFFF; width: 15.94%;">
+            <ul>
+                <li>
+                    <img class="firstrw" src="./assets/BuildrOps-outside-rechtangle-ondark.svg" alt="log" width="100">                </li>
+                <li>
+                    HOLIDAY LIBRARY
+                </li>
+            </ul>
+        </th>
+        <th class="t3" style="border-right: 2px solid #FFFFFF; width: 22.94%; padding-left: 10px;">
+            HOLIDAY
+        </th>
+        <th class="t4">
+            OBSERVATION DAY METHOD
+        </th>
+    </tr>
+</table>
+<div class="bodydiv">
+    <table>
+        <tr *ngFor="let holiday of holidays" class="tr2">
+            <td class="t6" style="border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF; height: 26px;">
+                <input id="holidayItem{{holiday.holidayId}}" (change)="selectItem(holiday)"
+                    [(ngModel)]="holiday.itemChecked" type="checkbox" name="select" class="form-check-input colour2">
+            </td>
+            <td class="t2" style="border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF; height: 26px;">
+                {{holiday.name}}
+            </td>
+
+            <td class="t3" style="border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF; height: 26px;">
+                <input contenteditable="true" id="holidayname{{holiday.holidayId}}" class="hideupdatedata"
+                    [(ngModel)]="holiday.holidayName" #holidayName="ngModel"
+                    (keyup.enter)="onSomeAction($event,holiday.holidayId,holidayName.value)">
+                <span id="worknamedata">
+                    <p id="holidaynametext{{holiday.holidayId}}" class="update" (click)="edit(holiday.holidayId)">
+                        {{holiday.holidayName}}</p>
+                    <a><img src="./assets/editname.svg" id="button{{holiday.holidayId}}" class="edit"
+                            (click)="edit(holiday.holidayId)"><img src="./assets/checkname.svg"
+                            id="check{{holiday.holidayId}}" class="hidecheck" (click)="done(holiday.holidayId)"
+                            type="submit" (click)="updateholidays(holiday.holidayId,holidayName.value)"></a>
+                </span>
+            </td>
+            <td class="t4" style="border-bottom: 2px solid #FFFFFF; height: 26px;">
+                {{holiday.alternateObservation}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="modal" id="exampleModal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modalheader">
+                Confirm Import ({{test.length}})
+            </div>
+            <div class="modal-body">
+
+                Confirm you are ready to import data from
+                <img src="./assets/BUILDROPS_Naming_Transparent.png" class="logoimgs" style="height: 20px;"> library to
+                create your
+                company’s {{importtext}} database.
+            </div>
+            <div class="row">
+                <div class="col col1">
+                    <button type="button" class="btn b2" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="col col2">
+                    <button type="button" class="btn b2" data-bs-dismiss="modal" (click)="countdown()"
+                        (click)="setimeout()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="loadingModal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-contentconfirm">
+            <div class="modal-bodyconfirm">
+                <!-- <img src="./assets/ZZ5H.gif" class="loadingimg">
+                        <div class="loadingtext">
+                            Optimizing {{data}}%
+                        </div> -->
+                <div class="confirmtext">
+                    <div class="rloadingheader">Optimizing {{data}}%</div>
+                    <img src="./assets/check ed1.svg" class="confirmimg1">
+                    <!-- <img src="./assets/ZZ5H.gif" class="loadingimg"> -->
+                    <div class="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <!-- <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div> -->
+                    </div>
+                    <div class="rloadingtext"> Importing from
+                        <img src="./assets/BUILDROPS_Naming_Transparent.png" class="logoimg3" style="height: 20px;">
+                        {{importtext}}
+                        library is in progress. In the next steps you will review and customize your company's {{importtext}} database.
+                    </div>
+                </div>
+                <button type="button" class="hide" data-bs-dismiss="modal" id="confirm"
+                    (click)="setout()">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="confirmModal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-contentconfirm">
+            <div class="modal-bodyconfirm">
+                <div class="rloadingheader"></div>
+                <img src="./assets/check ed.svg" class="confirmimg">
+                <div class="confirmtext1 rloadingheader">
+                    <img src="./assets/BUILDROPS_Naming_Transparent.png" class="logoimg5" style="height: 22px;">
+                    Importing Complete
+                </div>
+                <button type="button" class="hide" data-bs-dismiss="modal" id="cancel"
+                    routerLink="/company/holidaysimported">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

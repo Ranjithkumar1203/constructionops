@@ -1,0 +1,178 @@
+<div class="maincontaint">
+  <div class="header">
+    <div class="uplogo">
+      <img src="../../../assets/footerlogo@2x.png" alt="" />
+    </div>
+    <div class="languagediv">
+      <div class="language">Language:</div>
+      <div>
+        <select class="form-select">
+          <option selected>English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="linebreak1"></div>
+  <div class="box2">
+    <div class="centrebox">
+      <div *ngIf="loginDiv === true">
+        <div class="text-center">
+          <div class="chadbuild">{{company.companyName}}</div>
+          <div class="enhancedopti">Enhanced Optimization</div>
+        </div>
+        <div>
+          <form [formGroup]="companyLogin" (ngSubmit)="onLogin()">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email*"
+                formControlName="username"
+                required
+              />
+            </div>
+            <div
+              class="text-danger"
+              style="text-align: start"
+              *ngIf="
+                companyLogin.controls['username'].hasError('required') &&
+                companyLogin.controls['username'].touched
+              "
+            >
+              Email is required
+            </div>
+
+            <div class="input-group">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="PASSWORD*"
+                formControlName="password"
+                required
+              />
+            </div>
+            <div
+              class="text-danger"
+              style="text-align: start"
+              *ngIf="
+                companyLogin.controls['password'].hasError('required') &&
+                companyLogin.controls['password'].touched
+              "
+            >
+              Password is required
+            </div>
+            <div class="rememberme">
+              <div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                  />
+                  <label class="form-check-label"> Remember Me </label>
+                </div>
+              </div>
+              <div style="cursor: pointer" (click)="forgotPasswordhandle()">
+                Forgot Password?
+              </div>
+            </div>
+            <button type="submit" class="btn" [disabled]="companyLogin.invalid">
+              Log In
+            </button>
+          </form>
+        </div>
+        <div class="troublelogin">Trouble Logging In?</div>
+      </div>
+      <div *ngIf="forgetPassDiv === true">
+        <div class="forgetText">
+          <div>
+            <h4>Forgot Password?</h4>
+          </div>
+          <div class="backText" (click)="backhandler()">
+            <img src="./assets/Arrow.svg" alt="." class="leftArrow" />Back
+          </div>
+        </div>
+        <div class="suggestiontext">
+          Please enter the email we will send you reset password link to
+          generate new password.
+        </div>
+        <form [formGroup]="emailForm" (ngSubmit)="sendEmailHandler()">
+          <div>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email Address"
+                formControlName="emailaddress"
+                required
+              />
+            </div>
+          </div>
+          <div
+            class="text-danger"
+            style="font-size: 1vw"
+            *ngIf="isEmailAvailable == false"
+          >
+            This Email is not register!
+          </div>
+          <div
+            class="text-danger"
+            style="font-size: 1vw"
+            *ngIf="
+              emailForm.controls['emailaddress'].hasError('required') &&
+              emailForm.controls['emailaddress'].touched
+            "
+          >
+            Email is required!
+          </div>
+          <button type="submit" [disabled]="emailForm.invalid" class="btn">
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="linebreak2"></div>
+  <div class="footer">
+    <div class="dullText2">
+      <span> Powered by </span>
+      <span>
+        <img src="../../../assets/footerlogo@2x.png" alt="" />
+      </span>
+      <span> Construction Ops Software Co - All Rights Reserved © </span>
+    </div>
+    <div class="text-center footernavs">
+      <ul>
+        <li>
+          <a
+            href="http://privacy.constructionrops.com/"
+            tabindex="-1"
+            target="blank"
+            >Privacy Policy</a
+          >
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            href="http://terms.constructionrops.com/"
+            tabindex="-1"
+            target="blank"
+            >Terms of Service</a
+          >
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            href="https://contact.constructionops.com/"
+            tabindex="-1"
+            target="blank"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

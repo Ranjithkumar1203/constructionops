@@ -1,0 +1,1211 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<table>
+    <tr class="trr1">
+        <th class="t1" id="eheader1"
+            style="border-top-left-radius: 5px; border-right: 2px solid #FFFFFF; width: 17.18%;">
+            {{headerword1}}
+        </th>
+        <th class="t15 hide" id="eheader2" style="border-right: 2px solid #FFFFFF; width: 20.18%; padding-left: 0px;">
+            <div style="display: flex; flex-direction: row;border:none;">
+                <div style="height: 40px; padding: 0px; width: 65px;border-right: 2px solid #FFFFFF;">
+
+                </div>
+                <div
+                    style="height: 40px; padding: 0px; width: calc(100% - 65px); padding-left: 10px; padding-top: 13px;">
+                    {{headerword1}}
+                </div>
+            </div>
+        </th>
+        <th class="t3" style="border-right: 2px solid #FFFFFF;" id="eheader3">
+            {{headerword2}} <span class="redmark"> *</span>
+        </th>
+        <th class="t3 hide" style="border-right: 2px solid #FFFFFF; width: 15%;" id="eheader4">
+            {{headerword2}} <span class="redmark"> *</span>
+        </th>
+        <th class="t4" style="border-right: 2px solid #FFFFFF;">
+            {{headerword3}}
+        </th>
+        <th class="t5" style="border-right: 2px solid #FFFFFF;" id="eheader5">
+            {{headerword4}} <span class="redmark"> *</span>
+        </th>
+        <th class="t5 hide" style="border-right: 2px solid #FFFFFF; width: 15%;" id="eheader6">
+            {{headerword4}} <span class="redmark"> *</span>
+        </th>
+        <th class="t6" style="border-right: 2px solid #FFFFFF;" id="eheader7">
+            {{headerword5}} <span class="redmark"> *</span>
+        </th>
+        <th class="t6 hide" style="border-right: 2px solid #FFFFFF; width: 15%;" id="eheader8">
+            {{headerword5}} <span class="redmark"> *</span>
+        </th>
+        <th class="t7" style="border-top-right-radius: 5px; width: 16.18%;" id="eheader9">
+            {{headerword6}} <span class="redmark"> *</span>
+        </th>
+        <th class="t7 hide" style="border-top-right-radius: 5px; width: 15.18%;" id="eheader10">
+            {{headerword6}} <span class="redmark"> *</span>
+        </th>
+    </tr>
+</table>
+<div class="bodydiv">
+    <table>
+
+        <tr *ngFor="let work of works" (dblclick)="doubletap($event,work.id)" class="opacitytr"
+            id="doubletabrow{{work.id}}">
+            <td class="t2" style="border-right: 2px solid #FFFFFF;" id="editrow1name{{work.id}}">
+                <div class="row1" id="checkhover3">
+                    <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="work.checked"
+                        (change)="select($event,work.id)" (mouseenter)="mousehoverincheckbox(work.id)"
+                        (mouseleave)="mousehoveroutcheckbox(work.id)" id="checkboxrow{{work.id}}">
+                    <input type="checkbox" class="form-check-input subli1checkbox7 hide" id="checkboxrows{{work.id}}">
+                    <div class="nameleable" (click)="workchecked(work.id)">
+                        {{work.workScheduleName}}
+                    </div>
+                </div>
+            </td>
+            <!-- <td class="t16 hide" style="border-right: 2px solid #FFFFFF;" id="editrow3name{{work.id}}">
+                <div class="row1" id="checkhover3">
+                    <input type="checkbox" class="form-check-input subli1checkbox" [(ngModel)]="work.checked"
+                        (mouseleave)="checkboxhoverleave(work.id)" (change)="select($event,work.id)"
+                        id="checkboxrow{{work.id}}">
+                    <input type="checkbox" class="form-check-input subli1checkbox7 hide" id="checkboxrows{{work.id}}">
+                    <div class="nameleable" (click)="workchecked(work.id)">
+                        {{work.workScheduleName}}
+                    </div>
+                </div>
+            </td> -->
+            <td class="t9 hide" id="editrow2name{{work.id}}"
+                style="border-right: 2px solid #FFFFFF; padding-top: 0px; padding-bottom: 0px;padding-left: 0px;">
+
+                <div style="display: flex; flex-direction: row;border:none;">
+                    <div
+                        style="padding: 0px; width: 63px;border-right: 2px solid #FFFFFF; height: 25px; padding-top: 4px;text-align: center;">
+                        <div id="workItem{{work.id}}">
+                            <div class="eyeballhover">
+                                <img src="assets/viewdarkblue.svg" class="eyeball" id="eyeball"
+                                    (click)="editsinglebutton(work.id)" data-bs-target="#vieweditmodal2"
+                                    data-bs-toggle="modal">
+                                <div class="hover1">
+                                    <div class="tooltip-left"></div>
+                                    <div class="hover1text">
+                                        View
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="save1csv" id="save1csv{{work.id}}" (mouseenter)="mousinsave(work.id)">
+                                <svg id="save-svgrepo-com" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Zm10.3-.091h0a.091.091,0,0,1-.091.091H12.211V9.363a.478.478,0,0,0-.478-.478h-8.8a.478.478,0,0,0-.478.478V13.71H1.048a.091.091,0,0,1-.091-.091V1.048A.091.091,0,0,1,1.048.957H2.461V5.249a.478.478,0,0,0,.478.478h8.8a.478.478,0,0,0,.478-.478V.957h1.4a.091.091,0,0,1,.091.091V13.619Z"
+                                            fill="#001f38" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="savecsv1hover hide" id="savecsv1hover{{work.id}}"
+                                (mouseleave)="mouseoutsave(work.id)" (click)="savesinglerow(work.id)">
+                                <svg id="save-hover" xmlns="http://www.w3.org/2000/svg" width="57" height="39.566"
+                                    viewBox="0 0 57 39.566">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Z"
+                                            fill="#07b9ec" />
+                                    </g>
+
+                                </svg>
+                                <div class="hover3">
+                                    <div class="tooltip-down"></div>
+                                    <div class="hover1text">
+                                        Save
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="savecsv" id="savecsv{{work.id}}" (mouseenter)="mousinsaves(work.id)">
+                                <svg id="save-svgrepo-com" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Zm10.3-.091h0a.091.091,0,0,1-.091.091H12.211V9.363a.478.478,0,0,0-.478-.478h-8.8a.478.478,0,0,0-.478.478V13.71H1.048a.091.091,0,0,1-.091-.091V1.048A.091.091,0,0,1,1.048.957H2.461V5.249a.478.478,0,0,0,.478.478h8.8a.478.478,0,0,0,.478-.478V.957h1.4a.091.091,0,0,1,.091.091V13.619Z"
+                                            fill="#FFFFFF" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="savecsvhover hide" id="savecsvhover{{work.id}}"
+                                (mouseleave)="mouseoutsaves(work.id)" (click)="savesinglerow(work.id)">
+                                <svg id="save-hover" xmlns="http://www.w3.org/2000/svg" width="57" height="39.566"
+                                    viewBox="0 0 57 39.566">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Z"
+                                            fill="#001f38" />
+                                    </g>
+                                </svg>
+                                <div class="hover3">
+                                    <div class="tooltip-down"></div>
+                                    <div class="hover1text">
+                                        Save
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t8"
+                        style="padding: 0px; width: calc(100% - 63px); padding-left: 5px; height: 25px;padding-top: 3px;">
+
+                        <span>
+                            <input autofocus id="workele{{work.id}}" class="update1data"
+                                (keyup.enter)="worknameid($event,work.workScheduleName,work.id)"
+                                [(ngModel)]="work.workScheduleName" #workname="ngModel">
+                            <img src="./assets/checkname.svg" id="checked{{work.id}}" class="check2"
+                                (click)="updateworkname(work.id,work.workScheduleName)">
+                        </span>
+                    </div>
+                </div>
+            </td>
+            <td class="t22 hide" id="editrow4name{{work.id}}"
+                style="border-right: 2px solid #FFFFFF; padding-top: 0px; padding-bottom: 0px;padding-left: 0px;">
+
+                <div style="display: flex; flex-direction: row;border:none;">
+                    <div
+                        style="padding: 0px; width: 63px;border-right: 2px solid #FFFFFF; height: 25px; padding-top: 4px;text-align: center;">
+                        <div id="workItem{{work.id}}">
+                            <div class="eyeballhover">
+                                <img src="assets/viewdarkblue.svg" class="eyeball" id="eyeball"
+                                    (click)="editsinglebutton(work.id)" data-bs-target="#staticBackdropview"
+                                    data-bs-toggle="modal">
+                                <div class="hover1">
+                                    <div class="tooltip-left"></div>
+                                    <div class="hover1text">
+                                        View
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="editcsv" id="editcsv{{work.id}}" (mouseenter)="mousinedit(work.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14.917" height="14.917"
+                                    viewBox="0 0 14.917 14.917">
+                                    <g id="edit" transform="translate(0.125 0.125)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="none" stroke="#001f38" stroke-width="0.25" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#001f38" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="editcsvhover hide" id="editcsvhover{{work.id}}"
+                                (mouseleave)="mouseoutedit(work.id)" (click)="editsinglerow(work.id)">
+                                <svg id="edit-lightblue-fill" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9018" data-name="Group 9018" transform="translate(0 0)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="#07b9ec" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+                                <div class="hover4">
+                                    <div class="tooltip-down"></div>
+                                    <div class="hover1text">
+                                        Edit
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="edit1csv" id="edit1csv{{work.id}}" (mouseenter)="mousinedits(work.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15.167" height="15.167"
+                                    viewBox="0 0 15.167 15.167">
+                                    <g id="edit-white" transform="translate(0.25 0.25)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="none" stroke="#fff" stroke-width="0.5" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+
+                            </div>
+                            <div class="edit1csvhover hide" id="edit1csvhover{{work.id}}"
+                                (mouseleave)="mouseoutedits(work.id)" (click)="editsinglerow(work.id)">
+                                <svg id="edit-darkblue-fill" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9018" data-name="Group 9018" transform="translate(0 0)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="#001f38" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+                                <div class="hover4">
+                                    <div class="tooltip-down"></div>
+                                    <div class="hover1text">
+                                        Edit
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t8"
+                        style="padding: 0px; width: calc(100% - 63px); padding-left: 5px; height: 25px;padding-top: 3px;">
+
+                        <div class="nameleable" (click)="workchecked(work.id)">
+                            {{work.workScheduleName}}
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="t3" style="border-right: 2px solid #FFFFFF;" id="editrow1week{{work.id}}">
+                <div class="nameleable">
+                    {{work.workingDays}}
+                </div>
+            </td>
+            <td class="t23 hide" style="border-right: 2px solid #FFFFFF;" id="editrow4week{{work.id}}">
+                <div class="nameleable">
+                    {{work.workingDays}}
+                </div>
+            </td>
+            <!-- <td class="t17 hide" style="border-right: 2px solid #FFFFFF;" id="editrow3week{{work.id}}">
+                <div class="nameleable">
+                    {{work.workingDays}}
+                </div>
+            </td> -->
+            <td class="t10 hide" style="border-right: 2px solid #FFFFFF;" id="editrow2week{{work.id}}">
+                <div class="nameleable">
+                    <input class="update1data" value="{{work.workingDays}}" readonly
+                        (click)="editweek(work.id,work.workingDays)">
+                    <img src="./assets/arrow-down.svg" id="editweek{{work.id}}" class="edit2"
+                        (click)="editweek(work.id,work.workingDays)">
+                    <img src="./assets/arrow-up.svg" id="doneweek{{work.id}}" class="check3 hide"
+                        (click)="doneweek(work.id)">
+
+                </div>
+                <ul id="listweek{{work.id}}" class="list1 hide">
+                    <li *ngFor="let option of options" class="subli1">
+                        <input type="checkbox" value="{{option.value}}" class="form-check-input subli1checkbox6"
+                            (change)="eonCheckboxChange(option.value,$event,work.id)" [(ngModel)]="option.checked">
+                        <div class="subli1text">{{option.name}}</div>
+                    </li>
+                    <li class="subli1">
+                        <input type="checkbox" id="sublist8" class="form-check-input subli1checkbox6"
+                            (change)="selectallday(work.id)" [(ngModel)]="work.ischeckedvalue" name="selectall">
+                        <div class="subli1text">{{selecttext}}</div>
+                    </li>
+                    <li class="btnli">
+                        <div class="rowbtn">
+                            <div class="colbtn">
+                                <button class="btn canbtn" id="clobtn{{work.id}}"
+                                    (click)="doneweek(work.id)">Close</button>
+                                <button class="btn clobtn hide" id="canbtn{{work.id}}"
+                                    (click)="canbutton(work.id)">Cancel</button>
+                            </div>
+                            <div class="colbtn1">
+                                <button type="submit" class="btn appbtn2" id="appbtns{{work.id}}">Apply</button>
+                                <button type="submit" class="btn appbtn hide" id="appbtn{{work.id}}"
+                                    (click)="updateweek(work.id)" (click)="doneweek(work.id)">Apply</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </td>
+            <td class="t4" style="border-right: 2px solid #FFFFFF;" id="editrow1noday{{work.id}}">
+                <div class="nameleable">
+                    {{work.numberOfDays}}
+
+                </div>
+            </td>
+            <td class="t24 hide" style="border-right: 2px solid #FFFFFF;" id="editrow4noday{{work.id}}">
+                <div class="nameleable">
+                    {{work.numberOfDays}}
+
+                </div>
+            </td>
+            <!-- <td class="t18 hide" style="border-right: 2px solid #FFFFFF;" id="editrow3noday{{work.id}}">
+                <div class="nameleable">
+                    {{work.numberOfDays}}
+
+                </div>
+            </td> -->
+            <td class="t11 hide" style="border-right: 2px solid #FFFFFF;" id="editrow2noday{{work.id}}">
+                <div class="nameleable">
+                    {{work.numberOfDays}}
+
+                </div>
+            </td>
+            <td class="t5" style="border-right: 2px solid #FFFFFF;" id="editrow1days{{work.id}}">
+                <div class="nameleable">
+                    {{work.dayWeekStarts}}
+                </div>
+            </td>
+            <td class="t25 hide" style="border-right: 2px solid #FFFFFF;" id="editrow4days{{work.id}}">
+                <div class="nameleable">
+                    {{work.dayWeekStarts}}
+                </div>
+            </td>
+            <!-- <td class="t19 hide" style="border-right: 2px solid #FFFFFF;" id="editrow3days{{work.id}}">
+                <div class="nameleable">
+                    {{work.dayWeekStarts}}
+                </div>
+            </td> -->
+            <td class="t12 hide" style="border-right: 2px solid #FFFFFF;" id="editrow2days{{work.id}}">
+                <div class="nameleable">
+
+                    <input class="update1data" value="{{work.dayWeekStarts}}" readonly
+                        (click)="editdays(work.id,work.dayWeekStarts)">
+                    <img src="./assets/arrow-down.svg" id="editdays{{work.id}}" class="edit2"
+                        (click)="editdays(work.id,work.dayWeekStarts)">
+                    <img src="./assets/arrow-up.svg" id="donedays{{work.id}}" class="check3 hide"
+                        (click)="donedays(work.id)">
+                </div>
+                <ul name="day" class="list1 hide" id="listdays{{work.id}}">
+                    <li class="vsubli" *ngFor="let day of days" (click)="donedays(work.id)"
+                        id="mworkingday{{work.id}}{{day.idday}}" (click)="updatedays(work.id,day.day)">
+                        <div id="hoverday{{work.id}}{{day.idday}}" class="">
+                            {{day.day}}
+                        </div>
+                    </li>
+                </ul>
+            </td>
+            <td class="t6" style="border-right: 2px solid #FFFFFF;" id="editrow1times{{work.id}}">
+                <div class="nameleable">
+                    {{work.timeDayStarts}}
+                </div>
+            </td>
+            <td class="t26 hide" style="border-right: 2px solid #FFFFFF;" id="editrow4times{{work.id}}">
+                <div class="nameleable">
+                    {{work.timeDayStarts}}
+                </div>
+            </td>
+            <!-- <td class="t20 hide" style="border-right: 2px solid #FFFFFF;" id="editrow3times{{work.id}}">
+                <div class="nameleable">
+                    {{work.timeDayStarts}}
+                </div>
+            </td> -->
+            <td class="t13 hide" style="border-right: 2px solid #FFFFFF;" id="editrow2times{{work.id}}">
+                <div class="nameleable">
+
+                    <input class="update1data" value="{{work.timeDayStarts}}" readonly
+                        (click)="edittimes(work.id,work.timeDayStarts)">
+                    <img src="./assets/arrow-down.svg" id="edittimes{{work.id}}" class="edit2"
+                        (click)="edittimes(work.id,work.timeDayStarts)">
+                    <img src="./assets/arrow-up.svg" id="donetimes{{work.id}}" class="check3 hide"
+                        (click)="donetimes(work.id)">
+                </div>
+                <ul class="list1 hide" id="listtimes{{work.id}}">
+                    <li class="vsubli">Add New</li>
+                    <li class="vsubli" *ngFor="let time of timevalues" id="mworkingtime{{work.id}}{{time.id}}"
+                        (click)="updatetimes(work.id,time.optionValue)" (click)="donetimes(work.id)">
+                        {{time.optionValue}}</li>
+                </ul>
+            </td>
+            <td class="t7" id="editrow1hour{{work.id}}">
+                <div class="nameleable">
+                    {{work.hoursWorking}}
+                </div>
+            </td>
+            <td class="t27 hide" id="editrow4hour{{work.id}}">
+                <div class="nameleable">
+                    {{work.hoursWorking}}
+                </div>
+            </td>
+            <!-- <td class="t21 hide" id="editrow3hour{{work.id}}">
+                <div class="nameleable">
+                    {{work.hoursWorking}}
+                </div>
+            </td> -->
+            <td class="t14 hide" id="editrow2hour{{work.id}}">
+                <div class="nameleable">
+
+                    <input class="update1data" value="{{work.hoursWorking}}" readonly
+                        (click)="edithour(work.id,work.hoursWorking)">
+                    <img src="./assets/arrow-down.svg" id="edithour{{work.id}}" class="edit2"
+                        (click)="edithour(work.id,work.hoursWorking)">
+                    <img src="./assets/arrow-up.svg" id="donehour{{work.id}}" class="check3 hide"
+                        (click)="donehour(work.id)">
+                </div>
+                <ul class="list1 hide" id="listhour{{work.id}}">
+                    <li class="vsubli">Add New</li>
+                    <li class="vsubli" *ngFor="let hour of hourvalues" id="mworkinghour{{work.id}}{{hour.id}}"
+                        (click)="updatehour(work.id,hour.optionValue)" (click)="donehour(work.id)">
+                        {{hour.optionValue}}</li>
+                </ul>
+            </td>
+        </tr>
+
+    </table>
+    <div class="bottomimg" id="bottomimg">
+        <button class="plus" id="plus">
+            <span class="plusspan">
+                <img src="./assets/floating-add-button.svg" class="plusimg" id="activehoveradd" (mouseenter)="hoverbutton3click()">
+                <img src="./assets/floating button-hover.svg" class="plusimg1" data-bs-toggle="modal" (mouseenter)="hoverbutton3click()"
+                    data-bs-target="#exampleModaladding" id="activeadd" (click)="check()">
+                    <img src="./assets/floating button-hover.svg" class="plusimg2 hide" id="activehover2add" (mouseenter)="hoverbutton3click()">
+                <div class="hover2" (mouseenter)="hoverbutton3click()">
+                    <div class="tooltip-right"></div>
+                    Add Work Schedule
+                </div>
+            </span>
+            <app-workadd></app-workadd>
+        </button>
+    </div>
+    <div class="bottom">
+        <span id="checkhover1">
+            <input type="checkbox" class="form-check-input subli1checkbox1 checkboxselect" [(ngModel)]="isselectall"
+                name="selectall" (change)="selectall()" id="selectallrows">
+            <div class="selecttext sumargin" id="selectalltext" (click)="selectall()">Select All </div>
+        </span>
+        <span id="checkhover2">
+            <input type="checkbox" class="form-check-input subli1checkbox3 opacitycheck" [(ngModel)]="isunselectall"
+                name="unselectall" id="unselectall" (change)="unselectall()">
+            <div class="selecttext sumargin opacitycheck" id="unselectalltext" (click)="unselectall()">Unselect All
+            </div>
+        </span>
+
+        <button class="editbutton" id="editbutton" (click)="editbuttinactive()">
+            <img src="./assets/edit-grey.svg" class="editimg" id="editimg">
+            <img src="./assets/editblue.svg" class="editimgactive hide" id="editimgb">
+            <img src="./assets/edit-white.svg" class="editimgactivew hide" id="editimgw">
+            Edit</button>
+        <button class="deletebutton" id="deletebutton" (click)="deletenumber()" (click)="deletepopupwidth()">
+            <img src="./assets/delete-grey.svg" class="deleteimg" id="deleteimg">
+            <img src="./assets/delete (6).svg" class="deleteimgactive hide" id="deleteimgb">
+            <img src="./assets/delete -white.svg" class="deleteimgactivew hide" id="deleteimgw">
+            Delete</button>
+        <button class="viewallbutton hide" id="viewallbutton" (click)="editbutton()" data-bs-target="#vieweditmodal2"
+            data-bs-toggle="modal">
+            <div style="display: flex; flex-direction: row; padding-left: 2.5px;">
+                View All
+                <div class="btndonetext2">
+                    (</div> {{works.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+
+        </button>
+        <button class="editallbutton hide" id="editallbutton" (click)="editallbuttonactive()">
+            <div style="display: flex; flex-direction: row;padding-left: 4px;">
+                Edit All
+                <div class="btndonetext2">
+                    (</div> {{works.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+        </button>
+        <button class="doneallbutton hide" id="doneallbutton" (click)="inactivedoneall()">
+            <div style="display: flex; flex-direction: row;padding-left: 2.5px;">
+                Save All
+                <div class="btndonetext2">
+                    (</div> {{activeedit.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#exampleModalcreated" data-bs-toggle="modal" id="createmodal">
+
+            </div>
+            <app-workcreate></app-workcreate>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-toggle="modal" data-bs-target="#exampleModaladd" id="activeadded">
+
+            </div>
+            <app-workadd></app-workadd>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#staticBackdrop" data-bs-toggle="modal" id="viewmodal">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#staticBackdropview" data-bs-toggle="modal" id="viewmodaleditview">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#deletemodal" data-bs-toggle="modal" id="viewdelete">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#vieweditmodal2" data-bs-toggle="modal" id="vieweditmodaledit">
+
+            </div>
+        </button>
+    </div>
+
+</div>
+<div class="bottomfoot">
+    <app-workfooter></app-workfooter>
+</div>
+
+<!-- View -->
+<div class="modal" id="staticBackdrop" data-bs-backdrop="focus" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngFor="let view of viewmodals">
+            <div class="modal-body modalviewedit">
+
+                <div class="viewheader">
+                    <div class="leftarrow"><img src="assets/next.svg" (click)="vprev()" class="vprev" id="vprev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    Work Schedule
+                    <div class="text3holidaynumber">
+                        {{view.sequence}} of {{works.length}}
+                    </div>
+                    <div class="rightarrrow"><img src="assets/next.svg" (click)="vnext()" class="vnext" id="vnext">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewcol">
+                    <div class="viewcol1">
+                        <div class="viewrow1">
+                            Work Schedule
+                        </div>
+                        <div class="viewrow2">
+                            {{view.workScheduleName}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow1" style="padding-left: 53px;">
+                            Starts on
+                        </div>
+                        <div class="viewrow2">
+                            {{view.dayWeekStarts}}
+                        </div>
+                        <div class="viewrow1" style="padding-left: 15px;">
+                            at
+                        </div>
+                        <div class="viewrow2" style="padding-left: 14px;">
+                            {{view.timeDayStarts}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow1" style="padding-left: 72px;">
+                            Works
+                        </div>
+                        <div class="viewrow2">
+                            {{view.workingDays}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow8" style="padding-left: 92px;">
+                            for
+                        </div>
+                        <div class="viewrow9" style="padding-left: 30px;">
+                            {{view.hoursWorking}}
+                        </div>
+                        <div class="viewrow8" style="padding-left: 10px;">
+                            Per Day
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewfooter" style="margin-top:154px;">
+                    <div class="viewbtn1" data-bs-dismiss="modal">
+                        Close
+                    </div>
+                    <div class="viewbtn2">
+
+                    </div>
+                    <div class="viewbtn3" (click)="edit2btn()" data-bs-target="#vieweditmodal" data-bs-toggle="modal">
+                        Edit
+                    </div>
+                    <div class="viewbtn4" (click)="deletebtn()" (click)="deletepopupwidth()" data-bs-target="#deletemodal"
+                        data-bs-toggle="modal">
+                        Delete
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- View edit -->
+<div class="modal" id="vieweditmodal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngFor="let viewwork of viewrecords">
+            <div class="modal-body modalviewedit">
+
+                <div class="viewheader1">
+                    <div class="leftarrow"><img src="assets/next.svg" (click)="prev()" class="vprev" id="eprev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    Work Schedule
+                    <div class="text3holidaynumber">
+                        {{viewwork.sequence}} of {{works.length}}
+                    </div>
+                    <div class="rightarrrow"><img src="assets/next.svg" (click)="next()" class="vnext" id="enext">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+                <label class="editname" id="namelable">
+                    Work Schedule
+
+                </label>
+                <input type="text" id="workname" [(ngModel)]="viewwork.vname" #vworkname="ngModel" class="editnameinput"
+                    name="workname" (keyup.enter)="worknameactive($event,viewwork.vname, viewwork.id,viewwork.vdays)">
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row1">
+                            <label class="editday">
+                                Working Days
+                            </label>
+                            <span class="span1" (click)="workweekswitch(viewwork.vdays, viewwork.id)">
+                                <input type="text" disabled="disabled" [(ngModel)]="viewwork.vdays" #vworkdays="ngModel"
+                                    name="workdays" class="editdayinput" id="workdays">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit3"
+                                    (click)="workdayedit(viewwork.vdays, viewwork.id)">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check3" (click)="workdaydone()">
+                            </span>
+                            <ul class="hidelist" id="list3">
+                                <li *ngFor="let option of options" class="vsubli vsubli1">
+                                    <input type="checkbox" value="{{option.value}}"
+                                        (change)="onCheckboxChange(option.value,$event,viewwork.id)"
+                                        class="form-check-input subli1checkbox" [(ngModel)]="option.checked">
+                                    <div class="vsubli2">{{option.name}}</div>
+                                </li>
+                                <li class="vsubli vsubli1">
+                                    <input type="checkbox" class="form-check-input subli1checkbox" name="selectall"
+                                        (change)="selectalldays()" [(ngModel)]="viewwork.ischeckedvalue">
+                                    <div class="vsubli2">{{selecttext}}</div>
+                                </li>
+                                <li class="btnli">
+                                    <div class="rowbtn">
+                                        <div class="colbtn">
+                                            <button class="btn vcanbtn" id="vclobtn"
+                                                (click)="workdaydone()">Close</button>
+                                            <button class="btn vclobtn hide" id="vcanbtn"
+                                                (click)="canbtn(viewwork.id)">Cancel</button>
+                                        </div>
+                                        <div class="colbtn1">
+                                            <button type="submit" class="btn vappbtn2" id="vappbtns">Apply</button>
+                                            <button type="submit" class="btn vappbtn hide" (click)="viewactive()"
+                                                id="vappbtn" (click)="workdaydone()"
+                                                (click)="vupdateapply(viewwork.id)">Apply</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row" style="margin: 0px;">
+                            <label class="editdaynumber">
+                                No. of Days
+                            </label>
+                            <input type="text" disabled="disabled" name="" class="editdaynumberinput"
+                                [(ngModel)]="viewwork.vdaynumber" #vworkdayssss="ngModel" id="worknoofdays">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row2">
+                            <label class="editday">
+                                Day Week Starts
+                            </label>
+                            <span class="span2" (click)="workdayswitch()">
+                                <input type="text" disabled="disabled" name="" class="editdayinput"
+                                    [(ngModel)]="viewwork.vdayvalue" #vworkweek="ngModel" id="workweek">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit" (click)="workedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check" (click)="workdone()">
+                            </span>
+
+                            <ul class="hidelist" id="list">
+                                <li class="vsubli" *ngFor="let day of days" (click)="viewactive()"
+                                    (click)="vupdatedayvalue(viewwork.id,day.day)" (click)="workdone()"
+                                    id="vworkingday{{viewwork.id}}{{day.idday}}">
+                                    {{day.day}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row row3">
+                            <label class="edittime">
+                                Time Day Starts
+                            </label>
+                            <span class="span3" (click)="worktimeswitch()">
+                                <input type="text" disabled="disabled" name="" class="edittimeinput"
+                                    [(ngModel)]="viewwork.vtime" #vworktime="ngModel" id="worktime">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit2" (click)="worktimesedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check2"
+                                    (click)="worktimesdone()">
+                            </span>
+                            <ul class="hidelist" id="list2">
+                                <li class="vsubli">Add New</li>
+                                <li class="vsubli" *ngFor="let time of times" id="vtime{{viewwork.id}}{{time.idtime}}"
+                                    (click)="worktimesdone()" (click)="viewactive()"
+                                    (click)="vupdatetime(viewwork.id,time.time)">
+                                    {{time.time}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row4">
+                            <label class="editday">
+                                Hours Working
+                            </label>
+                            <span class="span4" (click)="workhourswitch()">
+                                <input type="text" disabled="disabled" name="workhours" class="editdayinput"
+                                    [(ngModel)]="viewwork.vhour" #vworkhours="ngModel" id="workhours">
+                                <img src="./assets/arrow-down.svg" class="edit" id="workhoursedit"
+                                    (click)="workhoursedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="workhourscheck"
+                                    (click)="workhoursdone()">
+                            </span>
+
+                            <ul class="hidelist" id="workhourslist">
+                                <li class="vsubli">Add New</li>
+                                <li class="vsubli" *ngFor="let hour of hours" id="vhour{{viewwork.id}}{{hour.idhour}}"
+                                    (click)="viewactive()" (click)="workhoursdone()"
+                                    (click)="vupdatehour(viewwork.id,hour.hour)">
+                                    {{hour.hour}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-6">
+                    <div class="col-1" id="viewclose1" (click)="viewupdateclose()" (click)="closebtn()">
+                        Close
+                    </div>
+                    <div class="col-10 hide" (click)="cancelbtn()" id="viewclose2">
+                        Cancel
+                    </div>
+                    <div class="col-2" id="col2save">
+
+                    </div>
+                    <div class="col-9" id="viewsave1">
+                        Save
+                    </div>
+                    <div class="col-3 hide" id="viewsave2" (click)="viewinactive()"
+                        (click)="savebtn(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                        Save
+                    </div>
+                    <div id="col4save">
+                        <div class="col-8" id="viewsave3">
+                            Save & Next
+                        </div>
+                        <div class="col-4 hide" id="viewsave4" (click)="viewinactive()"
+                            (click)="savenextbtn(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                            Save & Next
+                        </div>
+                    </div>
+                    <div class="col-7" id="viewsave5">
+                        Save & Close
+                    </div>
+                    <div class="col-5 hide" id="viewsave6" data-bs-dismiss="modal"
+                        (click)="saveclose(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                        Save & Close
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- delete -->
+<div class="modal" id="deletemodal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modaldeletewidth" style="border-radius: 10px;" id="adding1width">
+            <div class="modal-body modaldelete" id="adding2width">
+                <div class="deleteheader">
+                    Confirming {{deletetext}} Deletion ({{deleterecords.length}})
+                </div>
+                <div class="deleteheader2">
+                    Confirm you want to delete {{deletetext2}}.
+                </div>
+                <div style="padding-top: 20px; padding-bottom: 34px;">
+                    <div class="deleteheader3">
+                        <div class="thheader1" id="adding5width">
+                            WORK SCHEDULE
+                        </div>
+                        <div class="deletepopupmargin" id="addmargin1width">
+
+                        </div>
+                        <div class="thheader10" id="adding4width" style="text-align: left;">
+                            DAYS
+                        </div>
+                        <div class="deletepopupmargin" id="addmargin2width">
+
+                        </div>
+                        <div class="thheader2" style="text-align: left;">
+                            STARTS
+                        </div>
+                        <div class="deletepopupmargin" id="addmargin3width">
+
+                        </div>
+                        <div class="thheader3" style="text-align: left;">
+                            WORKING
+                        </div>
+                    </div>
+                    <table>
+                        <div class="leftsidebar_menus2">
+                            <tr class="deleteheader4" *ngFor="let delete of deleterecords">
+                                <td class="thheader7">
+                                    <div class="deleteseq">
+                                        {{delete.sequencedelete}}
+                                    </div>
+                                </td>
+                                <td class="thheader4" id="adding6width{{delete.id}}">
+                                    {{delete.workScheduleName}}
+                                </td>
+                                <td class="deletepopupmargin" id="addmargin4width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader11" id="adding3width{{delete.id}}" style="text-align: left;">
+                                    {{delete.workingDays}}
+                                </td>
+                                <td class="deletepopupmargin" id="addmargin5width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader5" style="text-align: left;">
+                                    {{delete.dayWeekStarts}}
+                                </td>
+                                <td class="deletepopupmargin" id="addmargin6width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader6" style="text-align: left;">
+                                    {{delete.hoursWorking}}
+                                </td>
+                            </tr>
+                        </div>
+                    </table>
+                </div>
+                <div class="deletecheck">
+                    <span id="checkhover4">
+                        <input type="checkbox" class="form-check-input subli1checkbox5" name="selectall"
+                            [(ngModel)]="deleteselected">
+                        <span (click)="deleteselect()" id="checkhover5">
+                            Don’t ask me again.
+                        </span>
+                    </span>
+                </div>
+                <div class="deletebtn">
+                    <button class="btn closedeletebtn" data-bs-dismiss="modal" (click)="closedeletewidth()" (click)="viewclosemodal1()">
+                        Close
+                    </button>
+                    <div style="width: calc(100% - 310px);">
+
+                    </div>
+                    <button class="btn closedeletebtn1" data-bs-dismiss="modal" (click)="deletecomfirm()">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View2 edit -->
+<div class="modal" id="vieweditmodal2" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngFor="let viewwork of activeedits">
+            <div class="modal-body modalviewedit">
+
+                <div class="viewheader1">
+                    <div class="leftarrow"><img src="assets/next.svg" (click)="eprev()" class="vprev" id="dprev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    Work Schedule
+                    <div class="text3holidaynumber">
+                        {{viewwork.sequence}} of {{works.length}}
+                    </div>
+                    <div class="rightarrrow"><img src="assets/next.svg" (click)="enext()" class="vnext" id="dnext">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+                <label class="editname" id="namelable">
+                    Work Schedule
+                </label>
+                <input type="text" id="workname" [(ngModel)]="viewwork.vname" #vworkname="ngModel" class="editnameinput"
+                    name="workname" (keyup.enter)="worknameactive($event,viewwork.vname, viewwork.id,viewwork.vdays)">
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row1">
+                            <label class="editday">
+                                Working Days
+                            </label>
+                            <span class="span1" (click)="workweekswitch(viewwork.vdays, viewwork.id)">
+                                <input type="text" disabled="disabled" [(ngModel)]="viewwork.vdays" #vworkdays="ngModel"
+                                    name="workdays" class="editdayinput" id="workdays">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit3"
+                                    (click)="workdayedit(viewwork.vdays, viewwork.id)">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check3" (click)="workdaydone()">
+                            </span>
+                            <ul class="hidelist" id="list3">
+                                <li *ngFor="let option of options" class="vsubli vsubli1">
+                                    <input type="checkbox" value="{{option.value}}"
+                                        (change)="onCheckboxChange(option.value,$event,viewwork.id)"
+                                        class="form-check-input subli1checkbox" [(ngModel)]="option.checked">
+                                    <div class="vsubli2">{{option.name}}</div>
+                                </li>
+                                <li class="vsubli vsubli1">
+                                    <input type="checkbox" class="form-check-input subli1checkbox" name="selectall"
+                                        (change)="selectalldays()" [(ngModel)]="viewwork.ischeckedvalue">
+                                    <div class="vsubli2">{{selecttext}}</div>
+                                </li>
+                                <li class="btnli">
+                                    <div class="rowbtn">
+                                        <div class="colbtn">
+                                            <button class="btn vcanbtn" id="vclobtn"
+                                                (click)="workdaydone()">Close</button>
+                                            <button class="btn vclobtn hide" id="vcanbtn"
+                                                (click)="canbtn(viewwork.id)">Cancel</button>
+                                        </div>
+                                        <div class="colbtn1">
+                                            <button type="submit" class="btn vappbtn2" id="vappbtns">Apply</button>
+                                            <button type="submit" class="btn vappbtn hide" (click)="viewactive()"
+                                                id="vappbtn" (click)="workdaydone()"
+                                                (click)="vupdateapply(viewwork.id)">Apply</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row" style="margin: 0px;">
+                            <label class="editdaynumber">
+                                No. of Days
+                            </label>
+                            <input type="text" disabled="disabled" name="" class="editdaynumberinput"
+                                [(ngModel)]="viewwork.vdaynumber" #vworkdayssss="ngModel" id="worknoofdays">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row2">
+                            <label class="editday">
+                                Day Week Starts
+                            </label>
+                            <span class="span2" (click)="workdayswitch()">
+                                <input type="text" disabled="disabled" name="" class="editdayinput"
+                                    [(ngModel)]="viewwork.vdayvalue" #vworkweek="ngModel" id="workweek">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit" (click)="workedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check" (click)="workdone()">
+                            </span>
+
+                            <ul class="hidelist" id="list">
+                                <li class="vsubli" *ngFor="let day of days" (click)="viewactive()"
+                                    (click)="vupdatedayvalue(viewwork.id,day.day)" (click)="workdone()"
+                                    id="vworkingday{{viewwork.id}}{{day.idday}}">
+                                    {{day.day}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row row3">
+                            <label class="edittime">
+                                Time Day Starts
+                            </label>
+                            <span class="span3" (click)="worktimeswitch()">
+                                <input type="text" disabled="disabled" name="" class="edittimeinput"
+                                    [(ngModel)]="viewwork.vtime" #vworktime="ngModel" id="worktime">
+                                <img src="./assets/arrow-down.svg" class="edit" id="edit2" (click)="worktimesedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="check2"
+                                    (click)="worktimesdone()">
+                            </span>
+                            <ul class="hidelist" id="list2">
+                                <li class="vsubli">Add New</li>
+                                <li class="vsubli" *ngFor="let time of times" id="vtime{{viewwork.id}}{{time.idtime}}"
+                                    (click)="worktimesdone()" (click)="viewactive()"
+                                    (click)="vupdatetime(viewwork.id,time.time)">
+                                    {{time.time}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 0px;">
+                    <div class="col">
+                        <div class="row row4">
+                            <label class="editday">
+                                Hours Working
+                            </label>
+                            <span class="span4" (click)="workhourswitch()">
+                                <input type="text" disabled="disabled" name="workhours" class="editdayinput"
+                                    [(ngModel)]="viewwork.vhour" #vworkhours="ngModel" id="workhours">
+                                <img src="./assets/arrow-down.svg" class="edit" id="workhoursedit"
+                                    (click)="workhoursedit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck" id="workhourscheck"
+                                    (click)="workhoursdone()">
+                            </span>
+
+                            <ul class="hidelist" id="workhourslist">
+                                <li class="vsubli">Add New</li>
+                                <li class="vsubli" *ngFor="let hour of hours" id="vhour{{viewwork.id}}{{hour.idhour}}"
+                                    (click)="viewactive()" (click)="workhoursdone()"
+                                    (click)="vupdatehour(viewwork.id,hour.hour)">
+                                    {{hour.hour}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-6">
+                    <div class="col-1" id="viewclose1" (click)="viewupdateclose()" data-bs-dismiss="modal"
+                        (click)="closebutton()">
+                        Close
+                    </div>
+                    <div class="hide" id="viewclose3" data-bs-dismiss="modal">
+                        Close
+                    </div>
+                    <div class="col-10 hide" (click)="cancelbtn()" id="viewclose2">
+                        Cancel
+                    </div>
+                    <div class="col-2" id="col2save">
+
+                    </div>
+                    <div class="col-9" id="viewsave1">
+                        Save
+                    </div>
+                    <div class="col-3 hide" id="viewsave2" (click)="viewinactive()"
+                        (click)="savebtn(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                        Save
+                    </div>
+                    <div id="col4save">
+                        <div class="col-8" id="viewsave3">
+                            Save & Next
+                        </div>
+                        <div class="col-4 hide" id="viewsave4" (click)="viewinactive()"
+                            (click)="vsavenextbtn(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                            Save & Next
+                        </div>
+                    </div>
+                    <div class="col-7" id="viewsave5">
+                        Save & Close
+                    </div>
+                    <div class="col-5 hide" id="viewsave6" data-bs-dismiss="modal"
+                        (click)="saveclose(viewwork.id,vworkname.value,vworkdays.value,vworkdayssss.value,vworkweek.value,vworktime.value,vworkhours.value)">
+                        Save & Close
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- View2 -->
+<div class="modal" id="staticBackdropview" data-bs-backdrop="focus" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngFor="let view of activeedits">
+            <div class="modal-body modalviewedit">
+
+                <div class="viewheader">
+                    <div class="leftarrow"><img src="assets/next.svg" (click)="eprev()" class="vprev" id="d2prev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    Work Schedule
+                    <div class="text3holidaynumber">
+                        {{view.sequence}} of {{works.length}}
+                    </div>
+                    <div class="rightarrrow"><img src="assets/next.svg" (click)="enext()" class="vnext" id="d2next">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewcol">
+                    <div class="viewcol1">
+                        <div class="viewrow1">
+                            Work Schedule
+                        </div>
+                        <div class="viewrow2">
+                            {{view.workScheduleName}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow1" style="padding-left: 53px;">
+                            Starts on
+                        </div>
+                        <div class="viewrow2">
+                            {{view.dayWeekStarts}}
+                        </div>
+                        <div class="viewrow1" style="padding-left: 15px;">
+                            at
+                        </div>
+                        <div class="viewrow2" style="padding-left: 14px;">
+                            {{view.timeDayStarts}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow1" style="padding-left: 72px;">
+                            Works
+                        </div>
+                        <div class="viewrow2">
+                            {{view.workingDays}}
+                        </div>
+                    </div>
+                    <div class="viewcol1" style="padding-top: 20px;">
+                        <div class="viewrow8" style="padding-left: 92px;">
+                            for
+                        </div>
+                        <div class="viewrow9" style="padding-left: 30px;">
+                            {{view.hoursWorking}}
+                        </div>
+                        <div class="viewrow8" style="padding-left: 10px;">
+                            Per Day
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewfooter" style="margin-top:154px;">
+                    <div class="viewbtn1" data-bs-dismiss="modal">
+                        Close
+                    </div>
+                    <div class="viewbtn2">
+
+                    </div>
+                    <div class="viewbtn3" (click)="editbtn()" data-bs-target="#vieweditmodal2" data-bs-toggle="modal">
+                        Edit
+                    </div>
+                    <div class="viewbtn4" (click)="deletebtn()" (click)="deletepopupwidth()" data-bs-target="#deletemodal"
+                        data-bs-toggle="modal">
+                        Delete
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

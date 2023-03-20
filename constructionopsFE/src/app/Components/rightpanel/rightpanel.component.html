@@ -1,0 +1,155 @@
+<div class="row row1" (window:resize)="loadsize()">
+
+    <div id="hideebtn" class="hideebtn">
+        <div class="hidehidebtn" id="hidebtn" (click)="normal()" (click)="toggleText()">
+            <img src="assets/Arrowdarkdown.svg" class="arrowleft2">
+        </div>
+        <div class="hidehover">
+            <div class="tooltip-right"></div>
+            Show
+        </div>
+        <div class="hidebtn1 hide" id="hidebtn1" (mouseleave)="subclickhover()">
+            <img src="assets/Arrowdarkdown.svg" class="arrowleft2">
+        </div>
+
+    </div>
+    <div class="col1" [ngClass]="status ? 'maxcol1' : 'col1'" id="col1">
+        <div class="col1" [ngClass]="status ? 'maxcol' : 'col1'">
+            <div class="buttoncollapse" (click)="click()" [ngClass]="status ? 'hidebuttoncollapse' : 'buttoncollapse'">
+                <img src="assets/Arrowdarkup.svg" class="arrowright">
+            </div>
+            <!-- <img src="./assets/collapse button.svg" alt="button" class="buttoncollapse" (click)="click()"
+                [ngClass]="status ? 'hidebuttoncollapse' : 'buttoncollapse'"> -->
+            <div class="buttoncollapse" (click)="click()" [ngClass]="status ? 'buttoncollapse' : 'hidebuttoncollapse'"
+                id="expandbutton">
+                <img src="assets/Arrowdarkup.svg" class="arrowleft">
+            </div>
+            <!-- <img src="./assets/expand button.svg" alt="button" class="buttoncollapse" (click)="click()"
+                [ngClass]="status ? 'buttoncollapse' : 'hidebuttoncollapse'" id="expandbutton"> -->
+            <div class="containerup" id="containerup">
+                <img src="assets/Arrowdarkup.svg" class="toparrow" id="toparrow" (click)="up()">
+            </div>
+
+            <div class="leftsidebar_menus" [ngClass]="status ? 'leftsidebar_menus2' : 'leftsidebar_menus'"
+                id="scrollbar" (scroll)="myScroll()">
+                <div cdkDropList (cdkDropListDropped)="drop($event)" class="example-boundary">
+                    <div class="addbutton" *ngFor="let item of options" id="addbutton" [style.height.%]="heighttab"
+                        [ngClass]="status ? 'addbutton2' : 'addbutton'">
+                        <div class="autobutton" id="fullresizebtn{{item.id}}">
+                            <button class="buttonnew" (click)="routeing($event, item.id, item)"
+                                (dblclick)="tabRoute($event,item.id, item)" id="buttontab{{item.id}}"
+                                cdkDragLockAxis="y" cdkDrag cdkDragBoundary=".example-boundary"
+                                [cdkDragDisabled]="item.disabled" name="{{tabnumber}}">
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <div class="buttontext" id="buttontabtext{{item.id}}">
+
+                                    {{item.name}}
+
+                                </div>
+
+                                <!-- <input type="text" class="buttontext" id="buttontabtext{{item.id}}"
+                                placeholder="{{item.name}}" value="{{item.setname}}" readonly> -->
+                            </button>
+                            <button class="expand hide" id="buttontabs{{item.id}}">
+                                <div class="buttontext1 hide" id="buttontabtexts{{item.id}}">
+                                    {{item.name}}
+                                </div>
+                                <!-- <input type="text" class="buttontext1 hide" id="buttontabtexts{{item.id}}"
+                                placeholder="{{item.name}}" value="{{item.setname}}" readonly> -->
+                            </button>
+
+                        </div>
+                        <div class="autospace" id="fullresize1btn{{item.id}}"></div>
+                    </div>
+
+                    <!-- <div class="addbutton" *ngFor="let item of newitems" id="addbutton"
+                        [ngClass]="status ? 'addbutton2' : 'addbutton'">
+                        <div class="autobutton" id="fullresizebtn">
+                            <button class="buttonnew" (click)="routeings($event, item.id, item)"
+                                (dblclick)="tabRoutes($event,item.id, item)" id="buttontab{{item.id}}"
+                                cdkDragLockAxis="y" cdkDrag cdkDragBoundary=".example-boundary"
+                                [cdkDragDisabled]="item.disabled" name="{{tabnumber}}">
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <div class="buttontext" id="buttontabtext{{item.id}}">
+                                    {{item.name}}
+                                </div>
+                            </button>
+                            <button class="expand hide" id="buttontabs{{item.id}}">
+                                <div class="buttontext1 hide" id="buttontabtexts{{item.id}}">
+                                    {{item.name}}
+                                </div>
+
+                            </button>
+                        </div>
+                        <div class="autospace"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="containerdown" id="containerdown">
+                <div class="bridge">
+
+                </div>
+                <img src="assets/Arrowdarkdown.svg" class="bottomarrow" id="bottomarrow" (click)="down()"
+                    [ngClass]="status ? 'minbottomarrow' : 'bottomarrow'">
+            </div>
+        </div>
+
+        <div id="showbtn">
+            <div id="showidbtn" class="showbtn" (click)="subclick()" (click)="toggleText()" (mouseleave)="normalhover()"
+                [ngClass]="status ? 'showbtn' : 'hideshowbtn'">
+                <img src="assets/Arrowdarkup.svg" class="arrowright2">
+            </div>
+            <div class="showhover">
+                <div class="tooltip-right"></div>
+                Hide
+            </div>
+            <div id="showidbtn1" class="showbtn1 hide" (mouseleave)="normalhover()">
+                <img src="assets/Arrowdarkup.svg" class="arrowright2">
+            </div>
+            <!-- <div class="showbtn" (click)="subclick()" (click)="toggleText()"
+                [ngClass]="status ? 'showbtn' : 'hideshowbtn'">
+                <img src="assets/Arrowdarkup.svg" class="arrowright2">
+            </div> -->
+            <!-- <img src="" alt="" class="showbtn" (click)="subclick()" (click)="toggleText()"
+                [ngClass]="status ? 'showbtn' : 'hideshowbtn'"> -->
+        </div>
+    </div>
+    <div class="col2" [ngClass]="status ? 'maxcol2' : 'col2'">
+        <router-outlet></router-outlet>
+        <p id="demo"></p>
+    </div>
+</div>
+<!-- <div class="addbutton btn1" [ngClass]="status ? 'minbtn1' : 'btn1'">
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" (dblclick)="tabRoute()"
+                    routerLink="/home/task" routerLinkActive="active">
+                    Task list
+                </button>
+            </div>
+            <div class="addbutton btn2" [ngClass]="status ? 'minbtn2' : 'btn2'" cdkDrag>
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" (dblclick)="tabRoute()"
+                    routerLink="/home/project" routerLinkActive="active">
+                    Project List
+                </button>
+            </div>
+            <div class="addbutton btn3" [ngClass]="status ? 'minbtn3' : 'btn3'">
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" (dblclick)="tabRoute()"
+                    routerLink="/home/user" routerLinkActive="active">
+                    User List
+                </button>
+            </div>
+            <div class="addbutton btn4" [ngClass]="status ? 'minbtn4' : 'btn4'">
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" (dblclick)="tabRoute()"
+                    routerLink="/home/customer" routerLinkActive="active">
+                    Customer List
+                </button>
+            </div>
+            <div class="addbutton btn5" [ngClass]="status ? 'minbtn5' : 'btn5'">
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" routerLink="/home/tab">
+                    Assign
+                </button>
+            </div>
+            <div class="addbutton btn6" [ngClass]="status ? 'minbtn6' : 'btn6'">
+                <button class="buttonnew" [ngClass]="status ? 'minbuttonnew' : 'buttonnew'" (click)="createtab()">
+                    Assign
+                </button>
+            </div> -->

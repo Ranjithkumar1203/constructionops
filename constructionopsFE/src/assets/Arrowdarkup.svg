@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.25" height="23.415" viewBox="0 0 27.25 23.415">
+  <defs>
+    <filter id="Arrowdarkup" x="0" y="0" width="27.25" height="23.415" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Arrowdarkup)">
+    <path id="Arrowdarkup-2" data-name="Arrowdarkup" d="M4.3.188.132,4.311a.44.44,0,0,0,0,.628L4.3,9.062a.657.657,0,0,0,.921,0,.639.639,0,0,0,0-.91L1.656,4.625,5.224,1.1a.639.639,0,0,0,0-.91.657.657,0,0,0-.921,0" transform="translate(18.25 6) rotate(90)" fill="#001f38"/>
+  </g>
+</svg>

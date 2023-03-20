@@ -1,0 +1,18 @@
+
+<div class="maincontent">
+    <div *ngIf="showError==true" class="centreElement">
+       <div class="text1">
+           This link is already Used Or expired!
+       </div>
+       <div class="text2">You will be redirected to Login page...</div>
+       <div>
+
+       </div>
+    </div>
+    <div *ngIf="loading" class="text-center ">
+        <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+</div>
+

@@ -1,0 +1,48 @@
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div class='box1'>
+    <div class="toptab">
+        <div class='tab tab1 active'>
+            All
+        </div>
+        <div class='tab'>
+            Active
+        </div>
+        <div class='tab tab3'>
+            Inactive
+        </div>
+    </div>
+
+    <div class='sort'>
+        <img src="" class="sortdown">
+        Sort By
+        <img src="" alt="." class="leftArrow" id="leftArrow" (click)="scrolll()"
+            (click)="scrolledr()">
+        <div class="sortmenu">
+            <div class="leftsidebar_menus2" id="cont" (scroll)="onScroll($event)">
+                <div class="contbody">
+                    <div *ngFor="let item of sorts">
+                        <button class='sortitem' id="sortitem{{item.id}}" (click)="sortclick(item.id)">{{item.value}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="" alt="." class="rightArrow" id="rightArrow" (click)="scrollr()"
+            (click)="scrolledl()">
+    </div>
+
+    <div class='scrollable'>
+        <div class="leftsidebar_menus">
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+            <div class='wblock'></div>
+        </div>
+    </div>
+    <div class='btn'>Open Main Project List</div>
+</div>

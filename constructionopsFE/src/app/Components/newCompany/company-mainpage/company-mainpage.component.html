@@ -1,0 +1,22 @@
+<div class="fullScreen">
+  <div style="display: flex">
+    <div style="cursor: pointer;" class="headerimg" (click)="gotoHome()">
+      <img src="../../../../assets/footerlogo@2x.png" alt="" />
+    </div>
+    <div class="navbar">
+      <div class="notification">
+        <app-notificationicons></app-notificationicons>
+      </div>
+      <div class="companyheader">
+        <app-companyheader [libraryNameChange]="componentload"
+          (dropdownchange)="copmponentchange($event)"
+        ></app-companyheader>
+      </div>
+    </div>
+  </div>
+  <div class="box1 mx-3 p-1">
+    <div class="box2">
+      <ng-container *ngComponentOutlet="componentload"></ng-container>
+    </div>
+  </div>
+</div>

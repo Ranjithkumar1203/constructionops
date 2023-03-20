@@ -1,0 +1,161 @@
+<div class="dialogbox">
+  <div class="mt-1" style="text-align: center; color: rgb(66, 66, 66)">
+    <h3>CREAT WORK LIBRARY</h3>
+  </div>
+  <form [formGroup]="workScheduleForm">
+    <div class="form-group px-3">
+      <label for="exampleInputEmail1">WORK SCHEDULE LIBRARY : {{naming}}</label>
+      <!-- <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        formControlName="workScheduleLibrary"
+      /> -->
+    </div>
+    <div style="display: flex">
+      <div>
+        <div class="form-group px-3">
+          <label>SELECT DAY</label>
+          <input
+            type="text"
+            [(ngModel)]="checkedDayInString"
+            (click)="openCheckBox()"
+            class="form-control"
+            readonly
+            formControlName="selectdays"
+          />
+        </div>
+        <div *ngIf="checkBoxes" class="px-3">
+          <ul class="ul1">
+            <li *ngFor="let day of selectDays">
+              <div class="form-check">
+                <input
+                  class="form-check-input checkboxblue"
+                  type="checkbox"
+                  (change)="checkBoxHandler($event, day.value)"
+                  value="{{ day.value }}"
+                  [checked]="day.checked"
+                  id="{{ day.id }}"
+                />
+                <label class="form-check-label" for="{{ day.value }}">
+                  {{ day.name }}
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group px-3">
+        <label>START WEEK</label>
+        <input
+          type="text"
+          class="form-control"
+          readonly
+          [(ngModel)]="selectWeekStart"
+          formControlName="startWeek"
+          (click)="openSelectBoxHandler()"
+        />
+        <ul *ngIf="selctWeekOpen" class="ul2">
+          <li *ngFor="let item of selectDays">
+            <div (click)="onWeekStartHandler(item.name)">{{ item.name }}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-group px-3">
+        <label>START DAY</label>
+
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            readonly
+            (click)="hourTableHandler()"
+            [(ngModel)]="setStartHour"
+            formControlName="startDay"
+          />
+          <span
+            class="input-group-text"
+            style="cursor: pointer"
+            (click)="changeMeridiem(selectMeridiem)"
+            id="basic-addon2"
+            >{{ selectMeridiem }}</span
+          >
+        </div>
+        <ul *ngIf="hourTableOpen" class="ul3 w-75">
+          <div class="w-75" style="overflow-y: scroll">
+            <li *ngFor="let hour of oneToTwelveArray">
+              <div (click)="changeStartHour(hour.Hour)">{{ hour.Hour }}</div>
+            </li>
+          </div>
+          <div class="w-25" style="overflow-y: scroll">
+            <li *ngFor="let minute of oneToFiftynineArray">
+              <div (click)="onMinuteHandler(minute.minute)">
+                {{ minute.minute }}
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display: flex">
+      <div class="form-group px-3 w-50">
+        <label>HOURS WORKED</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="hoursworked"
+          />
+          <span class="input-group-text" id="basic-addon2">HOUR</span>
+        </div>
+      </div>
+      <div class="form-group px-3 w-50">
+        <label>LUNCH BREAK</label>
+        <div class="input-group">
+        <!-- <input type="text" class="form-control" formControlName="lunchbreak" />
+        <span class="input-group-text" id="basic-addon2">HOUR</span> -->
+        <div class="time1">
+          <div class="row1time">
+              <input type="text" class="row1time1" maxlength=1 minlength=1 formControlName="lunuchtime1" [(ngModel)]="lunuchtime1"/>
+          </div>
+          <div class="row2time">
+              <input type="text" class="row1time1" maxlength="1" minlength="1" formControlName="lunuchtime2" [(ngModel)]="lunuchtime2"/>
+          </div>
+          <div class="row1time2" style="padding-right: 10px;">
+            Hours
+          </div>
+          <div class="row4time">
+              <input type="text" class="row1time1" maxlength=1 minlength=1 formControlName="lunuchtime3" [(ngModel)]="lunuchtime3"/>
+          </div>
+          <div class="row5time">
+              <input type="text" class="row1time1" maxlength=1 minlength=1 formControlName="lunuchtime4" [(ngModel)]="lunuchtime4"/>
+          </div>
+          <div class="row1time2">
+            Minutes
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actionbtn mt-3">
+      <button
+        class="cancel"
+        [mat-dialog-close]="true"
+        style="border: none; background-color: #edeeef"
+      >
+        Cancel</button
+      >'
+      <button
+        [disabled]="workScheduleForm.invalid"
+        class="submit"
+        (click)="createWorkSchedule()"
+        style="border: none; background-color: #edeeef"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

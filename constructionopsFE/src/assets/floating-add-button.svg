@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="77" height="77" viewBox="0 0 77 77">
+  <defs>
+    <filter id="Path_18626" x="0" y="0" width="77" height="77" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#a8b1b8"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="add-button" transform="translate(-797 -57)">
+    <g transform="matrix(1, 0, 0, 1, 797, 57)" filter="url(#Path_18626)">
+      <path id="Path_18626-2" data-name="Path 18626" d="M20.5,0A20.5,20.5,0,1,1,0,20.5,20.5,20.5,0,0,1,20.5,0Z" transform="translate(18 18)" fill="#001f38"/>
+    </g>
+    <path id="add_10_" data-name="add (10)" d="M16.165,7.29H10.777a.317.317,0,0,1-.317-.317V1.585a1.585,1.585,0,1,0-3.17,0V6.973a.317.317,0,0,1-.317.317H1.585a1.585,1.585,0,1,0,0,3.17H6.973a.317.317,0,0,1,.317.317v5.388a1.585,1.585,0,1,0,3.17,0V10.777a.317.317,0,0,1,.317-.317h5.388a1.585,1.585,0,1,0,0-3.17Zm0,0" transform="translate(827 87)" fill="#fff"/>
+  </g>
+</svg>

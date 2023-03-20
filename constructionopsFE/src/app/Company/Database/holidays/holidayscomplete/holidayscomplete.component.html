@@ -1,0 +1,2055 @@
+<table>
+    <tr style="width: 100%; opacity: 1;">
+        <th class="t8 hide"
+            style="border-top-left-radius: 5px; border-right: 2px solid #FFFFFF; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;"
+            id="eheader2">
+            <div style="display: flex; flex-direction: row;border:none;">
+                <div style="height: 40px; padding: 0px; width: 65px;border-right: 2px solid #FFFFFF;">
+
+                </div>
+                <div
+                    style="height: 40px; padding: 0px; width: calc(100% - 65px); padding-left: 10px; padding-top: 13px;">
+                    HOLIDAY NAME
+                </div>
+            </div>
+        </th>
+        <th class="t8" style="border-top-left-radius: 5px; border-right: 2px solid #FFFFFF;" id="eheader1">
+            HOLIDAY NAME
+        </th>
+        <th class="t3" style="border-right: 2px solid #FFFFFF;">
+            OBSERVATION
+        </th>
+        <th class="t4" style="border-right: 2px solid #FFFFFF;">
+            OBSERVES AS NON-WORKDAY <span class="redmark">
+                *</span>
+        </th>
+        <th class="t5" style="border-right: 2px solid #FFFFFF;">
+            FOR DAY(S) <span class="redmark">
+                *</span>
+        </th>
+        <th class="t6" style="border-top-right-radius: 5px; width: 43.16%;">
+            ALTERNATE OBSERVATION <span class="redmark">
+                *</span>
+        </th>
+    </tr>
+</table>
+<div class="bodydiv">
+
+    <table>
+        <tr *ngFor="let holiday of holidays" (dblclick)="doubletap($event,holiday.holidayId)" class="opacitytr"
+            id="doubletabrow{{holiday.holidayId}}">
+            <td class="t9 hide"
+                style="border-right: 2px solid #FFFFFF; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;"
+                id="editrow1holiday{{holiday.holidayId}}">
+
+                <div style="display: flex; flex-direction: row;border:none;">
+                    <div
+                        style="padding: 0px; width: 63px;border-right: 2px solid #FFFFFF; height: 27px; padding-top: 4px;text-align: center;">
+                        <div id="workItem{{holiday.holidayId}}" style="position: relative;">
+                            <div class="eyeballhover">
+                                <img src="assets/viewdarkblue.svg" class="eyeball" id="eyeball" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" (click)="holidayeditpopup(holiday.holidayId)">
+                                <div class="hover1">
+                                    <div class="tooltip-left"></div>
+                                    <div class="hover1text">
+                                        View
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="save1csv" id="save1csv{{holiday.holidayId}}"
+                                (mouseenter)="mousinsave(holiday.holidayId)">
+                                <svg id="save-svgrepo-com" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Zm10.3-.091h0a.091.091,0,0,1-.091.091H12.211V9.363a.478.478,0,0,0-.478-.478h-8.8a.478.478,0,0,0-.478.478V13.71H1.048a.091.091,0,0,1-.091-.091V1.048A.091.091,0,0,1,1.048.957H2.461V5.249a.478.478,0,0,0,.478.478h8.8a.478.478,0,0,0,.478-.478V.957h1.4a.091.091,0,0,1,.091.091V13.619Z"
+                                            fill="#001f38" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="savecsv1hover hide" id="savecsv1hover{{holiday.holidayId}}"
+                                (mouseleave)="mouseoutsave(holiday.holidayId)"
+                                (click)="savesinglerow(holiday.holidayId)">
+                                <svg id="save-hover" xmlns="http://www.w3.org/2000/svg" width="57" height="39.566"
+                                    viewBox="0 0 57 39.566">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Z"
+                                            fill="#07b9ec" />
+                                    </g>
+
+                                </svg>
+                                <div class="hover3">
+                                    <div class="tooltip2-down"></div>
+                                    <div class="hover1text">
+                                        Save
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="savecsv" id="savecsv{{holiday.holidayId}}"
+                                (mouseenter)="mousinsaves(holiday.holidayId)">
+                                <svg id="save-svgrepo-com" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Zm10.3-.091h0a.091.091,0,0,1-.091.091H12.211V9.363a.478.478,0,0,0-.478-.478h-8.8a.478.478,0,0,0-.478.478V13.71H1.048a.091.091,0,0,1-.091-.091V1.048A.091.091,0,0,1,1.048.957H2.461V5.249a.478.478,0,0,0,.478.478h8.8a.478.478,0,0,0,.478-.478V.957h1.4a.091.091,0,0,1,.091.091V13.619Z"
+                                            fill="#FFFFFF" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="savecsvhover hide" id="savecsvhover{{holiday.holidayId}}"
+                                (mouseleave)="mouseoutsaves(holiday.holidayId)"
+                                (click)="savesinglerow(holiday.holidayId)">
+                                <svg id="save-hover" xmlns="http://www.w3.org/2000/svg" width="57" height="39.566"
+                                    viewBox="0 0 57 39.566">
+                                    <g id="Group_9486" data-name="Group 9486">
+                                        <path id="Path_19099" data-name="Path 19099"
+                                            d="M13.619,0H1.048A1.049,1.049,0,0,0,0,1.048V13.619a1.049,1.049,0,0,0,1.048,1.048H13.619a1.049,1.049,0,0,0,1.048-1.048V1.048A1.049,1.049,0,0,0,13.619,0ZM7.837.957H9.463V2.693H7.837Zm-4.42,0H6.881V3.171a.478.478,0,0,0,.478.478H9.942a.478.478,0,0,0,.478-.478V.957h.841V4.771H3.418ZM3.412,13.71V9.842h7.843V13.71Z"
+                                            fill="#001f38" />
+                                    </g>
+                                </svg>
+                                <div class="hover3">
+                                    <div class="tooltip2-down"></div>
+                                    <div class="hover1text">
+                                        Save
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="padding: 0px; width: calc(100% - 63px);">
+
+                        <span id="worknamehover">
+                            <input id="holidayedittext{{holiday.holidayId}}" class="updatedata"
+                                (keyup.enter)="nameenter($event,holiday.holidayId,holiday.holidayName)"
+                                [(ngModel)]="holiday.holidayName" #holidayname="ngModel">
+                            <a>
+                                <img src="./assets/checkname.svg" id="holidaychecked{{holiday.holidayId}}"
+                                    class="check2" (click)="nameupdate(holiday.holidayId,holiday.holidayName)"
+                                  ></a>
+                        </span>
+                    </div>
+                </div>
+            </td>
+            <td class="t9 hide"
+                style="border-right: 2px solid #FFFFFF; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;"
+                id="editrow10holiday{{holiday.holidayId}}">
+
+                <div style="display: flex; flex-direction: row;border:none;">
+                    <div
+                        style="padding: 0px; width: 63px;border-right: 2px solid #FFFFFF; height: 27px; padding-top: 4px;text-align: center;">
+                        <div id="workItem{{holiday.holidayId}}" style="position: relative;">
+                            <div class="eyeballhover">
+                                <img src="assets/viewdarkblue.svg" class="eyeball" id="eyeball" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" (click)="holidayeditpopup(holiday.holidayId)">
+                                <div class="hover1">
+                                    <div class="tooltip-left"></div>
+                                    <div class="hover1text">
+                                        View
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="editcsv" id="editcsv{{holiday.holidayId}}"
+                                (mouseenter)="mousinedit(holiday.holidayId)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14.917" height="14.917"
+                                    viewBox="0 0 14.917 14.917">
+                                    <g id="edit" transform="translate(0.125 0.125)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="none" stroke="#001f38" stroke-width="0.25" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#001f38" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="editcsvhover hide" id="editcsvhover{{holiday.holidayId}}"
+                                (mouseleave)="mouseoutedit(holiday.holidayId)"
+                                (click)="editsinglerow(holiday.holidayId)">
+                                <svg id="edit-lightblue-fill" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9018" data-name="Group 9018" transform="translate(0 0)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="#07b9ec" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+                                <div class="hover4">
+                                    <div class="tooltip2-down"></div>
+                                    <div class="hover1text">
+                                        Edit
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="edit1csv" id="edit1csv{{holiday.holidayId}}"
+                                (mouseenter)="mousinedits(holiday.holidayId)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15.167" height="15.167"
+                                    viewBox="0 0 15.167 15.167">
+                                    <g id="edit-white" transform="translate(0.25 0.25)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="none" stroke="#fff" stroke-width="0.5" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+
+                            </div>
+                            <div class="edit1csvhover hide" id="edit1csvhover{{holiday.holidayId}}"
+                                (mouseleave)="mouseoutedits(holiday.holidayId)"
+                                (click)="editsinglerow(holiday.holidayId)">
+                                <svg id="edit-darkblue-fill" xmlns="http://www.w3.org/2000/svg" width="14.667"
+                                    height="14.667" viewBox="0 0 14.667 14.667">
+                                    <g id="Group_9018" data-name="Group 9018" transform="translate(0 0)">
+                                        <path id="Path_18676" data-name="Path 18676"
+                                            d="M7.334,0A7.333,7.333,0,1,1,0,7.334H0A7.312,7.312,0,0,1,7.292,0Z"
+                                            fill="#001f38" />
+                                        <path id="Path_18678" data-name="Path 18678"
+                                            d="M101.056.331,101.045.32A1.223,1.223,0,0,0,99.317.4l-4.37,4.784a.422.422,0,0,0-.089.151l-.514,1.54a.586.586,0,0,0,.555.771h0a.584.584,0,0,0,.235-.05l1.488-.651a.422.422,0,0,0,.142-.1l4.37-4.784A1.224,1.224,0,0,0,101.056.331ZM95.329,6.59l.3-.9.025-.028.571.522-.025.028Zm5.183-5.1L96.8,5.557l-.572-.522L99.94.967a.379.379,0,0,1,.535-.024l.012.011A.379.379,0,0,1,100.512,1.489Z"
+                                            transform="translate(-90.454 4)" fill="#fff" />
+                                    </g>
+                                </svg>
+                                <div class="hover4">
+                                    <div class="tooltip2-down"></div>
+                                    <div class="hover1text">
+                                        Edit
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="padding: 0px; width: calc(100% - 63px); padding-left: 10px; height: 27px;padding-top: 5.5px;">
+
+                        <p id="" class="update">
+                            {{holiday.holidayName}}</p>
+                    </div>
+                </div>
+            </td>
+            <td class="t9" style="border-right: 2px solid #FFFFFF;" id="editrow2holiday{{holiday.holidayId}}">
+                <input type="checkbox" class="form-check-input subli4checkbox" [(ngModel)]="holiday.checked"
+                    (change)="select($event,holiday.holidayId)" (mouseenter)="mousehoverincheckbox(holiday.holidayId)" (mouseleave)="mousehoveroutcheckbox(holiday.holidayId)">
+                <p id="" class="update" (click)="workchecked(holiday.holidayId)">
+                    {{holiday.holidayName}}</p>
+
+            </td>
+            <td class="t3" style="border-right: 2px solid #FFFFFF;" id="editrow3holiday{{holiday.holidayId}}">
+
+                <p id="" class="update">{{holiday.observationDayMethod}}
+                </p>
+
+            </td>
+
+            <td class="t4 hide" style="border-right: 2px solid #FFFFFF;" id="editrow4holiday{{holiday.holidayId}}">
+                <label class="switch">
+                    <input type="checkbox" [(ngModel)]="holiday.observeAsWorkDay" [disabled]="ruleactive"
+                        (change)="observationday($event,holiday.holidayId)"
+                        id="observationcheckboxday{{holiday.holidayId}}">
+                    <span class="slider round">
+                        <div class="checktext1">{{holiday.observation}}</div>
+                    </span>
+                </label>
+            </td>
+            <td class="t4" id="editrow5holiday{{holiday.holidayId}}"
+                style="border-right: 2px solid #FFFFFF;">
+                <p class="update">
+                    {{holiday.observation}}
+                </p>
+
+            </td>
+            <td class="t5 hide" id="editrow6holiday{{holiday.holidayId}}"
+                style="border-right: 2px solid #FFFFFF; text-align: left;padding-left: 10px;">
+                <input type="text" class="update1data hide" id="workdayseletexttime{{holiday.holidayId}}"
+                    (keypress)="keyPressNumbers($event)" [(ngModel)]="holiday.observationnumber" maxlength="2"
+                    (ngModelChange)="onchangenumber($event,holiday.holidayId)">
+                <span id="timeshover">
+                    <p id="workdayseletexttimetext{{holiday.holidayId}}" class="update1data" style="padding-top: 1px;"
+                        (click)="numberobservationcoulmn(holiday.holidayId)">
+                        {{holiday.observationnumber}} </p>
+
+                        <a><img src="./assets/arrow-down.svg" id="buttondaystime{{holiday.holidayId}}" class="edit5"
+                            (mouseenter)="mousehoverarrowdown(holiday.holidayId)" (click)="decrement(holiday.holidayId)"
+                            (mouseleave)="mousehoveroutarrowdown(holiday.holidayId)">
+                        <img src="./assets/arrow-up.svg" id="checkdaystime{{holiday.holidayId}}" class="check5"
+                            (mouseenter)="mousehoverarrowup(holiday.holidayId)" (click)="increment(holiday.holidayId)"
+                            (mouseleave)="mousehoveroutarrowup(holiday.holidayId)">
+                        <img src="./assets/arrow-down.svg" id="buttondays1time{{holiday.holidayId}}" class="edit8 hide"
+                            (click)="decrement(holiday.holidayId)"
+                            (mouseenter)="mousehoverarrow1down(holiday.holidayId)"
+                            (mouseleave)="mousehoveroutarrow1down(holiday.holidayId)">
+                        <img src="./assets/arrow-up.svg" id="checkdays1time{{holiday.holidayId}}" class="check8 hide"
+                            (click)="increment(holiday.holidayId)" (mouseenter)="mousehoverarrow1up(holiday.holidayId)"
+                            (mouseleave)="mousehoveroutarrow1up(holiday.holidayId)">
+                    </a>
+                </span>
+            </td>
+            <td class="t5" id="editrow7holiday{{holiday.holidayId}}"
+                style="border-right: 2px solid #FFFFFF; text-align: left;padding-left: 10px;">
+                <p id="" class="update">
+                    {{holiday.observationnumber}} </p>
+            </td>
+            <td class="t6 hide" id="editrow8holiday{{holiday.holidayId}}" style="border-top-right-radius: 5px;">
+                <span id="hourshover{{holiday.holidayId}}" class="hourshovers">
+                    <p id="hourworkdayseletexttime{{holiday.holidayId}}" class="update2data width2update"
+                        (click)="switchalterobservation(holiday.holidayId,holiday.alternateday)">
+                        {{holiday.alternateday}} </p>
+                    <p class="widthupdate hide" id="hourworkdayseletexttimetext{{holiday.holidayId}}">
+                        {{holiday.alternateday}}
+                    </p>
+                    <a><img src="./assets/arrow-down.svg" id="hourbuttondaystime{{holiday.holidayId}}" class="edit"
+                            (click)="alterobservationedit(holiday.holidayId,holiday.alternateday)">
+                        <img src="./assets/arrow-up.svg" id="hourcheckdaystime{{holiday.holidayId}}" class="check hide"
+                            (click)="alterobservationcheck(holiday.holidayId)">
+                    </a>
+                </span>
+                <ul name="daytime" id="hourdaystime{{holiday.holidayId}}" class="list1 hide"
+                    (mouseenter)="mousehoverin()" (mouseleave)="mousehoverout()">
+                    <li class="subli6" *ngFor="let hour of observation"
+                        id="mworkinghour{{holiday.holidayId}}{{hour.id}}"
+                        (click)="alterobservationupdate(holiday.holidayId,hour.day)">
+                        <div id="hoverhour{{holiday.holidayId}}{{hour.id}}" class="">{{hour.day}}</div>
+                    </li>
+                </ul>
+            </td>
+            <td class="t6" id="editrow9holiday{{holiday.holidayId}}" style="border-top-right-radius: 5px;">
+                <p class="update1 widthupdate">
+                    {{holiday.alternateday}}
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div (click)="closeall()" style="height: calc(100% - 70px);">
+
+    </div>
+    <div class="bottomimg" id="bottomimg">
+        <div style="margin-left:1050px;">
+            <button class="plus"> <span class="plusspan">
+                    <img src="./assets/floating-add-button.svg" class="plusimg">
+                    <img src="./assets/floating button-hover.svg" class="plusimg1" data-bs-toggle="modal" data-bs-target="#exampleModaladding" id="activeadd" (click)="createclick()">
+                    <div class="hover2">
+                        <div class="tooltip-right"></div>
+                        Add Holiday
+                    </div>
+                </span>
+                <app-holidaysadd></app-holidaysadd>
+            </button>
+        </div>
+    </div>
+    <div class="bottom">
+        <span id="checkhover1">
+            <input type="checkbox" class="form-check-input subli1checkbox1 checkboxselect" id="selectallrows"
+                [(ngModel)]="isselectall" name="selectall" (change)="selectall()">
+            <div class="selecttext sumargin" id="selectalltext" (click)="selectall()">Select All </div>
+        </span>
+        <span id="checkhover2">
+            <input type="checkbox" class="form-check-input subli1checkbox3 opacitycheck" id="unselectall"
+                [(ngModel)]="isunselectall" name="unselectall" (change)="unselectall()">
+            <div class="selecttext sumargin opacitycheck" id="unselectalltext" (click)="unselectall()">Unselect All
+            </div>
+        </span>
+
+        <button class="editbutton" id="editbutton" (click)="editbuttinactive()">
+            <img src="./assets/edit-grey.svg" class="editimg" id="editimg">
+            <img src="./assets/editblue.svg" class="editimgactive hide" id="editimgb">
+            <img src="./assets/edit-white.svg" class="editimgactivew hide" id="editimgw">
+            Edit</button>
+        <button class="deletebutton" id="deletebutton" data-bs-target="#deletemodal" data-bs-toggle="modal" (click)="deletenumber()" (click)="deletepopupwidth()">
+            <img src="./assets/delete-grey.svg" class="deleteimg" id="deleteimg">
+            <img src="./assets/delete (6).svg" class="deleteimgactive hide" id="deleteimgb">
+            <img src="./assets/delete -white.svg" class="deleteimgactivew hide" id="deleteimgw">
+            Delete</button>
+        <button class="viewallbutton hide" id="viewallbutton" (click)="editbutton()">
+            <div style="display: flex; flex-direction: row; padding-left: 2.5px;">
+                View All
+                <div class="btndonetext2">
+                    (</div> {{holidays.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+
+        </button>
+        <button class="editallbutton hide" id="editallbutton" (click)="editallbuttonactive()">
+            <div style="display: flex; flex-direction: row;padding-left: 4px;">
+                Edit All
+                <div class="btndonetext2">
+                    (</div> {{holidays.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+        </button>
+        <button class="doneallbutton hide" id="doneallbutton" (click)="inactivedoneall()">
+            <div style="display: flex; flex-direction: row;padding-left: 2.5px;">
+                Save All
+                <div class="btndonetext2">
+                    (</div> {{activeeditlist.length}} <div class="btndonetext1">
+                    )</div>
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#staticBackdrop" data-bs-toggle="modal" id="viewmodal">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#staticBackdrop" data-bs-toggle="modal" id="viewmodaleditview">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#exampleModal" data-bs-toggle="modal" id="vieweditmodaledit">
+
+            </div>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-target="#exampleModalcreating" data-bs-toggle="modal" id="createmodal">
+
+            </div>
+            <app-holidayscreate></app-holidayscreate>
+        </button>
+        <button class="btn btn3">
+            <div data-bs-toggle="modal" data-bs-target="#exampleModaladding" id="activeadded">
+            </div>
+            <app-holidaysadd></app-holidaysadd>
+        </button>
+    </div>
+</div>
+<div class="bottomfoot">
+    <app-holidaysfooter></app-holidaysfooter>
+</div>
+
+
+
+<!-- column edit popup -->
+<div class="modal modaview" data-bs-backdrop="focus" data-bs-backdrop="false" id="exampleModaledit" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modalmargin">
+        <div class="modal-content">
+            <div class="modal-body" *ngFor="let holiday of editholiday">
+                <div class="bodyholidayedit">
+                    <div class="row1holidayedit" style="margin-left: 15px;">
+                        <input contenteditable="true" class="box1holidayedit"
+                            [(ngModel)]="holiday.vobservationDayMethod" #holidayday="ngModel" readonly>
+                        <div class="btn1holidayedit">
+                            Edit Rule
+                        </div>
+                        <div class="btn2holidayedit">
+                            Add Rule
+                        </div>
+                        <div class="btn2holidayedit">
+                            Delete Rule
+                        </div>
+                    </div>
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                        <div class="text1holidayedit" style="padding-top: 3px;">
+                            Holiday Name:
+                        </div>
+                        <input type="text" class="box9holidayedit text" [(ngModel)]="holiday.vholidayName"
+                            #holidayname="ngModel"
+                            (keyup.enter)="editholidaynameactive($event,holiday.vholidayName,holiday.holidayId)">
+                    </div>
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                        <div class="text3holidayedit">
+                            Reoccurrence Settings
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 26px;">
+                            <input type="checkbox" class="form-check-input subli2checkbox" [disabled]="!standardrulerow" (change)="standardchange($event,holiday.holidayId)"
+                                [(ngModel)]="holiday.standardrule">
+                        </div>
+                        <div class="text1holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;" id="standardruletext">
+                            Standard
+                        </div>
+                        <div style="padding-top: 2px; padding-left: 0px; position: relative;" id="hoverimgstandard">
+                            <img src="../../../../../../assets/questions.svg"
+                                style="width: 15px; height: 15px; margin-bottom: 8px;">
+                            <div class="hoverstandard">
+                                <div class="tooltip-down"></div>
+                                <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                    False
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 10px;">
+                            <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="!customerulerow"
+                                [(ngModel)]="holiday.customerule">
+                        </div>
+                        <div class="text1holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;" id="customeruletext">
+                            Custom
+                        </div>
+                        <div style="padding-top: 2px; padding-left: 0px; position: relative;" id="hoverimgstandard">
+                            <img src="../../../../../../assets/questions.svg"
+                                style="width: 15px; height: 15px; margin-bottom: 8px;">
+                            <div class="hoverstandard">
+                                <div class="tooltip-down"></div>
+                                <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                    False
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 10px;">
+                            <input type="checkbox" class="form-check-input subli3checkbox" [(ngModel)]="holiday.norule" [disabled]="!norulerow">
+                        </div>
+                        <div class="text1holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;" id="noruletext">
+                            None
+                        </div>
+                        <div style="padding-top: 2px; padding-left: 0px; position: relative;" id="hoverimgstandard">
+                            <img src="../../../../../../assets/questions.svg"
+                                style="width: 15px; height: 15px; margin-bottom: 8px;">
+                            <div class="hoverstandard">
+                                <div class="tooltip-down"></div>
+                                <div style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                    False
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                        <div class="text1holidayedit" style="padding-top: 4px;">
+                            Repeat Every
+                        </div>
+                        <input type="text" class="box2holidayedit text" [(ngModel)]="holiday.vrepeatEveryCount"
+                            (keypress)="keyPressNumbers($event)" #holidaycount="ngModel" pattern="[0-9]"
+                            (keyup.enter)="editholidaycountactive($event,holiday.vrepeatEveryCount,holiday.holidayId)">
+                        <div style="padding-top: 6.5px; padding-left: 17px;">
+                            <input type="checkbox" class="form-check-input subli2checkbox"
+                                [(ngModel)]="holiday.yearrule" (change)="editonchange($event,holiday.holidayId)">
+                        </div>
+                        <div class="text4holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                            Year
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 10px;">
+                            <input type="checkbox" class="form-check-input subli2checkbox"
+                                [(ngModel)]="holiday.monthrule" (change)="editon2change($event,holiday.holidayId)">
+                        </div>
+                        <div class="text4holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                            Month
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 10px;">
+                            <input type="checkbox" class="form-check-input subli2checkbox"
+                                [(ngModel)]="holiday.weekrule" (change)="editon3change($event,holiday.holidayId)">
+                        </div>
+                        <div class="text4holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                            Week
+                        </div>
+                        <div style="padding-top: 6.5px; padding-left: 10px;">
+                            <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="holiday.dayrule"
+                                (change)="editon4change($event,holiday.holidayId)">
+                        </div>
+                        <div class="text4holidayedit" style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                            Day
+                        </div>
+                        <div class="text1holidayedit" style="padding-top: 3px; padding-left: 15px;">
+                            Expires:
+                        </div>
+                        <span style="position: relative;" id="expirehover">
+                            <input type="text" class="box3holidayedit text" [(ngModel)]="holiday.vexpire"
+                                (click)="editswitchexpire(holiday.holidayId,holidayexpire.value)"
+                                #holidayexpire="ngModel" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" id="editholiday1arrowup"
+                                    (click)="editexpireedit(holiday.holidayId,holidayexpire.value)" class="edit1">
+                                <img src="./assets/arrow-up.svg" id="editholiday1arrowdown" (click)="editexpirecheck()"
+                                    class="check1 hide">
+                            </a>
+                            <ul class="list2 paddinglist hide" id="editholiday1list" (mouseenter)="editmouseupexpire()"
+                                (mouseleave)="editmousedownexpire()">
+                                <li class="subli2" *ngFor="let expireitem of expireOptionList"
+                                    (click)="editupdateexpire(holiday.holidayId,expireitem.value)">
+                                    <div id="editswtchexpirelist{{expireitem.id}}" class="activepadding">
+                                        {{expireitem.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </span>
+                        <div class="text1holidayedit hide" style="padding-top: 3px; padding-left: 7px;"
+                            id="edittextexpire1year">
+                            of
+                        </div>
+                        <input type="text" class="box10holidayedit text hide" [(ngModel)]="holiday.vexpiryYear"
+                            #holidayexpireyear="ngModel" id="edittextexpire2year">
+                        <input type="text" class="box11holidayedit text hide" [(ngModel)]="holiday.vexpireEvent"
+                            #holidayexpireevent="ngModel" id="edittextexpire1event">
+                        <div class="text1holidayedit hide"
+                            style="padding-top: 3px; padding-left: 4px; padding-right: 0px;" id="edittextexpire2event">
+                            Events
+                        </div>
+                    </div>
+
+                    <!-- Working -->
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;" id="editrow1box2">
+                        <div class="text1holidayedit" style="padding-top: 4px;">
+                            On The:
+                        </div>
+                        <span style="position: relative;" id="expirehover">
+                            <input type="text" class="box4holidayedit text" [(ngModel)]="editmovingweekname"
+                                (click)="editswitchweek(holiday.holidayId,holiday.vweeekOfMonth)" #holidayweek="ngModel"
+                                readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" id="editholiday2arrowup"
+                                    (click)="editweekedit(holiday.holidayId,holiday.vweeekOfMonth)" class="edit1">
+                                <img src="./assets/arrow-up.svg" id="editholiday2arrowdown" (click)="editweekcheck()"
+                                    class="check1 hide">
+                            </a>
+                            <ul class="list3 paddinglist hide" id="editholiday2list" (mouseenter)="editmouseupweek()"
+                                (mouseleave)="editmousedownweek()">
+                                <li class="subli2" *ngFor="let onTheitem of onTheOptionList"
+                                    (click)="editupdateweek(holiday.holidayId,onTheitem.name)">
+                                    <div id="editswtchweeklist{{onTheitem.id}}" class="activepadding">
+                                        {{onTheitem.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </span>
+                        <div class="box5holidayedit" style="margin-left: 10px;" id="editbox5sun"
+                            (click)="editonweekchange(holiday.holidayId)">
+                            S
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5mon"
+                            (click)="editon2weekchange(holiday.holidayId)">
+                            M
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5tue"
+                            (click)="editon3weekchange(holiday.holidayId)">
+                            T
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5wed"
+                            (click)="editon4weekchange(holiday.holidayId)">
+                            W
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5thu"
+                            (click)="editon5weekchange(holiday.holidayId)">
+                            T
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5fri"
+                            (click)="editon6weekchange(holiday.holidayId)">
+                            F
+                        </div>
+                        <div class="box5holidayedit boxtext" id="editbox5sat"
+                            (click)="editon7weekchange(holiday.holidayId)">
+                            S
+                        </div>
+                        <div class="text1holidayedit boxtext" style="padding-top: 4px;padding-left: 17px;">
+                            of
+                        </div>
+                        <span style="position: relative;" id="expirehover">
+                            <input type="text" class="box6holidayedit text" [(ngModel)]="holiday.vmonth"
+                                (click)="editswitchmonth(holiday.holidayId,holidaymonth.value)" #holidaymonth="ngModel"
+                                readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" id="editholiday3arrowup"
+                                    (click)="editmonthedit(holiday.holidayId,holidaymonth.value)" class="edit1">
+                                <img src="./assets/arrow-up.svg" id="editholiday3arrowdown" (click)="editmonthcheck()"
+                                    class="check1 hide">
+                            </a>
+                            <ul class="list4 paddinglist hide" id="editholiday3list" (mouseenter)="editmouseupmonth()"
+                                (mouseleave)="editmousedownmonth()">
+                                <div class='scrollable'>
+                                    <div class="leftsidebar_menus">
+                                        <li class="subli2" *ngFor="let onMonthitem of monthOptionList"
+                                            (click)="editupdatemonth(holiday.holidayId,onMonthitem.name)">
+                                            <div id="editswtchmonthlist{{onMonthitem.id}}" class="activepadding">
+                                                {{onMonthitem.name}}
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </span>
+                    </div>
+                    <!-- Working -->
+                    <div class="row1holidayedit hide" style="margin-top: 15px; margin-left: 15px;" id="editrow2box2">
+                        <div class="text1holidayedit" style="padding-top: 4px;">
+                            In the Month of:
+                        </div>
+                        <span style="position: relative;" id="expirehover">
+                            <input type="text" class="box7holidayedit text" [(ngModel)]="holiday.vmonth"
+                                (click)="editswitch2month(holiday.holidayId,holiday2month.value)"
+                                #holiday2month="ngModel" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" id="editholiday4arrowup"
+                                    (click)="editmonth2edit(holiday.holidayId,holiday2month.value)" class="edit1">
+                                <img src="./assets/arrow-up.svg" id="editholiday4arrowdown" (click)="editmonth2check()"
+                                    class="check1 hide">
+                            </a>
+                            <ul class="list5 paddinglist hide" id="editholiday4list" (mouseenter)="editmouseup2month()"
+                                (mouseleave)="editmousedown2month()">
+                                <div class='scrollable'>
+                                    <div class="leftsidebar_menus">
+                                        <li class="subli2" *ngFor="let monthitem of monthOptionList"
+                                            (click)="editupdate2month(holiday.holidayId,monthitem.name)">
+                                            <div id="editswtch2monthlist{{monthitem.id}}" class="activepadding">
+                                                {{monthitem.name}}
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </span>
+                        <div class="text1holidayedit" style="padding-top: 4px; padding-left: 8px;">
+                            on the
+                        </div>
+                        <span style="position: relative;" id="expirehover">
+                            <input type="text" class="box8holidayedit text" [(ngModel)]="holiday.vdateOfMonth"
+                                (click)="editswitchdate(holiday.holidayId,holidaydate.value)" #holidaydate="ngModel"
+                                readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" id="editholiday5arrowup"
+                                    (click)="editdateedit(holiday.holidayId,holidaydate.value)" class="edit1">
+                                <img src="./assets/arrow-up.svg" id="editholiday5arrowdown" (click)="editdatecheck()"
+                                    class="check1 hide">
+                            </a>
+                            <ul class="list6 paddinglist hide" id="editholiday5list" (mouseenter)="editmouseupdate()"
+                                (mouseleave)="editmousedowndate()">
+                                <div class='scrollable'>
+                                    <div class="leftsidebar_menus">
+                                        <li class="subli2" *ngFor="let dayitem of daysOptionList"
+                                            (click)="editupdatedate(holiday.holidayId,dayitem.name)">
+                                            <div id="editswtchdatelist{{dayitem.id}}" class="activepadding">
+                                                {{dayitem.name}}
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </span>
+                        <div class="text1holidayedit" style="padding-top: 4px; padding-left: 20px;">
+                            day of the Month
+                        </div>
+                    </div>
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                        <div class="text1holidayedit" style="margin-left: 325px;">
+                            or
+                        </div>
+                    </div>
+                    <!-- Blank -->
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px; opacity: 0.75;"
+                        id="editrow2box3">
+                        <div class="text1holidayedit" style="padding-top: 4px;">
+                            In the Month of:
+                        </div>
+                        <span style="position: relative;">
+                            <input type="text" class="box7holidayedit" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" class="edit6">
+
+                            </a>
+
+                        </span>
+                        <div class="text1holidayedit" style="padding-top: 4px; padding-left: 8px;">
+                            on the
+                        </div>
+                        <span style="position: relative;">
+                            <input type="text" class="box8holidayedit" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" class="edit6">
+
+                            </a>
+
+                        </span>
+                        <div class="text1holidayedit" style="padding-top: 4px; padding-left: 20px;">
+                            day of the Month
+                        </div>
+                    </div>
+                    <!-- Blank -->
+                    <div class="row1holidayedit hide" style="margin-top: 15px; margin-left: 15px; opacity: 0.75;"
+                        id="editrow1box3">
+                        <div class="text1holidayedit" style="padding-top: 4px;">
+                            On The:
+                        </div>
+                        <span style="position: relative;">
+                            <input type="text" class="box4holidayedit" placeholder="Select" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" class="edit6">
+
+                            </a>
+                        </span>
+                        <div class="box5holidayedit" style="margin-left: 10px;">
+                            S
+                        </div>
+                        <div class="box5holidayedit">
+                            M
+                        </div>
+                        <div class="box5holidayedit">
+                            T
+                        </div>
+                        <div class="box5holidayedit">
+                            W
+                        </div>
+                        <div class="box5holidayedit">
+                            T
+                        </div>
+                        <div class="box5holidayedit">
+                            F
+                        </div>
+                        <div class="box5holidayedit">
+                            S
+                        </div>
+                        <div class="text1holidayedit" style="padding-top: 4px;padding-left: 17px;">
+                            of
+                        </div>
+                        <span style="position: relative;">
+                            <input type="text" class="box6holidayedit" placeholder="Select" readonly>
+                            <a>
+                                <img src="./assets/arrow-down.svg" class="edit6">
+
+                            </a>
+
+                        </span>
+                    </div>
+
+                    <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                        <div style="width: 280px; min-width: 280px;">
+                            <div class="text1holidayedit">
+                                Observe as Non-Workday
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.dayyesrule"
+                                        (click)="editworking1dayobservation(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                                    Yes
+                                </div>
+                                <div style="padding-top: 6.5px; padding-left: 17px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.daynorule"
+                                        (click)="editworking2dayobservation(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                                    No
+                                </div>
+                            </div>
+                            <div class="row1holidayedit hide" style="margin-top: 15px; opacity: 0.75;"
+                                id="editrow3box3">
+                                <div class="text1holidayedit" style="padding-top: 4px;">
+                                    Observe for
+                                </div>
+                                <div class="row8box4">
+                                    -
+                                </div>
+                                <input type="text" class="row8box2" [(ngModel)]="holiday.observeNumberOfDays" readonly>
+                                <div class="row8box5">
+                                    +
+                                </div>
+                                <div class="text1holidayedit" style="padding-top: 4px; padding-left: 5px;">
+                                    Day
+                                </div>
+                            </div>
+                            <div class="row1holidayedit" style="margin-top: 15px;" id="editrow3box2">
+                                <div class="text1holidayedit" style="padding-top: 4px;">
+                                    Observe for
+                                </div>
+                                <div class="row8box1" (click)="editdecreasenumber()">
+                                    -
+                                </div>
+                                <input type="text" class="row8box2 text" [(ngModel)]="holiday.vobserveNumberOfDays"
+                                    readonly>
+                                <div class="row8box3" (click)="editincreasenumber()">
+                                    +
+                                </div>
+                                <div class="text1holidayedit" style="padding-top: 4px; padding-left: 5px;">
+                                    Day
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hide" style="opacity: 0.75;" id="editrow4box3">
+                            <div class="text1holidayedit">
+                                Alternate Observation
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli3checkbox">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Saturday Holidays on Previous Workday and Sunday Holidays on Next Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli3checkbox">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Saturday Holidays on Previous Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli3checkbox">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Sunday Holidays on Next Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli3checkbox">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Does Not Observe on an Alternate Workday
+                                </div>
+                            </div>
+                        </div>
+                        <div id="editrow4box2">
+                            <div class="text1holidayedit">
+                                Alternate Observation
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.observation1rule"
+                                        (click)="editon1observationchange(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Saturday Holidays on Previous Workday and Sunday Holidays on Next Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.observation2rule"
+                                        (click)="editon2observationchange(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Saturday Holidays on Previous Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.observation3rule"
+                                        (click)="editon3observationchange(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Observes Sunday Holidays on Next Workday
+                                </div>
+                            </div>
+                            <div class="row1holidayedit">
+                                <div style="padding-top: 6.5px;">
+                                    <input type="checkbox" class="form-check-input subli2checkbox"
+                                        [(ngModel)]="holiday.observation4rule"
+                                        (click)="editon4observationchange(holiday.holidayId)">
+                                </div>
+                                <div class="text4holidayedit"
+                                    style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                    Does Not Observe on an Alternate Workday
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row1holidayedit"
+                        style="height: 37px; margin-top: 20px; border-top: 1px solid rgb(7, 185, 236,0.25);">
+                        <div class="cancelholidayedit"  data-bs-dismiss="modal"
+                            (click)="observationcheck(holiday.holidayId)" (click)="editcancelbutton(holiday.holidayId)">
+                            Cancel
+                        </div>
+                        <div class="spaceholidayedit">
+
+                        </div>
+                        <div class="apply2holidayedit" data-bs-toggle="modal" data-bs-target="#examplepreview"
+                            (click)="apply(holiday.holidayId)">
+                            Apply
+                        </div>
+                        <div class="applyholidayedit" (click)="observationcheck(holiday.holidayId)"
+                            data-bs-dismiss="modal" (click)="apply(holiday.holidayId)">
+                            Apply & Close
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View popup -->
+
+<div class="modal modaview" data-bs-backdrop="focus" data-bs-backdrop="false" id="examplepreview" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modalmargin">
+        <div class="modal-content">
+
+            <div class="modal-body" *ngFor="let holiday of editholiday">
+                <div class="bodyholidayedit">
+                    <div class="row1holidayedit" style="margin-left: 15px;">
+                        <input contenteditable="true" class="box12holidayedit"
+                            [(ngModel)]="holiday.vobservationDayMethod" #holidayday="ngModel" readonly>
+                        <div class="btn3holidayedit" style="margin-left: 12px;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModaledit">
+                            Edit Rule
+                        </div>
+                        <div class="btn3holidayedit">
+                            Add Rule
+                        </div>
+                        <div class="btn3holidayedit">
+                            Delete Rule
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow1text">
+                            Holiday
+                        </div>
+                        <div class="crow1input">
+                            {{holiday.holidayName}}
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow2text">
+                            Reoccurrence Setting
+                        </div>
+                        <div class="crow1input">
+                            {{holiday.ruleSetting}}
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow3text">
+                            Every
+                        </div>
+                        <div class="crow1input">
+                            {{holiday.repeatEveryCount}}
+                        </div>
+                        <div class="crow1input2">
+                            {{holiday.repeatEveryTimeline}}
+                        </div>
+                        <div class="crow3text2">
+                            and
+                        </div>
+                        <div class="crow3text2">
+                            Expires
+                        </div>
+                        <div class="crow1input2">
+                            {{holiday.expire}}
+                        </div>
+                        <div class="crow3text2" *ngIf="viewexpireyear">
+                            of
+                        </div>
+                        <div class="crow1input2" *ngIf="viewexpireyear">
+                            {{holiday.expiryYear}}
+                        </div>
+                        <div class="crow1input2" *ngIf="viewexpireevent">
+                            {{holiday.expireEvent}}
+                        </div>
+                        <div class="crow3text2" *ngIf="viewexpireevent">
+                            Events
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow4text">
+                            On the
+                        </div>
+                        <div class="crow1input" *ngIf="viewdateofmonth">
+                            {{holiday.weeekOfMonth}}
+                        </div>
+                        <div class="crow1input2" *ngIf="viewdateofmonth">
+                            {{holiday.dayOfWeek}}
+                        </div>
+                        <div class="crow1input" *ngIf="viewdayofmonth">
+                            {{holiday.dateOfMonth}}
+                        </div>
+                        <div class="crow3text2">
+                            of
+                        </div>
+                        <div class="crow1input2">
+                            {{holiday.month}}
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow5text">
+                            and
+                        </div>
+                    </div>
+                    <div class="crow2">
+                        <div class="crow6text">
+                            This holiday will
+                        </div>
+                        <div class="crow1input" *ngIf="holiday.vobserveAsWorkDay">
+                            Observe as Non-Workday
+                        </div>
+                        <div class="crow1input" *ngIf="!holiday.vobserveAsWorkDay">
+                            Does Not Observe as Non-Workday
+                        </div>
+                    </div>
+                    <div class="crow2" *ngIf="holiday.vobserveAsWorkDay">
+                        <div class="crow7text">
+                            for
+                        </div>
+                        <div class="crow1input">
+                            {{holiday.observeNumberOfDays}} Days
+                        </div>
+                    </div>
+                    <div class="crow2" *ngIf="holiday.vobserveAsWorkDay">
+                        <div class="crow8text">
+                            and
+                        </div>
+                        <div class="crow1input">
+                            {{holiday.alternateObservation}}
+                        </div>
+                    </div>
+                    <div class="crow2"
+                        style="height: 37px; margin-top: 20px; border-top: 1px solid rgb(7, 185, 236,0.25);">
+                        <div class="cancelholidayedit"  data-bs-dismiss="modal"
+                            (click)="observationcheck(holiday.holidayId)" (click)="editcancelbutton(holiday.holidayId)">
+                            Cancel
+                        </div>
+                        <div class="spaceholidayedit">
+
+                        </div>
+                        <div class="apply4holidayedit">
+                            Apply
+                        </div>
+                        <div class="applyholidayedit" (click)="observationcheck(holiday.holidayId)"
+                            data-bs-dismiss="modal">
+                            Close
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit popup -->
+
+<div class="modal" id="exampleModal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body" *ngFor="let holiday of singleholiday">
+
+                <div class="row1holidayedit" style="text-align: center;">
+                    <div class="leftarrow" *ngIf="!activeedit"><img src="assets/next.svg" class="vprev" (click)="vpre()"
+                            id="vprev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    <div class="text3holidayedit" *ngIf="!activeedit"
+                        style="text-align: center;padding-top: 8px; padding-right: 276.705px;padding-left: 276.705px; padding-bottom: 8px; position: relative;">
+                        Holiday
+                        <div class="text3holidaynumber">
+                            {{holiday.sequence}} of {{holidays.length}}
+                        </div>
+                    </div>
+
+                    <div class="text3holidayedit" *ngIf="activeedit"
+                        style="text-align: center;padding-top: 8px; padding-right: 322.705px;padding-left: 322.705px; padding-bottom: 10px;">
+                        Holiday
+                    </div>
+                    <div class="rightarrrow" *ngIf="!activeedit"><img src="assets/next.svg" class="vnext"
+                            (click)="vnext()" id="vnext">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+                <div class="row1holidayedit" style="margin-top: 25px; margin-left: 15px;;">
+                    <div class="text1holidayedit" style="padding-top: 4px;">
+                        Holiday Name:
+                    </div>
+                    <input type="text" class="box9holidayedit text" [(ngModel)]="holiday.vholidayName"
+                        #vholidayname="ngModel"
+                        (keyup.enter)="holidaynameactive($event,holiday.vholidayName,holiday.holidayId)">
+                </div>
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 41px;">
+                    <div class="text3holidayedit">
+                        Reoccurrence Settings
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 50px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [disabled]="!standardrulerow"
+                            (change)="standardchange($event,holiday.holidayId)" [(ngModel)]="holiday.standardrule">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 3px; padding-left: 10px; padding-right: 3px;"
+                        id="standardruletext">
+                        Standard
+                    </div>
+                    <div style="padding-top: 2px; padding-left: 5px; position: relative;" id="hoverimgstandard">
+                        <img src="../../../../../../assets/questions.svg"
+                            style="width: 15px; height: 15px; margin-bottom: 8px;">
+                        <div class="hoverstandard">
+                            <div class="tooltip-down"></div>
+                            <div class="tooltiphover" style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                False
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 50px;">
+                        <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="!customerulerow"
+                            [(ngModel)]="holiday.customerule">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 3px; padding-left: 10px; padding-right: 3px;"
+                        id="customeruletext">
+                        Custom
+                    </div>
+                    <div style="padding-top: 2px; padding-left: 5px; position: relative;" id="hoverimgstandard">
+                        <img src="../../../../../../assets/questions.svg"
+                            style="width: 15px; height: 15px; margin-bottom: 8px;">
+                        <div class="hoverstandard">
+                            <div class="tooltip-down"></div>
+                            <div class="tooltiphover" style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                False
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 50px;">
+                        <input type="checkbox" class="form-check-input subli3checkbox" [(ngModel)]="holiday.norule"
+                            [disabled]="!norulerow">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 3px; padding-left: 10px; padding-right: 3px;"
+                        id="noruletext">
+                        None
+                    </div>
+                    <div style="padding-top: 2px; padding-left: 5px; position: relative; padding-right: 26px;" id="hoverimgstandard">
+                        <img src="../../../../../../assets/questions.svg"
+                            style="width: 15px; height: 15px; margin-bottom: 8px;">
+                        <div class="hoverstandard">
+                            <div class="tooltip-down"></div>
+                            <div class="tooltiphover" style="font: normal normal normal 12px 'Open Sans'; padding-top: 15px;
+                                            letter-spacing: 0px; text-align: center;
+                                            color: #FFFFFF;
+                                            opacity: 1;">
+                                False
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                    <div class="text1holidayedit" style="padding-top: 4px;">
+                        Repeat Every
+                    </div>
+                    <input type="text" class="box2holidayedit text" (keypress)="keyPressNumbers($event)"
+                        [(ngModel)]="holiday.vrepeatEveryCount" #vholidaycount="ngModel" (ngModelChange)="directinput($event,holiday.holidayId)"
+                        (keyup.enter)="holidaycountactive($event,holiday.vrepeatEveryCount,holiday.holidayId)">
+                    <div style="padding-top: 6.5px; padding-left: 15px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="holiday.yearrule"
+                            [disabled]="!yearrulerow" (change)="onchange($event,holiday.holidayId)">
+                    </div>
+                    <div class="text4holidayedit" style="padding-top: 3px; padding-left: 5px; padding-right: 3px;"
+                        id="yearrowtext">
+                        Year
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="holiday.monthrule"
+                            [disabled]="!monthrulerow" (change)="on2change($event,holiday.holidayId)">
+                    </div>
+                    <div class="text4holidayedit" style="padding-top: 3px; padding-left: 5px; padding-right: 3px;"
+                        id="monthrowtext">
+                        Month
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="holiday.weekrule"
+                            [disabled]="!weekrulerow" (change)="on3change($event,holiday.holidayId)">
+                    </div>
+                    <div class="text4holidayedit" style="padding-top: 3px; padding-left: 5px; padding-right: 3px;"
+                        id="weekrowtext">
+                        Week
+                    </div>
+                    <div style="padding-top: 6.5px; padding-left: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="holiday.dayrule"
+                            [disabled]="!dayrulerow" (change)="on4change($event,holiday.holidayId)">
+                    </div>
+                    <div class="text4holidayedit" style="padding-top: 3px; padding-left: 5px; padding-right: 3px;"
+                        id="dayrowtext">
+                        Day
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 3px; padding-left: 13px;">
+                        Expires:
+                    </div>
+                    <span style="position: relative;" id="expirehover">
+                        <input type="text" class="box3holidayedit text" [(ngModel)]="holiday.vexpire" 
+                            (click)="switchexpire(holiday.holidayId,vholidayexpire.value)" #vholidayexpire="ngModel"
+                            readonly>
+                        <a>
+                            <img src="./assets/arrow-down.svg" id="holiday1arrowup"
+                                (click)="expireedit(holiday.holidayId,vholidayexpire.value)" class="edit1">
+                            <img src="./assets/arrow-up.svg" id="holiday1arrowdown" (click)="expirecheck()"
+                                class="check1 hide">
+                        </a>
+                        <ul class="list2 paddinglist hide" id="holiday1list" (mouseenter)="mouseupexpire()"
+                            (mouseleave)="mousedownexpire()">
+                            <li class="subli2" *ngFor="let expireitem of expireOptionList"
+                                (click)="updateexpire(holiday.holidayId,expireitem.value)">
+                                <div id="swtchexpirelist{{expireitem.id}}" class="activepadding">
+                                    {{expireitem.name}}
+                                </div>
+                            </li>
+                        </ul>
+                    </span>
+                    <div class="text1holidayedit hide" style="padding-top: 3px; padding-left: 7px;"
+                        id="textexpire1year">
+                        of
+                    </div>
+                    <input type="text" class="box10holidayedit text hide" [(ngModel)]="holiday.vexpiryYear" (keypress)="keyPressNumbers($event)"
+                        #vholidayexpireyear="ngModel" id="textexpire2year" (ngModelChange)="direct2input($event,holiday.holidayId)">
+                    <input type="text" class="box11holidayedit text hide" [(ngModel)]="holiday.vexpireEvent" (keypress)="keyPressNumbers($event)"
+                        #vholidayexpireevent="ngModel" id="textexpire1event" (ngModelChange)="direct3input($event,holiday.holidayId)">
+                    <div class="text1holidayedit hide" style="padding-top: 3px; padding-left: 4px; padding-right: 0px;"
+                        id="textexpire2event">
+                        Events
+                    </div>
+                </div>
+
+
+                <!-- Working -->
+                <div class="row1holidayedit hide" style="margin-top: 15px; margin-left: 15px;" id="row2box2">
+                    <div style="padding-top: 7px; padding-right: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="catogery1active" [disabled]="!catogery1active" (change)="catogeryactive($event)">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 4px;">
+                        In the Month of:
+                    </div>
+                    <span style="position: relative;" id="expirehover">
+                        <input type="text" class="box7holidayedit text" [(ngModel)]="holiday.vmonth"
+                            (click)="switch2month(holiday.holidayId,vholiday2month.value)" #vholiday2month="ngModel"
+                            (ngModelChange)='dropdownsearch4($event,holiday.holidayId)' (ngModelChange)='cat1active($event)'>
+                        <a>
+                            <img src="./assets/arrow-down.svg" id="holiday4arrowup"
+                                (click)="month2edit(holiday.holidayId,vholiday2month.value)" class="edit1">
+                            <img src="./assets/arrow-up.svg" id="holiday4arrowdown" (click)="month2check()"
+                                class="check1 hide">
+                        </a>
+                        <ul class="list5 paddinglist hide" id="holiday4list" (mouseenter)="mouseup2month()"
+                            (mouseleave)="mousedown2month()">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let monthitem of monthOptionList"
+                                        (click)="update2month(holiday.holidayId,monthitem.name)">
+                                        <div id="swtch2monthlist{{monthitem.id}}" class="activepadding">
+                                            {{monthitem.name}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </span>
+                    <div class="text1holidayedit" style="padding-top: 4px; padding-left: 8px;">
+                        on the
+                    </div>
+                    <span style="position: relative;" id="expirehover">
+                        <input type="text" class="box8holidayedit text" [(ngModel)]="holiday.vdateOfMonth"
+                            (click)="switchdate(holiday.holidayId,vholidaydate.value)" #vholidaydate="ngModel"
+                            (ngModelChange)='dropdownsearch3($event,holiday.holidayId)' (ngModelChange)='cat1active($event)'>
+                        <a>
+                            <img src="./assets/arrow-down.svg" id="holiday5arrowup"
+                                (click)="dateedit(holiday.holidayId,vholidaydate.value)" class="edit1">
+                            <img src="./assets/arrow-up.svg" id="holiday5arrowdown" (click)="datecheck()"
+                                class="check1 hide">
+                        </a>
+                        <ul class="list6 paddinglist hide" id="holiday5list" (mouseenter)="mouseupdate()"
+                            (mouseleave)="mousedowndate()">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let dayitem of daysOptionList"
+                                        (click)="updatedate(holiday.holidayId,dayitem.name)">
+                                        <div id="swtchdatelist{{dayitem.id}}" class="activepadding">
+                                            {{dayitem.name}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </span>
+                    <div class="text1holidayedit" style="padding-top: 4px; padding-left: 20px;">
+                        day of the Month
+                    </div>
+                </div>
+                <!-- Blank -->
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px; " id="row2box3">
+                    <div style="padding-top: 7px; padding-right: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="catogery1active" [disabled]="!catogery1active">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 4px; opacity: 0.25;">
+                        In the Month of:
+                    </div>
+                    <span style="position: relative;">
+                        <input type="text" class="box7holidayedit" style="opacity: 0.25;" readonly>
+                        <a>
+                            <img src="./assets/arrow-down.svg" class="edit6" style="opacity: 0.25;">
+
+                        </a>
+
+                    </span>
+                    <div class="text1holidayedit" style="padding-top: 4px; padding-left: 8px; opacity: 0.25;">
+                        on the
+                    </div>
+                    <span style="position: relative;">
+                        <input type="text" class="box8holidayedit" style="opacity: 0.25;" readonly>
+                        <a>
+                            <img src="./assets/arrow-down.svg" class="edit6" style="opacity: 0.25;">
+
+                        </a>
+
+                    </span>
+                    <div class="text1holidayedit" style="padding-top: 4px; padding-left: 20px; opacity: 0.25;">
+                        day of the Month
+                    </div>
+                </div>
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                    <div class="text1holidayedit opacitycolour" style="margin-left: 325px;" id="textor">
+                        or
+                    </div>
+                </div>
+                <!-- Blank -->
+                <div class="row1holidayedit hide" style="margin-top: 15px; margin-left: 15px;" id="row1box3">
+                    <div style="padding-top: 7px; padding-right: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="catogery2active" [disabled]="!catogery2active">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 4px;  opacity: 0.25;">
+                        On The:
+                    </div>
+                    <span style="position: relative;">
+                        <input type="text" class="box4holidayedit" placeholder="Select" style="opacity: 0.25;" readonly>
+                        <a>
+                            <img src="./assets/arrow-down.svg" class="edit6" style="opacity: 0.25;">
+
+                        </a>
+                    </span>
+                    <div class="box5holidayedit" style="margin-left: 10px; opacity: 0.25;">
+                        S
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        M
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        T
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        W
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        T
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        F
+                    </div>
+                    <div class="box5holidayedit" style="opacity: 0.25;">
+                        S
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 4px;padding-left: 17px; opacity: 0.25;">
+                        of
+                    </div>
+                    <span style="position: relative;">
+                        <input type="text" class="box6holidayedit" placeholder="Select" style="opacity: 0.25;" readonly>
+                        <a>
+                            <img src="./assets/arrow-down.svg" class="edit6" style="opacity: 0.25;">
+
+                        </a>
+
+                    </span>
+                </div>
+                <!-- Working -->
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;" id="row1box2">
+                    <div style="padding-top: 7px; padding-right: 10px;">
+                        <input type="checkbox" class="form-check-input subli2checkbox" [(ngModel)]="catogery2active" [disabled]="!catogery2active" (change)="catogeryactive($event)">
+                    </div>
+                    <div class="text1holidayedit" style="padding-top: 4px;">
+                        On The:
+                    </div>
+                    <span style="position: relative;" id="expirehover">
+                        <input type="text" class="box4holidayedit text" [(ngModel)]="movingweekname"
+                            (click)="switchweek(holiday.holidayId,holiday.vweeekOfMonth)" #vholidayweek="ngModel"
+                            (ngModelChange)='dropdownsearch1($event,holiday.holidayId)' (ngModelChange)='cat2active($event)'>
+                        <a>
+                            <img src="./assets/arrow-down.svg" id="holiday2arrowup"
+                                (click)="weekedit(holiday.holidayId,holiday.vweeekOfMonth)" class="edit1">
+                            <img src="./assets/arrow-up.svg" id="holiday2arrowdown" (click)="weekcheck()"
+                                class="check1 hide">
+                        </a>
+                        <ul class="list3 paddinglist hide" id="holiday2list" (mouseenter)="mouseupweek()"
+                            (mouseleave)="mousedownweek()">
+                            <li class="subli2" *ngFor="let onTheitem of onTheOptionList"
+                                (click)="updateweek(holiday.holidayId,onTheitem.name)">
+                                <div id="swtchweeklist{{onTheitem.id}}" class="activepadding">
+                                    {{onTheitem.name}}
+                                </div>
+                            </li>
+                        </ul>
+                    </span>
+                    <div class="box5holidayedit" style="margin-left: 10px;" id="box5sun"
+                        (click)="onweekchange(holiday.holidayId)">
+                        S
+                    </div>
+                    <div class="box5holidayedit hide" style="margin-left: 10px; opacity: 0.25;" id="box5sun1">
+                        S
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5mon" (click)="on2weekchange(holiday.holidayId)">
+                        M
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5mon1">
+                        M
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5tue" (click)="on3weekchange(holiday.holidayId)">
+                        T
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5tue1">
+                        T
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5wed" (click)="on4weekchange(holiday.holidayId)">
+                        W
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5wed1">
+                        W
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5thu" (click)="on5weekchange(holiday.holidayId)">
+                        T
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5thu1">
+                        T
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5fri" (click)="on6weekchange(holiday.holidayId)">
+                        F
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5fri1">
+                        F
+                    </div>
+                    <div class="box5holidayedit boxtext" id="box5sat" (click)="on7weekchange(holiday.holidayId)">
+                        S
+                    </div>
+                    <div class="box5holidayedit hide" style="opacity: 0.25;" id="box5sat1">
+                        S
+                    </div>
+
+                    <div class="text1holidayedit boxtext" style="padding-top: 4px;padding-left: 17px;">
+                        of
+                    </div>
+                    <span style="position: relative;" id="expirehover">
+                        <input type="text" class="box6holidayedit text" [(ngModel)]="holiday.vmonth"
+                            (click)="switchmonth(holiday.holidayId,vholidaymonth.value)" #vholidaymonth="ngModel"
+                            (ngModelChange)='dropdownsearch2($event,holiday.holidayId)' (ngModelChange)='cat2active($event)'>
+                        <a>
+                            <img src="./assets/arrow-down.svg" id="holiday3arrowup"
+                                (click)="monthedit(holiday.holidayId,vholidaymonth.value)" class="edit1">
+                            <img src="./assets/arrow-up.svg" id="holiday3arrowdown" (click)="monthcheck()"
+                                class="check1 hide">
+                        </a>
+                        <ul class="list4 paddinglist hide" id="holiday3list" (mouseenter)="mouseupmonth()"
+                            (mouseleave)="mousedownmonth()">
+                            <div class='scrollable'>
+                                <div class="leftsidebar_menus">
+                                    <li class="subli2" *ngFor="let onMonthitem of monthOptionList"
+                                        (click)="updatemonth(holiday.holidayId,onMonthitem.name)">
+                                        <div id="swtchmonthlist{{onMonthitem.id}}" class="activepadding">
+                                            {{onMonthitem.name}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </span>
+                </div>
+
+                <div class="row1holidayedit" style="margin-top: 15px; margin-left: 15px;">
+                    <div style="width: 280px; min-width: 280px;">
+                        <div class="text1holidayedit">
+                            Observe as Non-Workday
+                        </div>
+                        <div class="row1holidayedit">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox"
+                                    [(ngModel)]="holiday.dayyesrule"
+                                    (click)="working1dayobservation($event,holiday.holidayId)">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                                Yes
+                            </div>
+                            <div style="padding-top: 6.5px; padding-left: 17px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox"
+                                    [(ngModel)]="holiday.daynorule" (click)="working2dayobservation($event,holiday.holidayId)">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 6px; padding-right: 3px;">
+                                No
+                            </div>
+                        </div>
+                        <div class="row1holidayedit hide" style="margin-top: 15px; " id="row3box3">
+                            <div class="text1holidayedit" style="padding-top: 4px; opacity: 0.25;">
+                                Observe for
+                            </div>
+                            <div class="row8box4" style="opacity: 0.25;">
+                                -
+                            </div>
+                            <input type="text" class="row8box2" [(ngModel)]="holiday.observeNumberOfDays"
+                                style="opacity: 0.25;" readonly>
+                            <div class="row8box5" style="opacity: 0.25;">
+                                +
+                            </div>
+                            <div class="text1holidayedit" style="padding-top: 4px; padding-left: 5px; opacity: 0.25;">
+                                Day
+                            </div>
+                        </div>
+                        <div class="row1holidayedit" style="margin-top: 15px;" id="row3box2">
+                            <div class="text1holidayedit" style="padding-top: 4px;">
+                                Observe for
+                            </div>
+                            <div class="row8box1" (click)="decreasenumber()">
+                                -
+                            </div>
+                            <input type="text" class="row8box2 text" [(ngModel)]="holiday.vobserveNumberOfDays" maxlength="2"
+                                readonly>
+                            <div class="row8box3" (click)="increasenumber()">
+                                +
+                            </div>
+                            <div class="text1holidayedit" style="padding-top: 4px; padding-left: 5px;">
+                                Day
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide" id="row4box3">
+                        <div class="text1holidayedit" style="opacity: 0.25;">
+                            Alternate Observation
+                        </div>
+                        <div class="row1holidayedit">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    [(ngModel)]="holiday.observation1rule" style="opacity: 0.25;">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Saturday Holidays on Previous Workday and Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation2rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Saturday Holidays on Previous Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation3rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation4rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px; opacity: 0.25;">
+                                Does Not Observe on an Alternate Workday
+                            </div>
+                        </div>
+                    </div>
+                    <div id="row4box2">
+                        <div class="text1holidayedit">
+                            Alternate Observation
+                        </div>
+                        <div class="row1holidayedit" id="observ1rule">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox"
+                                    [(ngModel)]="holiday.observation1rule" id="alt1observation"
+                                    (click)="on1observationchange($event,holiday.holidayId)">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                Observes Saturday Holidays on Previous Workday and Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit hide" id="observ1rule2">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    [(ngModel)]="holiday.observation1rule" style="opacity: 0.25;">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Saturday Holidays on Previous Workday and Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+
+                        <div class="row1holidayedit" id="observ2rule">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox"
+                                    [(ngModel)]="holiday.observation2rule" id="alt2observation"
+                                    (click)="on2observationchange($event,holiday.holidayId)">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                Observes Saturday Holidays on Previous Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit hide" id="observ2rule2">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation2rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Saturday Holidays on Previous Workday
+                            </div>
+                        </div>
+
+                        <div class="row1holidayedit" id="observ3rule">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox"
+                                    [(ngModel)]="holiday.observation3rule" id="alt3observation"
+                                    (click)="on3observationchange($event,holiday.holidayId)">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                Observes Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit hide" id="observ3rule2">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation3rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;  opacity: 0.25;">
+                                Observes Sunday Holidays on Next Workday
+                            </div>
+                        </div>
+
+                        <div class="row1holidayedit" id="observ4rule">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli2checkbox" id="alt4observation"
+                                    (change)="observationdecisionvalue($event,holiday.holidayId)"  [(ngModel)]="holiday.observation4rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px;">
+                                Does Not Observe on an Alternate Workday
+                            </div>
+                        </div>
+                        <div class="row1holidayedit hide" id="observ4rule2">
+                            <div style="padding-top: 6.5px;">
+                                <input type="checkbox" class="form-check-input subli3checkbox" [disabled]="alwaysfalse"
+                                    style="opacity: 0.25;" [(ngModel)]="holiday.observation4rule">
+                            </div>
+                            <div class="text4holidayedit"
+                                style="padding-top: 3px; padding-left: 4px; padding-right: 3px; opacity: 0.25;">
+                                Does Not Observe on an Alternate Workday
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row1holidayedit"
+                    style="height: 37px; margin-top: 62px; border-top: 1px solid rgb(7, 185, 236,0.25);">
+                    <div class="cancelholidayedit hide" id="cancelbtncol" (click)="inactivelowerbtn()"
+                        (click)="cancelbutton(holiday.holidayId)">
+                        Cancel
+                    </div>
+                    <div class="closeholidayedit" data-bs-dismiss="modal" id="closebtncol"
+                        (click)="close(holiday.holidayId)">
+                        Close
+                    </div>
+                    <div class="space2holidayedit" id="col2save">
+
+                    </div>
+                    <div class="apply3holidayedit hide" id="col1apply" (click)="save(holiday.holidayId)">
+                        Save
+                    </div>
+                    <div class="applyholidayedit hide" id="col4save" (click)="savennext(holiday.holidayId)">
+                        Save & Next
+                    </div>
+                    <div class="applyholidayedit hide" id="col2apply" (click)="savenclose(holiday.holidayId)">
+                        Save & Close
+                    </div>
+                    <div class="apply4holidayedit" id="col3apply">
+                        Save
+                    </div>
+                    <div class="apply5holidayedit" id="col4save2">
+                        Save & Next
+                    </div>
+                    <div class="apply5holidayedit" id="col4apply">
+                        Save & Close
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Preview popup -->
+
+<div class="modal" id="staticBackdrop" data-bs-backdrop="focus" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="height: 579.5px; max-height: 579.5px;">
+
+            <div class="modal-body" *ngFor="let holiday of singleholiday">
+                <div class="row1holidayedit" style="text-align: center;">
+                    <div class="leftarrow" *ngIf="!activeedit"><img src="assets/next.svg" class="vprev" (click)="vpre()"
+                            id="vprev">
+                        <div class="leftarrowtext">
+                            Previous
+                        </div>
+                    </div>
+                    <div class="text3holidayedit" *ngIf="!activeedit"
+                        style="text-align: center;padding-top: 8px; padding-right: 276.705px;padding-left: 276.705px; padding-bottom: 8px; position: relative;">
+                        Holiday
+                        <div class="text3holidaynumber">
+                            {{holiday.sequence}} of {{holidays.length}}
+                        </div>
+                    </div>
+
+                    <div class="text3holidayedit" *ngIf="activeedit"
+                        style="text-align: center;padding-top: 8px; padding-right: 319.705px;padding-left: 319.705px; padding-bottom: 8px;">
+                        Holiday
+                    </div>
+                    <div class="rightarrrow" *ngIf="!activeedit"><img src="assets/next.svg" class="vnext"
+                            (click)="vnext()" id="vnext">
+                        <div class="rightarrowtext">
+                            Next
+                        </div>
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow1text">
+                        Holiday
+                    </div>
+                    <div class="crow1input">
+                        {{holiday.holidayName}}
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow2text">
+                        Reoccuring
+                    </div>
+                    <div class="crow1input">
+                        {{holiday.ruleSetting}}
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow3text">
+                        every
+                    </div>
+                    <div class="crow1input">
+                        {{holiday.repeatEveryCount}}
+                    </div>
+                    <div class="crow1input2">
+                        {{holiday.repeatEveryTimeline}}
+                    </div>
+                    <div class="crow3text2">
+                        and
+                    </div>
+                    <div class="crow3text2">
+                        expires
+                    </div>
+                    <div class="crow1input2">
+                        {{holiday.expire}}
+                    </div>
+                    <div class="crow3text2" *ngIf="viewexpireyear">
+                        of
+                    </div>
+                    <div class="crow1input2" *ngIf="viewexpireyear">
+                        {{holiday.expiryYear}}
+                    </div>
+                    <div class="crow1input2" *ngIf="viewexpireevent">
+                        {{holiday.expireEvent}}
+                    </div>
+                    <div class="crow3text2" *ngIf="viewexpireevent">
+                        Events
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow4text">
+                        On the
+                    </div>
+                    <div class="crow1input" *ngIf="viewdateofmonth">
+                        {{holiday.weeekOfMonth}}
+                    </div>
+                    <div class="crow1input2" *ngIf="viewdateofmonth">
+                        {{holiday.dayOfWeek}}
+                    </div>
+                    <div class="crow1input" *ngIf="viewdayofmonth">
+                        {{holiday.dateOfMonth}}
+                    </div>
+                    <div class="crow3text2">
+                        of
+                    </div>
+                    <div class="crow1input2">
+                        {{holiday.month}}
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow5text">
+                        and
+                    </div>
+                </div>
+                <div class="crow2">
+                    <div class="crow6text">
+                        will
+                    </div>
+                    <div class="crow1input" *ngIf="holiday.vobserveAsWorkDay">
+                        Observe as Non-Workday
+                    </div>
+                    <div class="crow1input" *ngIf="!holiday.vobserveAsWorkDay">
+                        Does Not Observe as Non-Workday
+                    </div>
+                </div>
+                <div class="crow2" *ngIf="holiday.vobserveAsWorkDay">
+                    <div class="crow7text">
+                        for
+                    </div>
+                    <div class="crow1input">
+                        {{holiday.observeNumberOfDays}} {{daysvalue}}
+                    </div>
+                </div>
+                <div class="crow2" *ngIf="holiday.vobserveAsWorkDay">
+                    <div class="crow8text">
+                        and
+                    </div>
+                    <div class="crow1input" style="margin-right: 15px;">
+                        {{holiday.alternateObservation}}
+                    </div>
+                </div>
+                <div class="crow2" style="height: 37px; margin-top: 20px; border-top: 1px solid rgb(7, 185, 236,0.25); position: absolute;
+                left: 0;
+                bottom: 0;">
+                    <div class="closeholidayedit" data-bs-dismiss="modal">
+                        Close
+                    </div>
+                    <div class="spaceholiday2edit">
+
+                    </div>
+                    <div class="apply3holidayedit" (click)="holidayedit2popup(holiday.holidayId)">
+                        Edit
+                    </div>
+                    <div class="deleteholidayedit" data-bs-dismiss="modal">
+                        Delete
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- delete -->
+<div class="modal" id="deletemodal" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: 585px;">
+        <div class="modal-content " style="border-radius: 10px; width: 585px; border: none;">
+            <div class="modal-body modaldelete">
+                <div class="deleteheader">
+                    Confirming {{deletetext}} Deletion ({{deleterecords.length}})
+                </div>
+                <div class="deleteheader2">
+                    Confirm you want to delete {{deletetext2}}.
+                </div>
+                <div style="padding-top: 20px; padding-bottom: 34px;">
+                    <div class="deleteheader3">
+                        <div class="thheader1" id="adding1width">
+                            HOLIDAY NAME
+                        </div>
+                        <div class="deletepopup7margin" id="addmargin1width">
+
+                        </div>
+                        <div class="thheader10" id="adding2width">
+                            OBSERVATION
+                        </div>
+                        <div class="deletepopup8margin" id="addmargin2width">
+
+                        </div>
+                        <div class="thheader2">
+                            NON-WORKDAY
+                        </div>
+                        <div class="deletepopup8margin" id="addmargin3width">
+
+                        </div>
+                        <div class="thheader3">
+                            DAY(S)
+                        </div>
+                        
+                    </div>
+                    <table>
+                        <div class="leftsidebar_menus2">
+                            <tr class="deleteheader4" *ngFor="let delete of deleterecords">
+                                <td class="thheader7">
+                                    <div class="deleteseq">
+                                        {{delete.sequencedelete}}
+                                    </div>
+                                </td>
+                                <td class="thheader4" id="adding3width{{delete.id}}">
+                                    {{delete.holidayName}}
+                                </td>
+                                <td class="deletepopup7margin" id="addmargin4width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader11" id="adding4width{{delete.id}}">
+                                    {{delete.observationDayMethod}}
+                                </td>
+                                <td class="deletepopup8margin" id="addmargin5width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader5">
+                                    {{delete.observation}}
+                                </td>
+                                <td class="deletepopup8margin" id="addmargin6width{{delete.id}}">
+
+                                </td>
+                                <td class="thheader6">
+                                    {{delete.observationnumber}}
+                                </td>
+                            </tr>
+                        </div>
+                    </table>
+                </div>
+                <div class="deletecheck">
+                    <span id="checkhover4">
+                        <input type="checkbox" class="form-check-input subli1checkbox5" name="selectall"  [(ngModel)]="deleteselected">
+                        <span (click)="deleteselect()" id="checkhover5">
+                            Don’t ask me again.
+                        </span>
+                    </span>
+                </div>
+                <div class="deletebtn">
+                    <button class="btn closedeletebtn" data-bs-dismiss="modal" (click)="closedeletewidth()">
+                        Close
+                    </button>
+                    <div style="width: calc(100% - 310px);">
+
+                    </div>
+                    <button class="btn closedeletebtn1" data-bs-dismiss="modal" (click)="deletecomfirm()"> 
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

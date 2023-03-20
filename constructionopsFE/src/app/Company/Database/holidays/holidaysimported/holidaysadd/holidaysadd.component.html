@@ -1,0 +1,116 @@
+<div class="modal" id="exampleModaladding" data-bs-backdrop="focus" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="padding: 10px 12px;">
+            <div class="bodydiv">
+                <table>
+                    <tr>
+                        <th class="t2">
+                            <ul style="display: flex; flex-direction: row;">
+                                <li id="checkhover">
+                                    <input type="checkbox" name="selectall" class="form-check-input colour4"
+                                        (change)="selectall()" [(ngModel)]="isSelectall" id="selectall"
+                                        (mouseenter)="hoveraddbutton()" (mouseenter)="hover1follow()">
+                                    <div class="hover3" id="hover3">
+                                        <div class="tooltip-left"></div>
+                                        {{selecttext}}
+                                    </div>
+                                </li>
+                                <li style="padding-left: 5px;">
+                                    WORK SCHEDULE
+                                </li>
+                            </ul>
+                        </th>
+                        <th class="t4">
+                            OBSERVATION
+                        </th>
+                        <th class="t5">
+                            <button class="btn btn1" (click)="activecreate()" data-bs-dismiss="modal" id="createnew" (mouseenter)="hover7follow()"
+                                (mouseenter)="hoveraddbutton()">
+                                Create New
+                                <div class="hover2">
+                                    <div class="tooltip-right"></div>
+                                    Create New Work Schedule
+                                </div>
+                            </button>
+                        </th>
+                    </tr>
+                    <hr class="hr" />
+                    <tr *ngFor="let work of holidays">
+                        <td class="t1" *ngIf="work.isLibrary">
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="width: 75%; display: flex; flex-direction: row;">
+                                    <input type="checkbox" class="form-check-input subli1checkbox"
+                                        (click)="activebutton()" (change)="addactive(work.holidayId)" id="checkbox{{work.holidayId}}"
+                                        [(ngModel)]="work.isChecked" (mouseenter)="hoveraddbutton()"
+                                        (click)="hover2follow($event,work.holidayId)">
+                                    <div class="t1text">
+                                        {{work.holidayName}}
+                                    </div>
+                                </div>
+                                <div style="width: 25%; padding-top: 2px;">
+                                    <img src="./assets/ConstructionOPS Logo.png" *ngIf="work.isLibrary" alt="log"
+                                        style="width: 37px; margin-right: 10px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td class="t3" *ngIf="work.isLibrary">
+                            {{work.observationDayMethod}}
+                        </td>
+                        <td class="t6" *ngIf="work.isLibrary">
+                            <button class="btn showbtn2" (click)="confirmadd(work.holidayId)" id="addbtn{{work.holidayId}}"
+                            (click)="hover3follow(work.holidayId)" (mouseenter)="hoveraddbutton()">Add</button>
+                        </td>
+                    </tr>
+                    <hr class="hr1" />
+                    <tr *ngFor="let work of holidays" style="border: 1px solid #EDEEEF !important;">
+                        <td class="t1" *ngIf="!work.isLibrary"
+                            style="background-color: #FFFFFF !important; border-bottom: 1px solid #EDEEEF;">
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="width: 75%; display: flex; flex-direction: row;">
+                                    <input type="checkbox" class="form-check-input subli1checkbox"
+                                        style="margin-left: 9.5px !important;" (click)="activebutton()"
+                                        (change)="addactive(work.holidayId)" id="checkbox{{work.holidayId}}"
+                                        [(ngModel)]="work.isChecked" (mouseenter)="hoveraddbutton()"
+                                        (click)="hover2follow($event,work.holidayId)">
+                                    <div class="t1text">
+                                        {{work.holidayName}}
+                                    </div>
+                                </div>
+                                <div style="width: 25%; padding-top: 2px;">
+                                    <img src="./assets/ConstructionOPS Logo.png" *ngIf="work.isLibrary" alt="log"
+                                        style="width: 37px; margin-right: 10px;">
+                                </div>
+                            </div>
+                        </td>
+                        <td class="t3" *ngIf="!work.isLibrary"
+                            style="background-color: #FFFFFF !important; border-bottom: 1px solid #EDEEEF;">
+                            {{work.observationDayMethod}}
+                        </td>
+                        <td class="t6" *ngIf="!work.isLibrary"
+                            style="background-color: #FFFFFF !important; border-bottom: 1px solid #EDEEEF; margin-right: 7px;">
+                            <button class="btn showbtn2" (click)="confirmadd(work.holidayId)" id="addbtn{{work.holidayId}}"
+                            (click)="hover3follow(work.holidayId)" (mouseenter)="hoveraddbutton()">Add</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="bottombutton">
+                <div class="bottombutton1" data-bs-dismiss="modal" id="close" (click)="closebtn()" (mouseenter)="hover4follow()"
+                    (mouseenter)="hoveraddbutton()">
+                    Close
+                </div>
+                <div class="bottombutton2" id="add2">
+                    Add & Close
+                </div>
+                <div class="bottombutton3 hide" id="cancel" (click)="inactivebutton()" (click)="cancelbtn()" (mouseenter)="hover5follow()"
+                    (mouseenter)="hoveraddbutton()">
+                    Cancel
+                </div>
+                <div class="bottombutton4 hide" id="add" (click)="addmultiple()" (mouseenter)="hoveraddbutton()" (mouseenter)="hover6follow()">
+                    Add ({{number}}) & Close
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

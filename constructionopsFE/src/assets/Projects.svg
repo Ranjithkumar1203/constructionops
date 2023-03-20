@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="18" viewBox="0 0 15 18">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_117" data-name="Rectangle 117" width="15" height="18" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Projects" opacity="0.7" clip-path="url(#clip-path)">
+    <g id="project" transform="translate(1.25 1.5)">
+      <g id="Group_387" data-name="Group 387">
+        <g id="Group_386" data-name="Group 386">
+          <path id="Path_17525" data-name="Path 17525" d="M11.587,3.691V0H1.538V1.846H0V13.9H1.538V15.75H11.587V13.9h1.538V3.691ZM1.538,12.981H.769V4.614h.769Zm0-9.29H.769V2.769h.769Zm9.28,11.136H9.055l1.763-2.116Zm-2.307-.653V12.059h1.763Zm2.307-3.039H7.742v3.691H2.307V.923h8.511Zm1.538,1.846h-.769V4.614h.769Z" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_389" data-name="Group 389" transform="translate(3.75 5.5)">
+        <g id="Group_388" data-name="Group 388" transform="translate(0 0)">
+          <rect id="Rectangle_114" data-name="Rectangle 114" width="5.833" height="1" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_391" data-name="Group 391" transform="translate(3.75 7.5)">
+        <g id="Group_390" data-name="Group 390" transform="translate(0 0)">
+          <rect id="Rectangle_115" data-name="Rectangle 115" width="5.833" height="1" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_393" data-name="Group 393" transform="translate(3.75 3.5)">
+        <g id="Group_392" data-name="Group 392" transform="translate(0 0)">
+          <rect id="Rectangle_116" data-name="Rectangle 116" width="5.833" height="1" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2750" data-name="Rectangle 2750" width="12" height="12" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="language_icon" data-name="language icon" transform="translate(0 12) rotate(-90)" clip-path="url(#clip-path)">
+    <g id="language-svgrepo-com_1_" data-name="language-svgrepo-com (1)" transform="translate(11 1) rotate(90)" opacity="0.7">
+      <g id="Group_9551" data-name="Group 9551" transform="translate(0 0)">
+        <g id="Group_9550" data-name="Group 9550">
+          <path id="Path_19147" data-name="Path 19147" d="M1.465,1.464A5,5,0,0,1,8.3,1.239c.066.058-.144.3-.21.24A4.68,4.68,0,1,0,7.5,8.955a.16.16,0,0,1,.136-.017l1.948.649L8.939,7.64A.16.16,0,0,1,8.956,7.5,4.666,4.666,0,0,0,9.682,5,5.47,5.47,0,0,0,8.309,1.7c-.058-.066.182-.277.24-.21A5.787,5.787,0,0,1,10,5a4.985,4.985,0,0,1-.735,2.61l.727,2.18a.16.16,0,0,1-.2.2l-2.18-.727a5,5,0,0,1-6.146-7.8Z" transform="translate(-0.001 0)" fill="#001f38" stroke="#001f38" stroke-width="0.3"/>
+        </g>
+      </g>
+    </g>
+    <g id="language-svgrepo-com_2_" data-name="language-svgrepo-com (2)" transform="translate(11 1) rotate(90)" opacity="0.7">
+      <circle id="Ellipse_270" data-name="Ellipse 270" cx="3" cy="3" r="3" transform="translate(2 2)" fill="none" stroke="#001f38" stroke-linecap="square" stroke-width="0.4"/>
+      <path id="Path_19148" data-name="Path 19148" d="M9.2,8.02a3.863,3.863,0,0,0,1.2-3.01A3.863,3.863,0,0,0,9.2,2,3.863,3.863,0,0,0,8,5.01,3.863,3.863,0,0,0,9.2,8.02Z" transform="translate(-4.194 0)" fill="none" stroke="#001f38" stroke-linecap="round" stroke-width="0.4"/>
+      <path id="Path_19149" data-name="Path 19149" d="M2.5,9H8.219M2.5,10.806H8.219" transform="translate(-0.35 -4.893)" fill="none" stroke="#001f38" stroke-linecap="round" stroke-width="0.4"/>
+    </g>
+  </g>
+</svg>

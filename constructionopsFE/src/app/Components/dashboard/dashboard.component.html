@@ -1,0 +1,64 @@
+<div class="contbody">
+    <div class="row row1">
+        <div class="col-1">
+            <div class="profileicon">
+                <img src="./assets/ChadBuiltHomesLogo.png" alt="profile" class="profile">
+                <p class="profiletag">QUALITY BY DESIGN</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <app-header></app-header>
+        </div>
+    </div>
+    <div class="row row2">
+        <div class="col1" [ngClass]="showInput ? 'maxcol1' : 'col1'">
+            <app-sidepanel></app-sidepanel>
+        </div>
+        <div class="col2" (click)="toggle()" [ngClass]="showInput ? 'maxcol2' : 'col2'">
+            <!--accordion-->
+            <div class="accordion alerts" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                        Active Weather Event    <span>1</span>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="#">Canova (5789 Percentage Point Lane) Stopped</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item"> 
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="" aria-controls="collapseTwo">
+                        Project Status Change   <span>4</span>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>       
+                            <li><a href="#">Canova (5789 Percentage Point Lane) Stopped</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                            <li><a href="#">Brignac (1024 Basic Lane Circle) Put On Hold</a></li>
+                        </ul>    
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            <!--accordion-->
+            <div class="body">
+                <div class="subbody">
+                    <app-bodyheader></app-bodyheader>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

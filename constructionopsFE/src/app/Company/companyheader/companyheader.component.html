@@ -1,0 +1,108 @@
+<div>
+    <div class="navbar1" id="t" >
+        <div class="navheader1 dropdown" (mouseover)="showDropdown()" (mouseout)="hideDropDown()">
+            <div id="dropdownMenuButton1" [ngStyle]="{color:changeColor}" data-bs-toggle="dropdown"
+            >
+                {{libraryName}}
+            </div>
+            <ul class="dropdown-menu ul1 " id="dropdownUl"  >
+                <li id="1"  (click)="sendToParent('department')" >Department Library</li>
+                <li id="2" (click)="sendToParent('resource')" >Resource Type Library</li>
+                <li id="3" (click)="sendToParent('workschedule')">Work Schedule Library</li>
+                <li id="4" (click)="sendToParent('holiday')">Holiday Library</li>
+                <li id="5" (click)="sendToParent('position')">Positions/Title Library</li>
+                <li id="6" (click)="sendToParent('constraint')">Constraint Library</li>
+                <li id="7" (click)="sendToParent('trade')">Trade/Service Type Library</li>
+              </ul>
+            
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <div class="navheader1">
+            TBD Module
+        </div>
+        <!-- <div class="navheader2 database" routerLinkActive="active" id="database">
+    
+            <ul class="ul1">
+                <li class="li1" id="workschedule">
+                    <div routerLink="/company/workschedule" (click)="clickworkschedule()" routerLinkActive="active1" >
+                        Work Schedulesclickholidays
+                    </div>
+    
+                    <span id="favstar" >
+                        <img src="/assets/star.svg" class="favstar" id="workfavstar" (click)="favopen()">
+                        <img src="/assets/starfill.svg" class="favstar2 hide" id="workfavstar2" (click)="favclose()">
+                        <div class="starhover" id="workfavstar3">
+                            Add to Favorites
+                            <div class="tooltip-down"></div>
+                        </div>
+                    </span>
+                </li>
+                <li class="li1" id="holiday">
+                    <div routerLink="/company/holiday" (click)="()" routerLinkActive="active1">
+                        Holidays
+                    </div>
+    
+                    <span id="favstar">
+                        <img src="/assets/star.svg" class="favstar" id="holifavstar" (click)="favopen1()">
+                        <img src="/assets/starfill.svg" class="favstar2 hide" id="holifavstar2" (click)="favclose1()">
+                        <div class="starhover" id="holifavstar3">
+                            Add to Favorites
+                            <div class="tooltip-down"></div>
+                        </div>
+                    </span>
+                </li>
+                <li class="li1">
+                    Positions / Titles
+                </li>
+                <li class="li1">
+                    Capacities
+                </li>
+                <li class="li1">
+                    Trade / Service Types
+                </li>
+            </ul>
+        </div>
+        <div class="navheader3">
+            Resources
+            <ul class="ul2">
+                <li class="li2">
+                    Internal Resources
+                </li>
+                <li class="li2">
+                    External Resources
+                </li>
+            </ul>
+        </div>
+        <div class="navheader4">
+            Communications
+        </div>
+        <div class="navheader5">
+            Default Settings
+        </div> -->
+    
+        <!-- <div class="navheader6">
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </div> -->
+        <ul class="ulsearch">
+            <app-search></app-search>
+        </ul>
+        
+    </div>
+</div>

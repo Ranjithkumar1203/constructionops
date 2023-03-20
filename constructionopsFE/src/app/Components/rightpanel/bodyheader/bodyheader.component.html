@@ -1,0 +1,140 @@
+
+<div class="contbody">
+
+    <div class="row row1">
+        <div class="col1">
+        </div>
+        <!-- <div class="col2" [ngClass]="showInput ? 'maxcol2' : 'col2'">
+        </div>
+        <div class="col3" [ngClass]="showInput ? 'maxcol3' : 'col3'">
+            <input type="search" placeholder="Search" class="search"><img src="./assets/loupe.svg" alt="search"
+                class="searchimg">
+        </div> -->
+        
+        <div class="col4" [ngClass]="showInput ? 'maxcol4' : 'col4'">
+                <div class="col6 open">
+                    <ul>
+                        <li>
+                            <svg id="open-folder-svgrepo-com" xmlns="http://www.w3.org/2000/svg" width="14.67" height="12.507" viewBox="0 0 14.67 12.507">
+                                <g id="Group_9492" data-name="Group 9492">
+                                  <path id="Path_19101" data-name="Path 19101" d="M.742,13.932a.923.923,0,0,0,.82.807l10.9,1.006.077,0a.768.768,0,0,0,.572-.247.776.776,0,0,0,.2-.6l-.043-.514,1.391-9.584a.78.78,0,0,0-.781-.9H6.656a.429.429,0,0,1-.2-.086l-.167-.177a1.372,1.372,0,0,0-.926-.4H2.677a.963.963,0,0,0-.9.692l-.62,2.3H.8A.793.793,0,0,0,0,7.117ZM2.727,4.243H5.362a.429.429,0,0,1,.2.086l.167.177a1.373,1.373,0,0,0,.926.4h6.979L12.9,9.964l-.306-3.677a.868.868,0,0,0-.86-.791H5a1.24,1.24,0,0,0-.934.467l-.151.2a.3.3,0,0,1-.135.069H2.19Zm1.052,2.99a1.24,1.24,0,0,0,.934-.467l.151-.2A.3.3,0,0,1,5,6.5h6.609l.686,8.229L1.73,13.75,1.023,7.233Z" transform="translate(0 -3.242)"/>
+                                </g>
+                              </svg>                              
+                        </li>
+                        <li>
+                            Open
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+                <div class="col6 export">
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11.6" height="13.612" viewBox="0 0 11.6 13.612">
+                                <g id="export_2_" data-name="export (2)" transform="translate(0.3 0.312)">
+                                  <g id="Group_9380" data-name="Group 9380">
+                                    <g id="Group_9379" data-name="Group 9379">
+                                      <path id="Path_19185" data-name="Path 19185" d="M47.09,138.8H45a.282.282,0,0,0,0,.563h2.1a.819.819,0,0,1,.786.845v6.761a.819.819,0,0,1-.786.845H38.71a.819.819,0,0,1-.786-.845v-6.761a.819.819,0,0,1,.786-.845h2.357a.282.282,0,0,0,0-.563H38.71a1.366,1.366,0,0,0-1.31,1.408v6.761a1.366,1.366,0,0,0,1.31,1.408H47.09a1.366,1.366,0,0,0,1.31-1.408v-6.761A1.366,1.366,0,0,0,47.09,138.8Z" transform="translate(-37.4 -135.378)" fill="#001f38" stroke="#001f38" stroke-width="0.6"/>
+                                      <path id="Path_19186" data-name="Path 19186" d="M127.079,1.819,129.093.586V4.715c0,.095.127.172.282.172s.282-.078.282-.172V.586l2.014,1.233a.4.4,0,0,0,.394,0,.128.128,0,0,0,0-.241L129.572.052a.4.4,0,0,0-.394,0l-2.493,1.526a.128.128,0,0,0,0,.241A.4.4,0,0,0,127.079,1.819Z" transform="translate(-123.875 0)" fill="#001f38" stroke="#001f38" stroke-width="0.6"/>
+                                    </g>
+                                  </g>
+                                </g>
+                              </svg>
+                                                      </li>
+                        <li>
+                            Export
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+                <div class="col6 import">
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11.6" height="12.6" viewBox="0 0 11.6 12.6">
+                                <g id="import" transform="translate(0.3 0.3)">
+                                  <g id="Group_9382" data-name="Group 9382">
+                                    <g id="Group_9381" data-name="Group 9381">
+                                      <path id="Path_19187" data-name="Path 19187" d="M47.09,138.8H45a.282.282,0,0,0,0,.563h2.1a.819.819,0,0,1,.786.845v6.761a.819.819,0,0,1-.786.845H38.71a.819.819,0,0,1-.786-.845v-6.761a.819.819,0,0,1,.786-.845h2.357a.282.282,0,0,0,0-.563H38.71a1.366,1.366,0,0,0-1.31,1.408v6.761a1.366,1.366,0,0,0,1.31,1.408H47.09a1.366,1.366,0,0,0,1.31-1.408v-6.761A1.366,1.366,0,0,0,47.09,138.8Z" transform="translate(-37.4 -136.378)" fill="#001f38" stroke="#001f38" stroke-width="0.6"/>
+                                      <path id="Path_19188" data-name="Path 19188" d="M127.079,5.014l2.014,2.014V.282a.282.282,0,0,1,.563,0V7.028l2.014-2.014a.272.272,0,0,1,.394,0,.272.272,0,0,1,0,.394L129.572,7.9a.272.272,0,0,1-.394,0l-2.493-2.493a.279.279,0,1,1,.394-.394Z" transform="translate(-123.875)" fill="#001f38" stroke="#001f38" stroke-width="0.6"/>
+                                    </g>
+                                  </g>
+                                </g>
+                              </svg>
+                                                      </li>
+                        <li>
+                            Import
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+                <div class="col6 print">
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13.165" height="12.143" viewBox="0 0 13.165 12.143"><defs></defs><path class="a" d="M12.237,12.439H10.762V10.031a.4.4,0,0,0-.4-.4H2.8a.4.4,0,0,0-.4.4v2.408H.929A.93.93,0,0,0,0,13.368v5.107a.93.93,0,0,0,.929.929H2.4v1.975a.4.4,0,0,0,.4.4h7.562a.4.4,0,0,0,.4-.4V19.4h1.475a.93.93,0,0,0,.929-.929V13.368A.93.93,0,0,0,12.237,12.439ZM3.2,10.429H9.966v2.01H3.2ZM9.966,20.98H3.2V17.031H9.966Zm2.4-2.505a.134.134,0,0,1-.133.133H10.762V16.633a.4.4,0,0,0-.4-.4H2.8a.4.4,0,0,0-.4.4v1.974H.929A.134.134,0,0,1,.8,18.475V13.368a.134.134,0,0,1,.133-.133H12.237a.134.134,0,0,1,.133.133v5.107Z" transform="translate(0 -9.633)"/><circle class="a" cx="0.566" cy="0.566" r="0.566" transform="translate(9.798 4.536)"/><path class="a" d="M86.427,163.822H82.805a.4.4,0,1,0,0,.8h3.622a.4.4,0,1,0,0-.8Z" transform="translate(-78.033 -155.639)"/><path class="a" d="M86.427,193.623H82.805a.4.4,0,1,0,0,.8h3.622a.4.4,0,1,0,0-.8Z" transform="translate(-78.033 -183.858)"/></svg>
+                        </li>
+                        <li>
+                            Print
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+        </div>
+        <div class="col5" [ngClass]="showInput ? 'maxcol5' : 'col5'">
+                <div class="col7 edit">
+                    <ul class="edit">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13" viewBox="0 0 13.4 13">
+                                <path id="edit-svgrepo" d="M13.266,3.2,10.108.131a.471.471,0,0,0-.652,0L.236,9.075a.442.442,0,0,0-.135.3L0,12.539a.441.441,0,0,0,.135.33A.469.469,0,0,0,.463,13H.477l3.258-.1a.468.468,0,0,0,.312-.131l9.22-8.944A.438.438,0,0,0,13.266,3.2ZM3.524,12.014l-2.585.076.079-2.508,5.6-5.438L9.129,6.576ZM9.781,5.944,7.275,3.512,9.781,1.081l2.506,2.432Z" transform="translate(-0.002 0)"/>
+                              </svg>                              
+                         </li>
+                        <li class="edit">
+                            Edit
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+                <div class="col7 inactive">
+                    <ul class="inactive">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19.859" height="11.81" viewBox="0 0 19.859 11.81">
+                                <g id="eye-svgrepo" transform="translate(0 -100.736)">
+                                  <g id="Group_9539" data-name="Group 9539" transform="translate(0 100.736)">
+                                    <path id="Path_19194" data-name="Path 19194" d="M9.93,112.546a11.56,11.56,0,0,1-6.95-2.76,18.268,18.268,0,0,1-2.842-2.743.657.657,0,0,1,0-.8A18.272,18.272,0,0,1,2.979,103.5a11.561,11.561,0,0,1,6.95-2.76,11.56,11.56,0,0,1,6.95,2.76,18.271,18.271,0,0,1,2.842,2.743.657.657,0,0,1,0,.8,18.271,18.271,0,0,1-2.842,2.743A11.56,11.56,0,0,1,9.93,112.546Zm-8.6-5.9A18.273,18.273,0,0,0,3.654,108.8a10.734,10.734,0,0,0,6.276,2.514,10.734,10.734,0,0,0,6.276-2.514,18.274,18.274,0,0,0,2.322-2.163,18.267,18.267,0,0,0-2.322-2.163,10.734,10.734,0,0,0-6.276-2.514,10.734,10.734,0,0,0-6.276,2.514A18.265,18.265,0,0,0,1.332,106.641Z" transform="translate(0 -100.736)"/>
+                                  </g>
+                                  <g id="Group_9540" data-name="Group 9540" transform="translate(6.448 103.159)">
+                                    <path id="Path_19195" data-name="Path 19195" d="M147,150.484a3.482,3.482,0,1,1,2.293-6.1.562.562,0,0,1-.74.845A2.359,2.359,0,1,0,149.36,147a.562.562,0,0,1,1.123,0A3.486,3.486,0,0,1,147,150.484Z" transform="translate(-143.52 -143.521)"/>
+                                  </g>
+                                  <g id="Group_9541" data-name="Group 9541" transform="translate(8.806 105.518)">
+                                    <path id="Path_19196" data-name="Path 19196" d="M197.143,198.267a1.123,1.123,0,1,1,1.123-1.123A1.124,1.124,0,0,1,197.143,198.267Z" transform="translate(-196.02 -196.021)"/>
+                                  </g>
+                                  <line id="Line_1108" data-name="Line 1108" x2="19" y2="10.002" transform="translate(0.5 101.236)" fill="none" stroke="#001f38" stroke-width="1"/>
+                                </g>
+                              </svg>
+                        </li>
+                        <li class="inactive">
+                            Inactive
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+                <div class="col7 delete">
+                    <ul class="delete">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13"><defs><style>.a{}</style></defs><g transform="translate(0 2.172)"><path class="a" d="M306.185,175.088l-1.132-.033-.246,5.248,1.132.032Z" transform="translate(-297.681 -172.282)"/><rect class="a" width="1.133" height="5.239" transform="translate(5.433 2.795)"/><path class="a" d="M159.8,180.3l-.245-5.248-1.132.033.245,5.248Z" transform="translate(-154.923 -172.275)"/><path class="a" d="M17.379,76.867v1H18.43l.834,9.375a.5.5,0,0,0,.5.455h7.21a.5.5,0,0,0,.5-.455l.834-9.375h1.068v-1Zm9.135,9.83H20.227l-.785-8.832H27.3Z" transform="translate(-17.379 -76.867)"/></g><g transform="translate(3.205)"><g transform="translate(0)"><path class="a" d="M161.721,0h-3.7a.945.945,0,0,0-.944.944V2.738h1.133V1.133h3.324V2.738h1.133V.944A.945.945,0,0,0,161.721,0Z" transform="translate(-157.076)"/></g></g></svg>
+                        </li>
+                        <li class="delete">
+                            Delete
+                        </li>
+                    </ul>
+                    <div class="background_hover"></div>
+                </div>
+        </div>
+    </div>
+    <div class="row row2">
+        <div class="body" (click)="toggle()" [ngClass]="showInput ? 'body2' : 'body'">
+        </div>
+        <div class="space">
+            <app-rightpanel></app-rightpanel>
+        </div>
+    </div>
+</div>

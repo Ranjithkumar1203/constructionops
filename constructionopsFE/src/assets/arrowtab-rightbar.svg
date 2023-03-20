@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5.41" height="9.242" viewBox="0 0 5.41 9.242">
+  <defs>
+    <filter id="Arrow" x="-9" y="-6" width="23.41" height="27.242" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Arrow)">
+        <path id="Arrow-2" data-name="Arrow" d="M1.11.188,5.278,4.308a.439.439,0,0,1,0,.627L1.11,9.054a.656.656,0,0,1-.92,0,.638.638,0,0,1,0-.909L3.756,4.621.19,1.1a.639.639,0,0,1,0-.909.656.656,0,0,1,.92,0" transform="translate(1421 190)" fill="#07b9ec"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="arrowtab-rightbar" transform="translate(-1421 -190)" clip-path="url(#clip-path)">
+    <rect id="Rectangle_2740" data-name="Rectangle 2740" width="6" height="9.242" transform="matrix(1, -0.017, 0.017, 1, 1420.922, 190.053)" fill="#07b9ec"/>
+  </g>
+</svg>

@@ -1,0 +1,208 @@
+<div class="modal" id="exampleModalcreated" data-bs-backdrop="focus" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="bodydiv">
+                <div class="row form-group">
+                    <div class="col2">
+                        <div class="modal-titlecreate" id="exampleModalLabel">Create New Work Schedule</div>
+                    </div>
+                </div>
+                <div class="spaceheight"></div>
+                <div class="modal-body createbody">
+                    <div class="row">
+                        <label class="cnamelable" id="namelable">
+                            Work Schedule
+                        </label>
+                        <input type="text" id="workname" class="cnameinput" placeholder="" (click)="worknameonactive()"
+                            (keyup.enter)="worknameactive($event)" [(ngModel)]="cnames" #vworkname="ngModel" (click)="activeall()">
+                    </div>
+                    <div class="spaceheight"></div>
+                    <div class="row">
+                        <div class="col1">
+                            <label class="cnamelable">
+                                Working Days
+                            </label>
+                            <input type="text" class="cdayinput" id="workdays"
+                                value="{{cdayinputs}}" readonly>
+                            <a class="img1">
+                                <img src="./assets/arrow-down.svg" class="edit1" id="workdaysedit" (click)="edit()">
+                                <img src="./assets/arrow-up.svg" class="hidecheck1" id="workdayscheck"
+                                    (click)="done()"></a>
+                            <ul class="hidelist2" id="workdayslist">
+                               
+                                <li *ngFor="let option of options" class="subli1">
+                                    <input type="checkbox" value="{{option.value}}"
+                                        (change)="onCheckboxChange(option.value,$event)"
+                                        class="form-check-input subli1checkbox" [(ngModel)]="option.checked">
+                                    <div class="subli1text">{{option.name}}</div>
+                                </li>
+                                <li class="subli1">
+                                    <input type="checkbox" class="form-check-input subli1checkbox" (click)="selectall()"
+                                        [(ngModel)]="selectedall" name="selectall" id="workdaysselectall">
+                                    <div class="subli1text">{{selecttext}}</div>
+                                </li>
+                                <li class="btnli">
+                                    <div class="rowbtn">
+                                        <div class="colbtn">
+                                            <button class="btn vcanbtn" id="workdaysclose"
+                                                (click)="done()">Close</button>
+                                            <button class="btn vclobtn hide" id="workdayscancel"
+                                                (click)="inactiveworkdays()">Cancel</button>
+                                        </div>
+                                        <div class="colbtn1">
+                                            <button type="submit" class="btn vappbtn2" id="workdaysapply">Apply</button>
+                                            <button type="submit" class="btn vappbtn hide" id="workdayssubmit"
+                                                (click)="submitworksdays()" (click)="activeall()">Apply</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col1">
+                            <label class="cnamelable" id="namelable">
+                                No. of Days
+                            </label>
+                            <input type="text" class="cdayinputnumber" value="{{cdaynumbers}}" readonly>
+                        </div>
+                    </div>
+                    <div class="spaceheight"></div>
+                    <div class="row">
+                        <div class="col1">
+                            <label class="cnamelable">
+                                Day Week Starts
+                            </label>
+                            <input type="text" class="cdayinput" placeholder="Select" value="{{cdayvalues}}" readonly>
+                            <a class="img1">
+                                <img src="./assets/arrow-down.svg" class="edit1" (click)="edit2()" id="dayvalueedit">
+                                <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="done2()"
+                                    id="dayvaluecheck"></a>
+                            <ul class="hidelist2 paddinglist" id="dayvaluelist">
+                                <li class="subli2" *ngFor="let day of days" (click)="done2()"
+                                    (click)="updatedayvalue(day.day)" (click)="activeall()">
+                                    {{day.day}}</li>
+                            </ul>
+                        </div>
+                        <div class="col1">
+                            <label class="cnamelable">
+                                Time Day Starts
+                            </label>
+                            <input type="text" class="cdayinput" placeholder="Select" value="{{ctimes}}" readonly>
+                            <a class="img1">
+                                <img src="./assets/arrow-down.svg" class="edit1" (click)="edit3()" id="worktimeedit">
+                                <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="done3()"
+                                    id="worktimecheck"></a>
+                            <ul class="hidelist2 paddinglist" id="worktimelist">
+                                <li class="subli2">Add New</li>
+                                <li class="subli2" *ngFor="let time of times" (click)="updateworktime(time.time)"
+                                    (click)="done3()" (click)="activeall()">
+                                    {{time.time}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spaceheight"></div>
+                    <div class="row">
+                        <div class="col1">
+                            <label class="cnamelable">
+                                Hours Working
+                            </label>
+                            <input type="text" class="cdayinput" placeholder="Select" value="{{chours}}" readonly>
+                            <a class="img1">
+                                <img src="./assets/arrow-down.svg" class="edit1" (click)="edit4()" id="workhouredit">
+                                <img src="./assets/arrow-up.svg" class="hidecheck1" (click)="done4()"
+                                    id="workhourcheck"></a>
+                            <ul class="hidelist2 paddinglist" id="workhourlist">
+                                <li class="subli2">Add New</li>
+                                <li class="subli2" *ngFor="let hour of hours" (click)="updateworkhour(hour.hour)"
+                                    (click)="done4()" (click)="activeall()">
+                                    {{hour.hour}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbottombutton">
+                    <div data-bs-dismiss="modal" class="closebtn" id="workclose" (click)="inactivepreview()">
+                        Close
+                    </div>
+                    <div class="btn clobtn hide" (click)="workcancel()" id="workcancel" (click)="inactivepreview()">Cancel</div>
+                    <div style="width: calc(100% - 390px);">
+
+                    </div>
+                    <div class="btn cpreviewbtn1" id="inactivepreview">Preview</div>
+                    <div class="btn ccreatebtn1" id="inactivecreate">Create</div>
+                    <div class="btn cpreviewbtn hide"  id="activepreview" data-bs-toggle="modal" (click)="preview()" data-bs-target="#exampleModalpreview">Preview</div>
+                    <div data-bs-dismiss="modal" class="btn ccreatebtn hide" id="activecreate" (click)="creatework()" (click)="inactivepreview()">Create</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="exampleModalpreview" tabindex="-1" data-bs-backdrop="focus" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="col2">
+                <div class="modal-titlecreate" id="exampleModalLabel">Create New Work Schedule</div>
+            </div>
+            <div class="spaceheight1"></div>
+            <div class="modal-body createbody">
+                <div class="row1">
+                    <label class="cpnamelable" id="namelable">
+                        Work Schedule
+                    </label>
+                    <div class="pnamelable">
+                        {{pname}}
+                    </div>
+                </div>
+                <div class="spaceheight2"></div>
+                <div class="row1">
+                    <label class="cpnamelable1" id="namelable">
+                        Starts on
+                    </label>
+                    <div class="pnamelable">
+                        {{pdayvalue}}
+                    </div>
+                    <label class="cpnamelable4" id="namelable">
+                        at
+                    </label>
+                    <div class="pnamelable1">
+                        {{ptime}}
+                    </div>
+                </div>
+                <div class="spaceheight2"></div>
+                <div class="row1">
+                    <label class="cpnamelable2" id="namelable">
+                        Works
+                    </label>
+                    <div class="pnamelable">
+                        {{pdayinput}}
+                    </div>
+                </div>
+                <div class="spaceheight2"></div>
+                <div class="row1">
+                    <label class="cpnamelable3" id="namelable">
+                        for
+                    </label>
+                    <div class="pnamelable">
+                        {{phour}}
+                    </div>
+                    <div class="cpnamelable5">
+                        Per Day
+                    </div>
+                </div>
+            </div>
+            <div class="cbottombutton">
+                <div data-bs-dismiss="modal" id="previewclose" class="pclosebtn" (click)="activecreate()">
+                    Close Preview
+                </div>
+                <div style="width: calc(100% - 270px);">
+
+                </div>
+                <div data-bs-dismiss="modal" id="previewclose" class="pcreatebtn" (click)="creatework()" (click)="inactivepreview()">
+                    Create
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

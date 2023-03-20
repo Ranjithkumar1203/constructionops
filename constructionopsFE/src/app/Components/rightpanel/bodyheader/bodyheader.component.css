@@ -1,0 +1,280 @@
+.contbody {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.row {
+    --bs-gutter-x: 0px;
+}
+.row1 {
+    width: 100%;
+    height: 40px;
+    background: #D9DDE1 0% 0% no-repeat padding-box;
+    opacity: 1;
+    padding: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.row2 {
+    width: 100%;
+    height: calc(100% - 40px);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 4px #00000017;
+    position: relative;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+}
+.body {
+    width: calc(100% - 36px);
+}
+.body2 {
+    width: 100%;
+}
+.col1{
+    width: calc(100% - 313px);
+    padding: 0px;
+    height: 40px;
+}
+.maxcol1{
+    width: calc(100% - 324px);
+    padding: 0px;
+    height: 40px;
+}
+
+.col2{
+    width: 22.3333%;
+    padding: 0px;
+    text-align: center;
+    height: 40px;
+}
+.maxcol2{
+    width: 19.837%;
+    padding: 0px;
+    text-align: center;
+    height: 40px;
+}
+
+.col3 {
+    padding: 0px;
+    width: 18.25%;
+    padding: 7px 10px 8px 10px;
+    position: relative;
+    height: 40px;
+}
+.maxcol3 {
+    padding: 0px;
+    width: 16.2102%;
+    padding: 7px 10px 8px 10px;
+    position: relative;
+    height: 40px;
+}
+
+.col4 {
+    padding: 0px;
+    width: 179px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.maxcol4 {
+    padding: 0px;
+    width: 176px;
+    height: 40px;
+}
+
+.col5 {
+    padding: 0px;
+    width: 133px;
+    border-left: 1px solid #acacac7a;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 5px;
+}
+.col5 .col7 li.edit{
+   /* color: #ffb92c;*/
+}
+.col5 .col7 .edit svg{
+  /*  fill:  #ffb92c;*/
+}
+.col5 .col7 .inactive svg{
+   /* fill:  #07b9ec;*/
+}
+.col5 .col7 .delete svg{
+    fill:  #eb5050;
+}
+.col5 .col7 li.inactive{
+ /*   color: #07b9ec;*/
+}
+.col5 .col7 li.delete{
+    color: #eb5050;
+}
+.maxcol5 {
+    padding: 0px;
+    width: 148px;
+    border-left: 1px solid #acacac7a;
+    height: 40px;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    z-index:1;
+    cursor: pointer;
+}
+
+.col {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0px;
+    opacity: 1;
+    color:#001F38;
+}
+
+.col6 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+ .col6.print{
+    min-width: 36px;
+}
+.col6.open{
+    min-width: 40px;
+}
+
+.col6.print .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 36px;
+}
+.col6.open .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+}
+
+.col6 > ul:hover + .background_hover{
+    background: rgba(255, 255, 255, 0.7);
+  
+}
+
+.col6.import .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 47px;
+}
+.col6.export .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 46px;
+}
+
+.col6.import{
+    min-width: 47px;
+}
+.col6.export{
+    min-width: 46px;
+}
+
+.col7 {
+    text-align: center;
+    padding-right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.col7.edit{
+    min-width: 31px;
+}
+
+.col7.inactive{
+    min-width: 52px;
+}
+.col7.delete{
+    min-width: 45px;
+}
+
+.col7 > ul:hover + .background_hover{
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.col7.delete > ul:hover + .background_hover{
+    background: rgba(255, 255, 255, 0.7);
+    border-top-right-radius:5px
+}
+
+.col7.edit .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 31px;
+}
+.col7.inactive .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 52px;
+}
+.col7.delete .background_hover{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    width: 45px;
+}
+.search {
+    width: 91.324%;
+    border-radius: 4px;
+    border: none;
+    position: relative;
+}
+
+.searchimg {
+    position: absolute;
+    left: 75%;
+    top: 30%;
+}
+
+.space {
+    position: absolute;
+    padding-top: 2px;
+    z-index: 200;
+    right: 0;
+    width: 292px;
+    height: 100%;
+
+}
+

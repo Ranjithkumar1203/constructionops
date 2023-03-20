@@ -1,0 +1,358 @@
+<img src="./assets/ZZ5H.gif" class="loadingimg hide" id="loading">
+<div class="col1" id="column1">
+    
+    <div class="trans"></div>
+    <div class="row1">
+        <div class="headtext">Tab Assignments</div>
+        <div class="colbtn" id="colbtn">
+            <button class="btn btn2">Add New</button>
+        </div>
+        <div class="colbtn hide" id="colbtnactive">
+            <button class="btn btn1" (click)="createaddtab()">Add New</button>
+            <div class="tooltip-right"></div>
+            <div class="hover1">
+                Add New Tab
+            </div>
+        </div>
+    </div>
+    <div class="leftsidebar_menus" id="scroll">
+        
+        <div *ngFor="let option of options">
+            
+            <div class="tab" id="tabsec{{option.id}}">
+                Tab {{option.number}}<img src="/assets/delete.svg" class="cancelfav1" *ngIf="option.isdeletable" (click)="deletetab(option.id)">
+            </div>
+            <div class="tabdropdown">
+                
+                <span id="deletetext">
+                    <img src="/assets/delete.svg" class="cancelfav" (click)="deletetext(option.id)" *ngIf="option.isName">
+                    <input type="text" class="dropdown" [(ngModel)]="option.name" #tabname="ngModel" id="dropdownbor{{option.id}}" (ngModelChange)='onChange($event,option.id,tabname.value)' autofocus>
+                </span>
+                
+                <img src="assets/Arrowdarkdown.svg" class="downicon1" id="dropdownimg{{option.id}}" (click)="openclick()"
+                    (click)="dropopenactive(option.id)" >
+                <img src="assets/Arrowdarkup.svg" class="downicon2 hide" id="dropdownimgsss{{option.id}}"
+                    (click)="dropdownsingle(option.id)">
+                <ul class="dropdownul hide" id="dropdownul{{option.id}}">
+                        <div class="leftsidebar_menus2">
+                            <li class="dropdownli" *ngFor="let tab of tabss" (click)="select(option.id,tab.tab,option.sequence)">
+                                {{tab.tab}}
+                            </li>
+                        </div>
+                </ul>
+            </div>
+            <div class="space"></div>
+        </div>
+        
+        <div *ngFor="let addtab of addtabs">
+            <div class="tab" id="tabsecs{{addtab.id}}">
+                Tab {{addtab.numbername}}<img src="/assets/delete.svg" class="cancelfav1" (click)="deletetabs(addtab.id)">
+            </div>
+            <div class="tabdropdown">
+                <span id="deletetext">
+                    <img src="/assets/delete.svg" class="cancelfav" (click)="deletetexts(addtab.id)" *ngIf="addtab.isName">
+                    <input type="text" class="dropdown" [(ngModel)]="addtab.name" #tabname="ngModel" id="dropdowntexts{{addtab.id}}">
+                </span>
+                <img src="assets/Arrowdarkdown.svg" class="downicon1" id="dropdownimgs{{addtab.id}}" (click)="openclick()"
+                    (click)="dropopens(addtab.id)">
+                <img src="assets/Arrowdarkup.svg" class="downicon2 hide" id="dropdownimgss{{addtab.id}}"
+                    (click)="dropdownsingles(addtab.id)">
+                <ul class="dropdownul hide" id="dropdownuls{{addtab.id}}">
+                    <div class="scrollcolor">
+                        <div class="leftsidebar_menus2">
+                            <li class="dropdownli" *ngFor="let tab of tabss" (click)="selects(addtab.id,tab.tab,addtab.sequence)">
+                                {{tab.tab}}
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="space"></div>
+        </div>
+    </div>
+    
+    <div class="bottombutton">
+        <button class="btn closebutton" type="button" aria-label="Close" (click)="toggle()" id="close" (click)="closetab()">Close</button>
+        <button class="btn closebutton2 hide" type="button" aria-label="Close" (click)="cancel()" id="cancel">Cancel</button>
+        <button class="btn cancelbutton" type="button" aria-label="Close" id="applyncancel">Apply & Close</button>
+        <button class="btn applybutton hide" type="button" aria-label="Close" (click)="applyfinal();" id="applynclose">Apply & Close</button>
+    </div>
+</div>
+
+<!-- <div class="tab">
+            Tab One
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg1" (click)="dropopen()"
+                (click)="toggle()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg2" (click)="dropclose()">
+            <ul class="dropdownul hide" id="dropdownul1">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div>
+        <div class="tab">
+            Tab Two
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg3" (click)="dropopen2()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg4" (click)="dropclose2()">
+            <ul class="dropdownul hide" id="dropdownul2">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div>
+        <div class="tab">
+            Tab Three
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg5" (click)="dropopen3()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg6" (click)="dropclose3()">
+            <ul class="dropdownul hide" id="dropdownul3">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div>
+        <div class="tab">
+            Tab Four
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg7" (click)="dropopen4()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg8" (click)="dropclose4()">
+            <ul class="dropdownul hide" id="dropdownul4">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div>
+        <div class="tab">
+            Tab Five
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg9" (click)="dropopen5()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg10" (click)="dropclose5()">
+            <ul class="dropdownul hide" id="dropdownul5">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div>
+        <div class="tab">
+            Tab Six
+        </div>
+        <div class="tabdropdown">
+            <input type="text" class="dropdown" placeholder="Unassigned" readonly>
+            <img src="./assets/down-icon2.png" class="downicon1" id="dropdownimg11" (click)="dropopen6()">
+            <img src="./assets/down-icon.png" class="downicon1 hide" id="dropdownimg12" (click)="dropclose6()">
+            <ul class="dropdownul hide" id="dropdownul6">
+                <div class="scrollcolor">
+                    <div class="leftsidebar_menus2">
+
+                        <li class="dropdownli">
+                            Task List
+                        </li>
+                        <li class="dropdownli">
+                            Project List
+                        </li>
+                        <li class="dropdownli">
+                            User List
+                        </li>
+                        <li class="dropdownli">
+                            Customer List
+                        </li>
+                        <li class="dropdownli">
+                            Internal Resource List
+                        </li>
+                        <li class="dropdownli">
+                            External Resource List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Superintendent List
+                        </li>
+                        <li class="dropdownli">
+                            Subcontractor List
+                        </li>
+                        <li class="dropdownli">
+                            Supplier List
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="space"></div> -->

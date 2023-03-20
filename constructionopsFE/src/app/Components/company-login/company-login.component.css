@@ -1,0 +1,202 @@
+.maincontaint {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../../assets/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.uplogo {
+  padding-left: 12vw;
+  padding-top: 4vh;
+}
+.uplogo img {
+  width: 19vw;
+  height: 9vh;
+}
+.header {
+  position: relative;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+}
+.languagediv {
+  margin-right: 1vw;
+  display: flex;
+  justify-content: space-between;
+}
+.language {
+  padding-top: 11vh;
+  font: normal normal normal 1vw Open Sans;
+  letter-spacing: 0px;
+  color: #001f38;
+  opacity: 1;
+}
+.form-select {
+  position: relative;
+  padding-top: 11vh;
+  width: 7vw;
+  border: none;
+  background: transparent;
+  opacity: 1;
+  color: #001f38;
+  font: normal normal normal 1vw Open Sans;
+  box-shadow: none;
+}
+.linebreak1 {
+  position: relative;
+  height: 1vh;
+  background: #001f38;
+  opacity: 1;
+  box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+}
+.box2 {
+  height: 76vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centrebox {
+  width: 36vw;
+  height: 39vh;
+}
+.linebreak2 {
+  position: relative;
+  height: 0.8vh;
+  background: #ffb92c;
+  opacity: 1;
+  box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+}
+.chadbuild {
+  font: 1.4vw Controller;
+  font-weight: bold;
+  color: #001f38;
+}
+.enhancedopti {
+  padding-top: 0.5vh;
+  font-weight: bold;
+  font: 0.8vw Controller;
+  color: #ffb92c;
+}
+.input-group {
+  margin-top: 2vh;
+}
+.input-group input {
+  height: 4.5vh;
+  min-height: 24px;
+  min-width: 268px;
+  font: Open Sans;
+  letter-spacing: 0px;
+  color: #001f38;
+  font-weight: bold;
+  opacity: 1;
+  background-color: #e5e8eb;
+  box-shadow: none;
+}
+.input-group ::placeholder {
+  font: 0.8vw Open Sans;
+  color: #bec2c5;
+  text-transform: uppercase;
+  opacity: 1;
+}
+.form-control {
+  border: 1px solid #fcbd3d;
+}
+.rememberme {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.3vh;
+  font-family: open sans;
+  font-size: 1vw;
+}
+.btn {
+  width: 36vw;
+  height: 5.2vh;
+  min-height: 40px;
+  text-align: center;
+  margin-top: 2vh;
+  border: 1px solid #ffb92c;
+  font: normal normal 600 1.1vw Open Sans;
+  letter-spacing: 0px;
+  color: #ffb92c;
+  opacity: 1;
+}
+.btn:hover:enabled {
+  background-color: #ffb92c;
+  color: #ffffff;
+}
+.form-check-input {
+  box-shadow: none;
+  border: 1px #07b9ec solid;
+  opacity: 1;
+}
+.form-check-input:checked {
+  background-color: #07b9ec;
+}
+.troublelogin {
+  text-align: center;
+  margin-top: 6vh;
+  font: normal normal normal 1.1vw Open Sans;
+  color: #07b9ec;
+  opacity: 1;
+}
+.dullText2 {
+  padding-top: 0.6vh;
+  color: rgb(209, 209, 209);
+  font-size: 1vw;
+}
+.dullText2 img {
+  width: 5vw;
+  height: 5vh;
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+.footernavs ul {
+  padding-top: 1.4vh;
+  display: flex;
+  font-size: 1vw;
+}
+.footernavs ul li {
+  list-style: none;
+  padding-left: 1.2vw;
+  color: rgb(209, 209, 209);
+}
+.footernavs ul li a {
+  color: rgb(209, 209, 209);
+  text-decoration: none;
+}
+.footernavs ul li:hover {
+  text-decoration: underline !important;
+}
+.forgetText{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.forgetText h4{
+ font-family: controller;
+ font-weight: bold;
+}
+.backText{
+  color: #07b9ec;
+  font-size: 1.1vw;
+}
+.backText:hover {
+ text-decoration: underline;
+  
+}
+.backText:hover .leftArrow{
+  width: 1vw;
+}
+.leftArrow{
+  transform: matrix(0, 1, -1, 0, 0, 0);
+}
+.suggestiontext{
+  font-size: .8vw;
+  margin-left: .5vw;
+  color:rgb(180, 180, 180) ;
+  
+}
+

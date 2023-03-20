@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+  <g id="white-checked" transform="translate(-567 -125.48)">
+    <g id="Rectangle_1731" data-name="Rectangle 1731" transform="translate(567 125.48)" fill="#fff" stroke="#07b9ec" stroke-width="0.5">
+      <rect width="13" height="13" rx="3" stroke="none"/>
+      <rect x="0.25" y="0.25" width="12.5" height="12.5" rx="2.75" fill="none"/>
+    </g>
+    <path id="checked_7_" data-name="checked (7)" d="M0,68.218,3.177,71.4l6.1-6.094L8.4,64.443,3.177,69.661.864,67.348Z" transform="translate(568.723 64.599)" fill="#07b9ec"/>
+  </g>
+</svg>

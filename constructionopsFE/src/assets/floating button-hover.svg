@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="59" viewBox="0 0 59 59">
+  <defs>
+    <filter id="Path_18626" x="0" y="0" width="59" height="59" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#07b9ec"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="floating_button-hover" data-name="floating button-hover" transform="translate(9 9)">
+    <g transform="matrix(1, 0, 0, 1, -9, -9)" filter="url(#Path_18626)">
+      <path id="Path_18626-2" data-name="Path 18626" d="M20.5,0A20.5,20.5,0,1,1,0,20.5,20.5,20.5,0,0,1,20.5,0Z" transform="translate(9 9)" fill="#001f38"/>
+    </g>
+    <path id="add_10_" data-name="add (10)" d="M19.808,8.933h-6.6a.388.388,0,0,1-.388-.388v-6.6a1.942,1.942,0,1,0-3.884,0v6.6a.388.388,0,0,1-.388.388h-6.6a1.942,1.942,0,1,0,0,3.884h6.6a.388.388,0,0,1,.388.388v6.6a1.942,1.942,0,1,0,3.884,0v-6.6a.388.388,0,0,1,.388-.388h6.6a1.942,1.942,0,1,0,0-3.884Zm0,0" transform="translate(10 10)" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,86 @@
+<div class="sort">
+  <button (click)="sortAlphabetically()">Arrange Alphabetically</button>
+</div>
+<table>
+  <thead>
+    <tr class="tablehead">
+      <th class="px-3">ACTION</th>
+      <th>DEPARTMENT LIBRARY</th>
+      <th>DEPARTMENT DETAILS</th>
+      <th>SOFTWARE NAME</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+      <th>FUTURE PERMISSION SETTINGS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allDepartment">
+      <td style="width: 4vw" class="px-3">
+        <span class="me-3" (click)="editDepartment(item)">
+          <i class="fa fa-pencil action"></i>
+        </span>
+        <span (click)="deleteDepartment(item)">
+          <i class="fa fa-trash text-danger"></i
+        ></span>
+      </td>
+      <td>{{ item.departmentName }}</td>
+      <td>{{ item.departmentDetails }}</td>
+      <td class="t10" style="border-right: 2px solid #FFFFFF;">
+        <div class="nameleable ">
+          <div class="softwarename">{{item.softwareName}}</div>
+          <div class="">
+            <img src="./assets/arrow-down.svg" id="editweek{{item.id}}" class="edit2" (click)="editsoftware(item)" />
+            <img
+              src="./assets/arrow-up.svg"
+              id="doneweek{{item.id}}"
+              class="check3 hide"
+              (click)="doneweek(item.id)"
+            />
+          </div>
+        </div>
+        <ul id="listweek{{item.id}}" class="list3 hide">
+          <li *ngFor="let option of options" class="subli1">
+            <input
+            (change)="onCheckBoxChange($event,item.softwareName,option.name)"
+              type="checkbox"
+              value="{{option.name}}"
+              class="form-check-input subli1checkbox6"
+              [(ngModel)]="option.checked"
+            />
+            <div class="subli1text">{{ option.name }}</div>
+          </li>
+          <li class="btnli">
+            <div class="rowbtn">
+              <div class="colbtn">
+                <button (click)="doneweek(item.id)" class="btn canbtn">Close</button>
+              </div>
+              <div class="colbtn1">
+                <button type="submit" (click)="updateweek(item)" (click)="doneweek(item.id)" class="btn appbtn2">Apply</button>
+              </div>
+              <div class="colbtn1">
+                <button type="submit" (click)="selectAll()" class="btn appbtn2">SelectAll</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="textOnPlus" class="hover2">
+  <div class="tooltip-right"></div>
+  Add Work Schedule
+</div>
+<div
+  (mouseover)="showWork()"
+  (mouseout)="hideWork()"
+  (click)="openAddDepartmentDialog()"
+  class="circlediv"
+>
+  <i class="fa fa-plus"></i>
+</div>

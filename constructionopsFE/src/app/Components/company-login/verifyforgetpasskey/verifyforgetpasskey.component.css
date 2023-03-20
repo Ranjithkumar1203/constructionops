@@ -1,0 +1,23 @@
+.maincontent {
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f8fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text1{
+    text-align: center;
+    font-family: controller;
+    font-size: 2vw;
+    font-weight: bold;
+    color:rgb(8, 192, 248);
+    padding-top: 2vh;
+}
+.text2{
+  margin-top: 2vh ;
+  text-align: center;
+  font-size:1vw;
+  color:  #cac9c7;
+}

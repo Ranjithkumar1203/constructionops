@@ -1,0 +1,125 @@
+<table>
+  <thead>
+    <tr class="tablehead">
+      <th class="px-3">ACTION</th>
+      <th>WORK SCHEDULE LIBRARY</th>
+      <!-- <th>WORK SCHEDULE</th> -->
+      <th>WORKING DAYS</th>
+      <th>NO. OF DAYS</th>
+      <th>WEEK STARTS</th>
+      <th>DAY STARTS</th>
+      <th>HOURS WORKED</th>
+      <th>LUNCH BREAK</th>
+      <th>SOFTWARE NAME</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let work of allWorkLibrary" class="tr2">
+      <td style="width: 4vw" class="px-3">
+        <span class="me-3">
+          <i class="fa fa-pencil action" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editWorkHandler(work.id)">
+            
+          </i>
+        </span>
+        <app-editwork></app-editwork>
+        <span>
+          <i (click)="deleteWorkHandler(work.id)" class="fa fa-trash text-danger"></i></span>
+      </td>
+      <td style="
+          border-right: 2px solid #ffffff;
+          border-bottom: 2px solid #ffffff;
+          cursor: default;
+          text-align: left;
+          padding-left: 10px;
+        ">
+        {{ work.libraryName }}
+      </td>
+
+      <td style="
+          border-right: 2px solid #ffffff;
+          border-bottom: 2px solid #ffffff;
+          height: 26px;
+          cursor: default;text-align: left;
+          padding-left: 10px;
+        ">
+        {{ work.workingDays }}
+      </td>
+      <td style="border-bottom: 2px solid #ffffff; height: 26px; cursor: default;">
+        {{ work.numberOfDays }}
+      </td>
+      <td style="border-bottom: 2px solid #ffffff; height: 26px; cursor: default; text-align: left;
+      padding-left: 10px;">
+        {{ work.weekStart }}
+      </td>
+      <td style="border-bottom: 2px solid #ffffff; height: 26px; cursor: default; text-align: left;
+      padding-left: 10px;">
+        {{ work.dayStart }}
+      </td>
+      <td style="border-bottom: 2px solid #ffffff; height: 26px; cursor: default; text-align: left;
+      padding-left: 10px;">
+        {{ work.hoursworkednumber }}
+      </td>
+      <td style="border-bottom: 2px solid #ffffff; height: 26px; cursor: default; text-align: left;
+      padding-left: 10px;">
+        {{ work.lunchbreaknumber }}
+      </td>
+      <td>
+        <div>
+          <div class="nameleable">
+            <div class="softwarename">{{ work.softwareName }}</div>
+            <div class="">
+              <img src="./assets/arrow-down.svg" id="editweek{{ work.id }}" class="edit2"
+                (click)="editsoftware(work)" />
+              <img src="./assets/arrow-up.svg" id="doneweek{{ work.id }}" class="check3 hide"
+                (click)="doneweek(work.id)" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <ul id="listweek{{ work.id }}" class="list3 hide">
+            <li *ngFor="let option of options" class="subli1">
+              <input (change)="
+                  onCheckBoxChange($event, work.softwareName, option.name)
+                " type="checkbox" value="{{ option.name }}" class="form-check-input subli1checkbox6"
+                [checked]="option.checked" />
+              <div class="subli1text">{{ option.name }}</div>
+            </li>
+            <li class="btnli">
+              <div class="rowbtn">
+                <div class="colbtn">
+                  <button *ngIf="closeBtn == true" (click)="doneweek(work.id)" class="btn canbtn">
+                    Close
+                  </button>
+                  <button *ngIf="closeBtn == false" (click)="doneweek(work.id)" class="btn canbtn2">
+                    Cancel
+                  </button>
+                </div>
+                <div class="colbtn1">
+                  <button type="submit" [disabled]="applyButtonDisable" (click)="updateweek(work)"
+                    (click)="doneweek(work.id)" class="btn appbtn2">
+                    Apply
+                  </button>
+                </div>
+                <div class="colbtn1">
+                  <button type="submit" (click)="selectAllSoft()" class="btn appbtn2" [disabled]="applyButtonDisable">
+                    SelectAll
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="textOnPlus" class="hoverplus">
+  <div class="tooltip-right"></div>
+  Add Work Schedule
+</div>
+<div (mouseover)="showWork()" (mouseout)="hideWork()" class="circlediv">
+  <i class="fa fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModalcreating"></i>
+  
+</div>
+<app-creatework></app-creatework>

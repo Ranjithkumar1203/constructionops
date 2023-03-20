@@ -1,0 +1,146 @@
+<li class="lisearch" id="testing">
+    <input id="searchinput1" class="globalsearch searchfont" type="search" placeholder="Search Company"
+    [(ngModel)]="searchitem1" (click)="readytosearch()" (keyup.enter)="entersearch1($event)" (keyup.esc)="focusoutfor($event)">
+    <div id="searchremove" (click)="searchadvanced()">
+        <button class="searchimg" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                <defs>
+                    <style>
+                        .a {}
+                    </style>
+                </defs>
+                <g transform="translate(0 0)">
+                    <path class="a"
+                        d="M14.817,13.936,10.551,9.67a5.949,5.949,0,1,0-.884.884l4.266,4.266a.625.625,0,1,0,.884-.884ZM5.937,10.628A4.688,4.688,0,1,1,10.625,5.94,4.692,4.692,0,0,1,5.937,10.628Z"
+                        transform="translate(0 -0.003)" />
+                </g>
+            </svg>
+        </button>
+    </div>
+</li>
+
+   <ul class="searchdropdown hide" id="dropdownsearchsimple" (mouseenter)="searchadvmousein()"
+    (mouseleave)="searchadvmousout()" (keyup.esc)="closepopup1($event)">
+<div class="head">
+    <div class="iconinput">
+        <div class="closeicon" (click)="searchadvancedclose1()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 7 7">
+                <path id="close_9_" data-name="close (9)"
+                    d="M4.141,3.636,6.867.91A.453.453,0,1,0,6.226.269L3.5,2.995.774.269A.453.453,0,0,0,.133.91L2.859,3.636.133,6.362A.453.453,0,1,0,.774,7L3.5,4.277,6.226,7a.453.453,0,0,0,.641-.641Zm0,0"
+                    transform="translate(0 -0.136)" />
+            </svg>
+        </div>
+        <input id="searchinputtext1" class="searchinput" type="text" placeholder="Search Company" [(ngModel)]="searchitem1">
+        <button class="searchicon" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                <defs>
+                    <style>
+                        .a {}
+                    </style>
+                </defs>
+                <g transform="translate(0 0)">
+                    <path class="a"
+                        d="M14.817,13.936,10.551,9.67a5.949,5.949,0,1,0-.884.884l4.266,4.266a.625.625,0,1,0,.884-.884ZM5.937,10.628A4.688,4.688,0,1,1,10.625,5.94,4.692,4.692,0,0,1,5.937,10.628Z"
+                        transform="translate(0 -0.003)" />
+                </g>
+            </svg>
+        </button>
+    </div>
+
+
+
+
+</div>
+<div class="mainarea">
+    <h4>Search By</h4>
+    <ul class="buttons">
+        <li id="buttonsearch1" (click)="addclass1()">
+           
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="15" height="15" viewBox="0 0 15 18">
+            <defs>
+                <clipPath id="clip-path">
+                    <rect id="Rectangle_117" data-name="Rectangle 117" width="15" height="15" />
+                </clipPath>
+            </defs>
+            <g id="Projects" opacity="0.7" clip-path="url(#clip-path)">
+                <g id="project" transform="translate(1.25 1.5)">
+                    <g id="Group_387" data-name="Group 387">
+                        <g id="Group_386" data-name="Group 386">
+                            <path id="Path_17525" data-name="Path 17525"
+                                d="M11.587,3.691V0H1.538V1.846H0V13.9H1.538V15.75H11.587V13.9h1.538V3.691ZM1.538,12.981H.769V4.614h.769Zm0-9.29H.769V2.769h.769Zm9.28,11.136H9.055l1.763-2.116Zm-2.307-.653V12.059h1.763Zm2.307-3.039H7.742v3.691H2.307V.923h8.511Zm1.538,1.846h-.769V4.614h.769Z" />
+                        </g>
+                    </g>
+                    <g id="Group_389" data-name="Group 389" transform="translate(3.75 5.5)">
+                        <g id="Group_388" data-name="Group 388" transform="translate(0 0)">
+                            <rect id="Rectangle_114" data-name="Rectangle 114" width="5.833"
+                                height="1" />
+                        </g>
+                    </g>
+                    <g id="Group_391" data-name="Group 391" transform="translate(3.75 7.5)">
+                        <g id="Group_390" data-name="Group 390" transform="translate(0 0)">
+                            <rect id="Rectangle_115" data-name="Rectangle 115" width="5.833"
+                                height="1" />
+                        </g>
+                    </g>
+                    <g id="Group_393" data-name="Group 393" transform="translate(3.75 3.5)">
+                        <g id="Group_392" data-name="Group 392" transform="translate(0 0)">
+                            <rect id="Rectangle_116" data-name="Rectangle 116" width="5.833"
+                                height="1" />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+
+            Database
+            <div id="closeselected" class="closebutton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7">
+                    <path id="close_9_" data-name="close (9)"
+                        d="M4.141,3.636,6.867.91A.453.453,0,1,0,6.226.269L3.5,2.995.774.269A.453.453,0,0,0,.133.91L2.859,3.636.133,6.362A.453.453,0,1,0,.774,7L3.5,4.277,6.226,7a.453.453,0,0,0,.641-.641Zm0,0"
+                        transform="translate(0 -0.136)" />
+                </svg>
+            </div>
+        </li>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="15" height="15" viewBox="0 0 15 15">
+                <defs>
+                    <clipPath id="clip-path">
+                        <rect id="Rectangle_1729" data-name="Rectangle 1729" width="15" height="15"
+                            transform="translate(-0.178)" />
+                    </clipPath>
+                </defs>
+                <g id="customers" transform="translate(0.178)" opacity="0.7"
+                    clip-path="url(#clip-path)">
+                    <g id="customer_4_" data-name="customer (4)" transform="translate(0.822 -31)">
+                        <path id="Path_18181" data-name="Path 18181"
+                            d="M171.209,37.418A2.209,2.209,0,1,0,169,35.209,2.211,2.211,0,0,0,171.209,37.418Zm0-3.656a1.447,1.447,0,1,1-1.447,1.447A1.449,1.449,0,0,1,171.209,33.762Z"
+                            transform="translate(-164.709)" />
+                        <path id="Path_18182" data-name="Path 18182"
+                            d="M378.4,99.793a1.4,1.4,0,1,0-1.4-1.4A1.4,1.4,0,0,0,378.4,99.793Zm0-2.031a.635.635,0,1,1-.635.635A.635.635,0,0,1,378.4,97.762Z"
+                            transform="translate(-367.428 -62.375)" />
+                        <path id="Path_18183" data-name="Path 18183"
+                            d="M11.276,241h-.589a1.727,1.727,0,0,0-1.566,1,3.065,3.065,0,0,0-2.266-1h-.71a3.065,3.065,0,0,0-2.266,1,1.727,1.727,0,0,0-1.566-1H1.724A1.721,1.721,0,0,0,0,242.714v2.773a.746.746,0,0,0,.747.744H3.076a.89.89,0,0,0,.886.813H9.039a.89.89,0,0,0,.886-.812h2.3a.773.773,0,0,0,.773-.77v-2.746A1.721,1.721,0,0,0,11.276,241ZM.762,242.714a.958.958,0,0,1,.962-.952h.589a.958.958,0,0,1,.962.952v.261a6.328,6.328,0,0,0-.2,2.494H.762Zm8.4,3.44a.128.128,0,0,1-.127.128H3.961a.128.128,0,0,1-.127-.128v-2.081a2.314,2.314,0,0,1,2.311-2.311h.71a2.314,2.314,0,0,1,2.311,2.311Zm3.072-.694c0,.013.142.009-2.311.009a6.308,6.308,0,0,0-.2-2.494v-.261a.958.958,0,0,1,.962-.952h.589a.958.958,0,0,1,.962.952Z"
+                            transform="translate(0 -202.719)" />
+                        <path id="Path_18184" data-name="Path 18184"
+                            d="M26.4,99.793A1.4,1.4,0,1,0,25,98.4,1.4,1.4,0,0,0,26.4,99.793Zm0-2.031a.635.635,0,1,1-.635.635A.635.635,0,0,1,26.4,97.762Z"
+                            transform="translate(-24.365 -62.375)" />
+                    </g>
+                </g>
+            </svg>
+
+            Resources
+        </li>
+        <li>TBD</li>
+        <li>TBD</li>
+    </ul>
+    <ul class="buttons">
+        <li>TBD</li>
+        <li>TBD</li>
+    </ul>
+    <h4>Recent Searches</h4>
+</div>
+</ul>
+
+

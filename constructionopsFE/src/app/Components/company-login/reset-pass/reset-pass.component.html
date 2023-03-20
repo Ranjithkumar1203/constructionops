@@ -1,0 +1,195 @@
+<div class="maincontaint">
+  <div class="header">
+    <div class="uplogo">
+      <img src="../../../assets/buildrOPs-Logo-login@2x.png" alt="" />
+    </div>
+    <div class="languagediv">
+      <div class="language">Language:</div>
+      <div>
+        <select class="form-select">
+          <option selected>English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="linebreak1"></div>
+  <div class="box2" *ngIf="resetBox == true">
+    <div class="centrebox">
+      <div>
+        <h4>Reset Password?</h4>
+      </div>
+      <div class="suggestiontext">
+        Your new password must be different from any previous passwords.
+      </div>
+      <form [formGroup]="resetForm" (ngSubmit)="resetHandler()">
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+        </div>
+        <div class="passworderrormsg"
+          *ngIf="
+            resetForm.controls['password'].hasError('minlength') ||
+            resetForm.controls['password'].touched
+          "
+          [ngClass]="
+            resetForm.controls['password'].hasError('minlength') ||
+            resetForm.controls['password'].hasError('required')
+              ? 'text-danger'
+              : 'text-primary'
+          "
+        >
+          Password length must be eight !
+        </div>
+
+        <div class="passworderrormsg"
+          *ngIf="
+            resetForm.controls['password'].hasError('hasNumber') ||
+            resetForm.controls['password'].touched
+          "
+          [ngClass]="
+            resetForm.controls['password'].hasError('hasNumber') ||
+            resetForm.controls['password'].hasError('required')
+              ? 'text-danger'
+              : 'text-primary'
+          "
+        >
+          Must have at least one number!
+        </div>
+
+        <div class="passworderrormsg"
+          *ngIf="
+            resetForm.controls['password'].hasError('hasCapitalCase') ||
+            resetForm.controls['password'].touched
+          "
+          [ngClass]="
+            resetForm.controls['password'].hasError('hasCapitalCase') ||
+            (resetForm.controls['password'].hasError('required') &&
+              resetForm.controls['password'].touched)
+              ? 'text-danger'
+              : 'text-primary'
+          "
+        >
+          Must have at least one Capital letter!
+        </div>
+
+        <div class="passworderrormsg"
+          *ngIf="
+            resetForm.controls['password'].hasError('hasSmallCase') ||
+            resetForm.controls['password'].touched
+          "
+          [ngClass]="
+            resetForm.controls['password'].hasError('hasSmallCase') ||
+            (resetForm.controls['password'].hasError('required') &&
+              resetForm.controls['password'].touched)
+              ? 'text-danger'
+              : 'text-primary'
+          "
+        >
+          Must have at least one Small letter!
+        </div>
+        <div class="passworderrormsg"
+          *ngIf="
+            resetForm.controls['password'].hasError('hasSpecialCharacters') ||
+            resetForm.controls['password'].touched
+          "
+          [ngClass]="
+            resetForm.controls['password'].hasError('hasSpecialCharacters') ||
+            (resetForm.controls['password'].hasError('required') &&
+              resetForm.controls['password'].touched)
+              ? 'text-danger'
+              : 'text-primary'
+          "
+        >
+          Must have at least one Special Charecter!
+        </div>
+
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            required
+          />
+        </div>
+        <div class="text-danger passworderrormsg" *ngIf="confirmPasswordError === true">
+          Password is mismatch!
+        </div>
+        <div
+          class="text-danger passworderrormsg"
+          *ngIf="
+            resetForm.controls['confirmPassword'].hasError('required') &&
+            resetForm.controls['confirmPassword'].touched
+          "
+        >
+          Confirn Password is required!
+        </div>
+        <div>
+          <button class="btn" type="submit" [disabled]="resetForm.invalid">
+            Reset Password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="box2" *ngIf="resetBox == false">
+    <div class="centrebox">
+      <div>
+        <h4>Password Reset Successfull</h4>
+      </div>
+      <div class="suggestiontext">
+        Your will be redirected to login page...
+      </div>
+      <div class="mt-4" style="font-family: controller;">
+        <h1>Redirecting.....</h1>
+      </div>
+    </div>
+  </div>
+  <div class="linebreak2"></div>
+  <div class="footer">
+    <div class="dullText2">
+      <span> Powered by </span>
+      <span>
+        <img src="../../../assets/footerlogo@2x.png" alt="" />
+      </span>
+      <span> Construction Ops Software Co - All Rights Reserved © </span>
+    </div>
+    <div class="text-center footernavs">
+      <ul>
+        <li>
+          <a
+            href="http://privacy.constructionrops.com/"
+            tabindex="-1"
+            target="blank"
+            >Privacy Policy</a
+          >
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            href="http://terms.constructionrops.com/"
+            tabindex="-1"
+            target="blank"
+            >Terms of Service</a
+          >
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            href="https://contact.constructionops.com/"
+            tabindex="-1"
+            target="blank"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

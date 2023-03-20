@@ -1,0 +1,334 @@
+.navbar1 {
+  margin: 0px 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 41%;
+  background: #001f38 0% 0% no-repeat padding-box;
+  color: white;
+}
+
+.heading {
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing:  -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: auto;
+  color: #edeeef;
+  opacity: 1;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.navheader1 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal .8vw "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgba(255, 255, 255, 0.863);
+  opacity: 1;
+  margin-left: 10px;
+  padding-top: 1.5vh;
+  margin-right: 10px;
+  
+}
+.navheader1:hover {
+  color: #07b9ec;
+}
+.navheader2 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+.navheader3 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+.navheader4 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.navheader5 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.navheader6 {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal normal 12px "Open Sans";
+  letter-spacing: -0.22px;
+  color: rgb(255, 255, 255, 0.7);
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.navheader2:hover {
+  color: #07b9ec;
+}
+.navheader3:hover {
+  color: #07b9ec;
+}
+.navheader4:hover {
+  color: #07b9ec;
+}
+.navheader5:hover {
+  color: #07b9ec;
+}
+.navheader6:hover {
+  color: #07b9ec;
+}
+
+.ulsearch {
+  width: 200px;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  margin: auto 8px auto auto;
+  position: relative;
+}
+.lisearch {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  height: 25px;
+  /* background: #FFFFFF 0% 0% no-repeat padding-box;*/
+  list-style-type: none;
+  border-radius: 3px;
+  opacity: 1;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 9px;
+}
+
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
+.ul1 {
+  cursor: pointer;
+  width: 12vw;
+  box-shadow: 0px 0px 13px #07b9ec80;
+  list-style: none;
+  color: #edeeef;
+  background-color: #05365f;
+  font: normal normal normal .8vw "Open Sans", sans-serif;
+}
+
+.selected{
+  background-color: #07b9ec;
+  color: white;
+}
+
+.ul1 li{
+    color: #bfc7cf !important;
+    padding-left: 1vw;
+    line-height: 2;
+}
+.ul1 li:hover{
+    color:#07b9ec !important;
+    background-color: inherit;
+}
+
+
+
+.li1 {
+  z-index: 2;
+  font: normal normal normal 12px "Open Sans", sans-serif;
+  letter-spacing: 0px;
+  color: rgb(255, 255, 255, 0.7);
+  width: 151px;
+  height: 29px;
+  padding: 5px 0px 5px 10px;
+  text-align: left;
+  opacity: 1;
+}
+
+.navheader2 > .ul1 {
+  display: none;
+}
+
+.navheader2:hover > .ul1 {
+  display: block;
+}
+.workschedule {
+  text-align: center;
+}
+.workschedule::after {
+  content: "Database-Work Schedules";
+  margin-left: 3px;
+  margin-right: 4px;
+}
+
+.active {
+  margin-bottom: 0px;
+  margin-top: 12px;
+  color: #07b9ec;
+  border-bottom: 3px solid #07b9ec;
+}
+.active:hover {
+  border: none;
+}
+.active1 {
+  position: relative;
+  text-shadow: none !important;
+  outline-style: none !important;
+  background: rgb(7, 185, 236, 1) !important;
+  color: rgb(255, 255, 255, 1) !important;
+}
+.active1:hover {
+  background: rgb(7, 185, 236, 1) !important;
+  color: rgb(255, 255, 255, 1) !important;
+  text-shadow: none !important;
+  outline-style: none !important;
+}
+
+.li1:hover {
+  color: #07b9ec;
+}
+
+.active2 {
+  background: rgb(7, 185, 236, 1) !important;
+  color: rgb(255, 255, 255, 1) !important;
+}
+
+.database::after {
+  content: "Database";
+}
+.holidays {
+  text-align: center;
+}
+.holidays::after {
+  content: "Database-Holidays";
+  margin-left: 1px;
+  margin-right: 2px;
+}
+
+.logout {
+  border-left: 1px solid #05365f;
+}
+.ul2 {
+  cursor: pointer;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  width: 151px;
+  background-color: #001f38;
+  box-shadow: 0px 0px 13px #07b9ec80;
+  list-style: none;
+  top: 100px;
+  z-index: 2;
+}
+
+.li2 {
+  z-index: 2;
+  font: normal normal normal 12px "Open Sans", sans-serif;
+  letter-spacing: 0px;
+  color: rgb(255, 255, 255, 0.7);
+  width: 151px;
+  height: 29px;
+  padding: 5px 0px 5px 10px;
+  text-align: left;
+  opacity: 1;
+}
+
+.navheader3 > .ul2 {
+  display: none;
+}
+
+.navheader3:hover > .ul2 {
+  display: block;
+}
+.li2:hover {
+  color: #07b9ec;
+}
+
+.favstar {
+  display: none;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  opacity: 0.6;
+}
+.favstar2 {
+  display: none;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.favstar:hover {
+  content: url("../../../assets/starfill.svg");
+  opacity: 1;
+}
+.active1:hover > #favstar > .favstar {
+  display: block;
+}
+.active1:hover > #favstar > .favstar2 {
+  display: block;
+}
+.starhover {
+  display: none;
+  width: 105px;
+  height: 25px;
+  background: #001f38 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 3px #07b9ec;
+  border-radius: 3px;
+  text-align: center;
+  padding-top: 3.5px;
+  position: absolute;
+  top: -23px;
+  right: -32px;
+}
+.tooltip-down {
+  position: absolute;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #001f38;
+  bottom: -5px;
+  right: 45px;
+}
+
+#favstar:hover .starhover {
+  display: block;
+}
+.hide {
+  display: none !important;
+}

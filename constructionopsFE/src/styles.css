@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: controller;
+  src: url(assets/fonts/06725377b902746127049f1019c53c75.woff);
+}
+
+/* Checkbox light blue*/
+.form-check-input.checkboxblue {
+  background: transparent url("assets/bluecheckbox.svg") 0% 0% no-repeat
+    padding-box;
+  width: 13px;
+  height: 13px;
+  outline-style: none;
+  box-shadow: none;
+  border: none;
+}
+.form-check-input.checkboxblue:checked {
+  background-color: #07b9ec;
+  border: none;
+  width: 13px;
+  height: 13px;
+  background: transparent url("assets/checkedboxblue.svg") 0% 0% no-repeat
+    padding-box;
+}
+
+.form-check-input.checkboxblue:hover {
+  background: #07b9ec url() 0% 0% no-repeat padding-box;
+}
+.form-check-input.checkboxblue:checked:hover {
+  background: transparent url("assets/checkedboxblue.svg") 0% 0% no-repeat
+    padding-box;
+  opacity: 0.75;
+}
+
+/* Checkbox white*/
+.form-check-input.checkboxwhite {
+  background: transparent;
+  width: 13px;
+  height: 13px;
+  outline-style: none;
+  box-shadow: none;
+  border: 0.5px solid #ffffff;
+}
+.form-check-input.checkboxwhite:checked {
+  border: none;
+  width: 13px;
+  height: 13px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  content: url("assets/white-check.svg");
+}
+
+.form-check-input.checkboxwhite:hover {
+  background: #ffffff url() 0% 0% no-repeat padding-box;
+}
+.form-check-input.checkboxwhite:checked:hover {
+  background: transparent url("assets/white-check.svg") 0% 0% no-repeat
+    padding-box;
+  opacity: 0.75;
+}
+
+/* Delete popup CSS */
+
+.deletepopupmargin {
+  width: calc(65px / 3);
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+/* complete in days */
+.deletepopup1margin {
+  width: 10px;
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+.deletepopup2margin {
+  width: 45px;
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+/* days with 30px width */
+.deletepopup3margin {
+  width: 39px;
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+.deletepopup4margin {
+  width: calc(26px / 2);
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+/* days with 10px width */
+.deletepopup5margin {
+  width: 10px;
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+.deletepopup6margin {
+  width: calc(55px / 2);
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+
+/* button */
+.large_25 {
+  height: 25px;
+  width: 125px;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 3px;
+}
+
+.large_25.gold {
+  border: 1px solid #ffb92c;
+  color: #ffb92c;
+}
+.large_25.blue {
+  border: 1px solid #07b9ec;
+  color: #07b9ec;
+}
+.large_25.gold:hover {
+  background: #ffb92c;
+  color: #ffffff;
+}
+.large_25.blue:hover {
+  background: #07b9ec;
+  color: #ffffff;
+}
+
+.large_25.inactive {
+  border: 1px solid #a8b1b8;
+  color: #a8b1b8;
+}
+
+body.remove .col-2 {
+  height: 58px;
+}
+body.remove .navbar1 {
+  display: none;
+}
+
+/* days with 10px width delete popup */
+.deletepopup7margin {
+  width: 20px;
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+.deletepopup8margin {
+  width: calc(105px / 2);
+  min-width: 10px;
+  border: none !important;
+  padding: 0px;
+}
+.app-full-bleed-dialog .mat-dialog-container {
+  padding: 0;
+}
+.cdk-overlay-dark-backdrop {
+  background: rgb(0, 31, 56,0.75) 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+}
