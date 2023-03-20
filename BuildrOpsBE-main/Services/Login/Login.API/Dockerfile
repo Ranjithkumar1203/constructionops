@@ -7,13 +7,13 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 
-COPY ["Services/Login/Login.API/BuildrOps.API.csproj", "Services/Login/Login.API/"]
-COPY ["Services/Login/Login.Application/BuildrOps.Application.csproj", "Services/Login/Login.Application/"]
-COPY ["Services/Login/Login.Domain/BuildrOps.Domain.csproj", "Services/Login/Login.Domain/"]
-COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
-COPY ["Services/Login/Login.Infrastructure/BuildrOps.Infrastructure.csproj", "Services/Login/Login.Infrastructure/"]
-COPY ["BuildingBlocks/Common.Logging/Common.Logging.csproj", "BuildingBlocks/Common.Logging/"]
-RUN dotnet restore "Services/Login/Login.API/BuildrOps.API.csproj"
+COPY ["BuildrOpsBE-main/Services/Login/Login.API/BuildrOps.API.csproj", "Services/Login/Login.API/"]
+COPY ["BuildrOpsBE-main/Services/Login/Login.Application/BuildrOps.Application.csproj", "Services/Login/Login.Application/"]
+COPY ["BuildrOpsBE-main/Services/Login/Login.Domain/BuildrOps.Domain.csproj", "Services/Login/Login.Domain/"]
+COPY ["BuildrOpsBE-main/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
+COPY ["BuildrOpsBE-main/Services/Login/Login.Infrastructure/BuildrOps.Infrastructure.csproj", "Services/Login/Login.Infrastructure/"]
+COPY ["BuildrOpsBE-main/BuildingBlocks/Common.Logging/Common.Logging.csproj", "BuildingBlocks/Common.Logging/"]
+RUN dotnet restore "BuildrOpsBE-main/Services/Login/Login.API/BuildrOps.API.csproj"
 COPY . .
 WORKDIR "/src/Services/Login/Login.API"
 RUN dotnet build "BuildrOps.API.csproj" -c Release -o /app/build
