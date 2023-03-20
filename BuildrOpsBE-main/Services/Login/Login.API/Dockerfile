@@ -13,7 +13,7 @@ COPY ["BuildrOpsBE-main/Services/Login/Login.Domain/BuildrOps.Domain.csproj", "S
 COPY ["BuildrOpsBE-main/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 COPY ["BuildrOpsBE-main/Services/Login/Login.Infrastructure/BuildrOps.Infrastructure.csproj", "Services/Login/Login.Infrastructure/"]
 COPY ["BuildrOpsBE-main/BuildingBlocks/Common.Logging/Common.Logging.csproj", "BuildingBlocks/Common.Logging/"]
-RUN dotnet restore "Services/Login/Login.API/BuildrOps.API.csproj"
+RUN dotnet restore "BuildrOpsBE-main/Services/Login/Login.API/BuildrOps.API.csproj"
 COPY . .
 WORKDIR "/src/Services/Login/Login.API"
 RUN dotnet build "BuildrOps.API.csproj" -c Release -o /app/build
