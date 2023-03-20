@@ -1,2 +1,2 @@
 FROM nginx:alpine
-COPY /dist/ng-k8s-example /usr/share/nginx/html
+COPY /dist/buildrOpsFE /usr/share/nginx/html
