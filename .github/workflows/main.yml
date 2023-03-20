@@ -19,7 +19,7 @@ jobs:
 
     - name: Login to AWS ECR
       run: |
-       aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779841249082.dkr.ecr.us-east-1.amazonaws.com
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779841249082.dkr.ecr.us-east-1.amazonaws.com
     - name: Build and push Docker image to ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
