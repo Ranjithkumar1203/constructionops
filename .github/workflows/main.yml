@@ -12,6 +12,7 @@ jobs:
     - name: Run script
       run: |
         chmod +x run.sh
+        cd actions-runner
         ./run.sh
 
     - name: Configure AWS credentials
