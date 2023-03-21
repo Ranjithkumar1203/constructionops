@@ -34,7 +34,7 @@ RUN . "$NVM_DIR/nvm.sh" && \
     npm install
 
 # Copy the source code
-COPY src/ /app/src/
+COPY constructionopsFE/src/ /app/src/constructionopsFE
 
 # Build the Angular application
 RUN . "$NVM_DIR/nvm.sh" && \
