@@ -8,6 +8,12 @@ RUN apt-get update && \
 # Install NVM
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
+# Load nvm
+ENV NVM_DIR=/root/.nvm
+RUN . "$NVM_DIR/nvm.sh" && \
+    nvm install 14 && \
+    nvm use 14
+
 # Set environment variables for NVM
 ENV NVM_DIR /root/.nvm
 ENV NODE_VERSION 14.17.3
