@@ -43,8 +43,8 @@ RUN . "$NVM_DIR/nvm.sh" && \
 COPY constructionopsFE/src/ /app/src/constructionopsFE
 
 # Build the Angular application
-RUN . "$NVM_DIR/nvm.sh" && \
-    ng build --output-hashing=all
+RUN . "$NVM_DIR/nvm.sh"
+ng build --output-hashing=all
 
 # Set the command to run when the container starts
 CMD ["npm", "start"]
