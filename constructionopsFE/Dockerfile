@@ -52,6 +52,8 @@
 FROM node:14
 
 WORKDIR /app
+ENV NVM_DIR /usr/local/nvm
+RUN [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm"
