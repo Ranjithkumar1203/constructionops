@@ -79,7 +79,7 @@
 # # Start the application
 # CMD ["npm", "start"]
 
-FROM node:14
+FROM node:14-alpine
 
 # Install curl for nvm installation
 RUN apt-get update && apt-get install -y curl
