@@ -2,8 +2,9 @@
 FROM node:14.17.3
 
 # Install curl
-RUN apt-get update && \
-    apt-get install -y curl
+RUN apt-get update && apt-get install -y nodejs
+RUN npm install -g @angular/cli
+
 
 # Install NVM
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -44,7 +45,6 @@ COPY constructionopsFE/src/ /app/src/constructionopsFE
 
 # Build the Angular application
 RUN . "$NVM_DIR/nvm.sh"
-ng build --output-hashing=all
-
+RUN ng build --output-hashing=all
 # Set the command to run when the container starts
 CMD ["npm", "start"]
