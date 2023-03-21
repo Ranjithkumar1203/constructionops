@@ -5,13 +5,13 @@ on:
 jobs:
   build-and-push:
     name: Build and Push to ECR
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: setup
-      run: |
-          chmod +x ./run.sh
+    - name: Run script
+      run: ./run.sh
+     
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
