@@ -104,7 +104,7 @@ RUN npm install
 
 # Install the Angular CLI globally
 RUN npm install -g @angular/cli
-RUN sudo npm install --save-dev @angular-devkit/build-angular --force
+RUN npm install --save-dev @angular-devkit/build-angular --force
 # Copy app source code
 COPY constructionopsFE/src/ /app/src/disc
 
