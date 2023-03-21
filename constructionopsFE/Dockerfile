@@ -103,6 +103,9 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
+# Install the Angular CLI globally
+RUN npm install -g @angular/cli
+
 # Copy app source code
 COPY constructionopsFE/src/ /app/src/constructionopsFE
 
