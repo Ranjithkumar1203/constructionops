@@ -4,7 +4,7 @@ FROM node:14.17.3
 # Install curl
 RUN apt-get update && apt-get install -y nodejs
 RUN npm install -g @angular/cli
-
+RUN npm install
 
 # Install NVM
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
