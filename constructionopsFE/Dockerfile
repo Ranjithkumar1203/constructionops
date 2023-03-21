@@ -79,22 +79,32 @@
 # # Start the application
 # CMD ["npm", "start"]
 
-FROM node:14
-
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" \
-    && nvm use 14
+FROM node:14-alpine
 
 WORKDIR /app
 
+# Install nvm
+RUN apk add --no-cache curl bash && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Activate nvm and install Node.js
+ENV NVM_DIR=/root/.nvm
+RUN . $NVM_DIR/nvm.sh && \
+    nvm install 14 && \
+    nvm alias default 14 && \
+    nvm use default
+
+# Install Angular CLI and dependencies
+RUN npm install -g @angular/cli && \
+    npm install rxjs && \
+    npm install rxjs-compat && \
+    npm i --only=dev
+
+# Copy application code to container
 COPY constructionopsFE/src/ /app/src/constructionopsFE
-RUN npm install -g @angular/cli \
-    && npm install rxjs \
-    && npm install rxjs-compat \
-    && npm i --only=dev \
-    && ng build --output-hashing=all
 
-CMD ["ls", "-lart", "./dist/buildrOpsFE"]
-
+# Build application
+RUN ng build --output-hashing=all && \
+    echo "Build complete" && \
+    echo "Starting local files in ./dist/buildrOpsFE" && \
+    ls -lart ./dist/buildrOpsFE
