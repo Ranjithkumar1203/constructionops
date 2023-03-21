@@ -110,7 +110,7 @@ RUN npm install -g @angular/cli
 COPY constructionopsFE/src/ /app/src/disc
 
 # Build the app
-RUN ng build 
+RUN npm install && npm run build
 
 # Start the app
 CMD [ "npm", "start" ]
