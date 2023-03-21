@@ -107,7 +107,7 @@ RUN npm install
 RUN npm install -g @angular/cli
 
 # Copy app source code
-COPY constructionopsFE/src/ /app/src/constructionopsFE
+COPY constructionopsFE/src/ /app/src/disc
 
 # Build the app
 RUN ng build --output-hashing=all
