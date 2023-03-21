@@ -17,18 +17,18 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Login to AWS ECR
-      run: |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779841249082.dkr.ecr.us-east-1.amazonaws.com
-    - name: Build and push Docker image to ECR
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: github
-        IMAGE_TAG: latest
-      run: |
-          docker buildx build -f BuildrOpsBE-main/Services/Login/Login.API/Dockerfile -t github .
-          docker tag github:latest 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
-          docker push 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
+#     - name: Login to AWS ECR
+#       run: |
+#         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779841249082.dkr.ecr.us-east-1.amazonaws.com
+#     - name: Build and push Docker image to ECR
+#       env:
+#         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#         ECR_REPOSITORY: github
+#         IMAGE_TAG: latest
+#       run: |
+#           docker buildx build -f BuildrOpsBE-main/Services/Login/Login.API/Dockerfile -t github .
+#           docker tag github:latest 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
+#           docker push 779841249082.dkr.ecr.us-east-1.amazonaws.com/github:latest
           
           
           
