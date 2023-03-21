@@ -49,21 +49,18 @@
 # # Set the command to run when the container starts
 # CMD ["npm", "start"]
 
-FROM node:14
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+RUN export NVM_DIR="$HOME/.nvm"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+RUN [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+RUN nvm use 14
+RUN npm install -g @angular/cli
+RUN npm install rxjs
+RUN npm install rxjs-compat
+RUN npm i --only=dev
+RUN ng build --output-hashing=all
+RUN echo "build complete"
+RUN echo "stating local files in ./dist/buildrOpsFE"
+RUN ls -lart ./dist/buildrOpsFE
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && nvm use 14 \
-    && npm install -g @angular/cli \
-    && npm install rxjs \
-    && npm install rxjs-compat \
-    && npm i --only=dev \
-    && ng build --output-hashing=all \
-    && echo "build complete" \
-    && echo "stating local files in ./dist/buildrOpsFE" \
-    && ls -lart ./dist/buildrOpsFE
-
-CMD ["npm", "start"]
 
