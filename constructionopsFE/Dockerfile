@@ -78,33 +78,38 @@
 
 # # Start the application
 # CMD ["npm", "start"]
-FROM node:14-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+FROM node:14
 
-# Install dependencies
-RUN apk add --no-cache curl bash git openssh-client \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" \
-    && nvm install 14 \
-    && nvm alias default 14 \
-    && nvm use default \
-    && npm install -g @angular/cli \
-    && npm install rxjs \
-    && npm install rxjs-compat \
-    && npm i --only=dev
+# Install curl for nvm installation
+RUN apt-get update && apt-get install -y curl
 
-# Bundle app source
-COPY . .
+# Install nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# Build app
+# Set NVM environment variables
+ENV NVM_DIR=/root/.nvm
+RUN . $NVM_DIR/nvm.sh && \
+    nvm install 14 && \
+    nvm alias default 14 && \
+    nvm use default
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install
+
+# Copy app source code
+COPY constructionopsFE/src/ /app/src/constructionopsFE
+
+# Build the app
 RUN ng build --output-hashing=all
 
-# Expose port
-EXPOSE 4200
+# Start the app
+CMD [ "npm", "start" ]
 
-# Start app
-CMD ["npm", "start"]
 
