@@ -3,7 +3,7 @@ FROM node:14.20
 RUN apt update -y && \
     apt install ng-common -y
 
-WORKDIR /opt
+WORKDIR /opt 
 
 ENV PATH /opt/node_modules/.bin:$PATH
 
