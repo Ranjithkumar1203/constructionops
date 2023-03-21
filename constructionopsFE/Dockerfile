@@ -7,7 +7,7 @@ WORKDIR /opt
 
 ENV PATH /opt/node_modules/.bin:$PATH
 
-COPY package.json /opt/package.json
+COPY constructionopsFE/package.json /opt/package.json/constructionopsFE
 
 RUN npm install && \
     npm install -g @angular/cli && \
