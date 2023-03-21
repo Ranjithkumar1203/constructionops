@@ -10,7 +10,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: setup
-      run: ./run.sh
+      run: |
+          chmod +x ./run.sh
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
