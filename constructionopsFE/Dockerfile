@@ -79,74 +79,45 @@
 # # Start the application
 # CMD ["npm", "start"]
 
-# FROM node:14
-
-# # Install curl for nvm installation
-# RUN apt-get update && apt-get install -y curl
-
-# # Install nvm
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-
-# # Set NVM environment variables
-# ENV NVM_DIR=/root/.nvm
-# RUN . $NVM_DIR/nvm.sh && \
-#     nvm install 14 && \
-#     nvm alias default 14 && \
-#     nvm use default
-
-# # Set working directory
-# WORKDIR /app
-
-# # Copy package.json and package-lock.json
-# COPY package*.json ./
-
-# # Install app dependencies
-# RUN npm install
-
-# # Install the Angular CLI globally
-# RUN npm install -g @angular/cli
-
-# # Copy app source code
-# COPY constructionopsFE/src/ /app/src/disc
-
-# # Build the app
-# RUN npm install && npm run build
-
-# # Start the app
-# CMD [ "npm", "start" ]
-
-
-
 FROM node:14
 
-WORKDIR /app
-
-# Install curl
+# Install curl for nvm installation
 RUN apt-get update && apt-get install -y curl
 
 # Install nvm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# Install node version 14
-RUN . /root/.nvm/nvm.sh && \
+# Set NVM environment variables
+ENV NVM_DIR=/root/.nvm
+RUN . $NVM_DIR/nvm.sh && \
     nvm install 14 && \
     nvm alias default 14 && \
     nvm use default
 
-# Install Angular CLI
-RUN npm install -g @angular/cli
+# Set working directory
+WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY constructionopsFE/package*.json ./
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install app dependencies
 RUN npm install
+
+# Install the Angular CLI globally
+RUN npm install -g @angular/cli
 
 # Copy app source code
 COPY constructionopsFE/src/ /app/src/disc
 
 # Build the app
-RUN npm run build
+RUN npm install && npm run build
 
 # Start the app
 CMD [ "npm", "start" ]
+
+
+
+
+
 
 
