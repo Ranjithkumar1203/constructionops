@@ -109,7 +109,7 @@ RUN npm install --save-dev @angular-devkit/build-angular
 COPY constructionopsFE/src/ /app/src/disc
 
 # Build the app
-RUN npm install && npm run build
+RUN npm install && npm run build 
 
 # Start the app
 CMD [ "npm", "start" ]
