@@ -49,6 +49,10 @@
 # # Set the command to run when the container starts
 # CMD ["npm", "start"]
 
+FROM node:14
+
+WORKDIR /app
+
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm"
 RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
