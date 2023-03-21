@@ -89,8 +89,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | b
 
 WORKDIR /app
 
-COPY . .
-
+COPY constructionopsFE/src/ /app/src/constructionopsFE
 RUN npm install -g @angular/cli \
     && npm install rxjs \
     && npm install rxjs-compat \
